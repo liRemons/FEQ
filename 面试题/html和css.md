@@ -176,13 +176,37 @@ BFC的区域不会与float box重叠
 
 #### 重绘和回流
 
+- 回流：渲染树中的元素尺寸布局或位置等改变需要重新构建
+- 重绘：渲染树中的属性更新，但仅仅只影响外观风格而不影响布局
+
+- 回流必将引起重绘，而重绘不一定会引起回流
+- 触发回流：添加或删除元素、元素位置或尺寸变化、窗口尺寸变化、元素内容变化
+
 #### HTML5新特性
 
+- 多个语义化标签、WebSocket、Canvas、视频音频、表单新属性、SVG......
+
+- [WebStorage](#浏览器存储)
+- 表单新属性：time/email/tel/datetime/date/month/week.....
+
 #### CSS3新特性
+
+- box-shadow、border-radius、border-image、flex、gird、[盒模型](#关于盒模型的理解)
+
+- transition
+- animation
+- transform
+- filter
 
 #### CSS Module
 
 #### CSS深度作用器
+
+#### 浏览器存储
+
+- localStorage：持久化存储，大小一般为几M（问题：如何设置过期时间）
+- sessionStorage：临时存储，只存在于当前窗口
+- cookie：一般用来存储用户信息，可以设置过期时间等，大小比较小，一般为几Kb或几十Kb
 
 
 
