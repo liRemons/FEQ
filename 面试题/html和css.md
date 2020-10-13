@@ -172,8 +172,6 @@ BFC的区域不会与float box重叠
 
 [^区别]: 有没有生成新的元素
 
-#### label、option
-
 #### 重绘和回流
 
 - 回流：渲染树中的元素尺寸布局或位置等改变需要重新构建
@@ -192,15 +190,18 @@ BFC的区域不会与float box重叠
 #### CSS3新特性
 
 - box-shadow、border-radius、border-image、flex、gird、[盒模型](#关于盒模型的理解)
-
-- transition
-- animation
-- transform
-- filter
+- transition : 通常和hover等事件配合使用，需要由事件来触发过渡，只能设置头尾
+- animation :由@keyframes来描述每一帧的样式，自发的，立即播放，可设置循环次数
+- transform :对元素进行旋转、缩放、移动或倾斜
+- filter：滤镜
 
 #### CSS Module
 
 #### CSS深度作用器
+
+- sass : >>>
+- less : /deep/
+- CSS Module:  :global(.className)
 
 #### 浏览器存储
 
