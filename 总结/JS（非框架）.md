@@ -43,7 +43,7 @@
   4. Object.prototype.toString.call().slice(8,-1)
 
      ```javascript
-const checkType = (val) => {
+     const checkType = (val) => {
          let type = Object.prototype.toString.call(val).slice(8, -1);
          console.log(type)
      }
@@ -389,7 +389,7 @@ const checkType = (val) => {
 
 #### Event-loop、事件队列、微任务和宏任务
 
-![](assets\img\异步任务队列.png)
+![](assets/img/异步任务队列.png)
 
 常见的宏任务：setTimeout , setInterval
 
