@@ -59,6 +59,9 @@ const checkType = (val) => {
      checkType(Symbol())//Symbol
      checkType(true)//Boolean
      ```
+     
+     
+     
 
 #### 堆栈的理解
 
@@ -386,7 +389,7 @@ const checkType = (val) => {
 
 #### Event-loop、事件队列、微任务和宏任务
 
-![](assets\img\JS异步，事件循环，任务队列.png)
+![](assets\img\异步任务队列.png)
 
 常见的宏任务：setTimeout , setInterval
 
