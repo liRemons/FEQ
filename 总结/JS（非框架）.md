@@ -42,10 +42,8 @@
 
   4. Object.prototype.toString.call().slice(8,-1)
 
-     [^]: 觉得这是最好的方式
-
      ```javascript
-     const checkType = (val) => {
+const checkType = (val) => {
          let type = Object.prototype.toString.call(val).slice(8, -1);
          console.log(type)
      }
@@ -74,7 +72,7 @@
 
 #### 数组的方法
 
-- **Array.from()**  
+- **`Array.from()`**  
 
   ```javascript
   // 1.
@@ -86,7 +84,7 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：新的数组实例</font>
 
-- **Array.isArray()** 
+- **`Array.isArray()`** 
 
   <font size="2" face="arial" color="#666">【**作用**】：判断是否为数组.</font>
 
@@ -96,7 +94,7 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：布尔值.</font>
 
-- **Array.of()**   
+- **`Array.of()`**   
 
   <font size="2" face="arial" color="#666">【**作用**】：生成数组</font>
 
@@ -106,7 +104,7 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：新的数组实例</font>
 
-- **concat()**
+- **`concat()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：合并数组</font>
   
@@ -114,11 +112,11 @@
   let arr=[1,2],arr2=[3,4],arr3=[5,6];
   let newArr=arr.concat(arr2,arr3) //[1,2,3,4,5,6]
   console.log(arr) //[1,2]
-  ```
-  
+```
+
 <font size="2" face="arial" color="#666">【**返回值**】：新的数组实例，不改变原数组</font>
-  
-- **every()**
+
+- **`every()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：数组中所有元素是否都满足条件</font>
 
@@ -130,7 +128,7 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：布尔值</font>
 
-- **filter()**
+- **`filter()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：获取数组中满足条件的元素</font>
 
@@ -141,7 +139,7 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：满足条件的元素数组，不改变原数组</font>
 
-- **find()**
+- **`find()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：查找数组中符合条件第一个元素的值</font>
 
@@ -154,7 +152,7 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：符合条件的元素，不改变原数组</font>
 
-- **findIndex()**
+- **`findIndex()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：查找数组中满足条件的第一个元素的索引</font>
 
@@ -166,7 +164,7 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：第一个符合条件的索引，没有则返回 -1</font>
 
-- **flat()**
+- **`flat()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：数组扁平化</font>
 
@@ -181,13 +179,13 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：新的数组，不改变原数组</font>
 
-- **forEach()**
+- **`forEach()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：遍历数组</font>
 
   <font size="2" face="arial" color="#666">【**返回值**】：无返回值</font>
 
-- **includes()**
+- **`includes()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：查找数组中是否包含某一项</font>
 
@@ -206,7 +204,7 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：布尔值</font>
 
-- **indexOf()**
+- **`indexOf()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：数组中（字符串）包含指定元素的第一个索引</font>
 
@@ -222,13 +220,13 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：索引值或 -1 </font>
 
-- **join()**
+- **`join()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：将数组分割成字符串并进行连接</font>
 
   <font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
 
-- **lastIndexOf()**
+- **`lastIndexOf()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：数组（字符串）中最后一个指定元素的索引</font>
 
@@ -242,41 +240,137 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：索引值或 -1 </font>
 
-- **map()**
+- **`map()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：遍历数组</font>
 
   <font size="2" face="arial" color="#666">【**返回值**】：元素执行函数后组成的新数组 </font>
 
-- **pop()**
+- **`pop()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：删除数组的最后一项</font>
 
   <font size="2" face="arial" color="#666">【**返回值**】：删除的元素，改变原数组 </font>
 
-- **push()**
+- **`push()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：数组后添加一或多项</font>
 
   <font size="2" face="arial" color="#666">【**返回值**】：数组的长度，改变原数组 </font>
 
-- **shift()**
+- **`shift()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：删除数组第一项</font>
 
   <font size="2" face="arial" color="#666">【**返回值**】：删除的元素，改变原数组 </font>
 
-- **unshift()**
+- **`unshift()`**
 
   <font size="2" face="arial" color="#666">【**作用**】：数组前添加一项或多项</font>
 
   <font size="2" face="arial" color="#666">【**返回值**】：数组的长度，改变原数组 </font>
+  
+- **`reduce()`**
 
-#### 字符串的方法
+- **`reverse()`**
+
+  <font size="2" face="arial" color="#666">【**作用**】：翻转数组</font>
+
+  <font size="2" face="arial" color="#666">【**返回值**】：翻转后的数组，改变原数组 </font>
+
+- **`slice()`**
+
+  <font size="2" face="arial" color="#666">【**作用**】：返回数组或字符串的一部分</font>
+
+  ```javascript
+  let arr=[1,2,3,4]
+  arr.slice() // [1,2,3,4]
+  arr.slice(2) //[3]
+  arr.slice(4) // []
+  arr.slice(-2) // [3,4] 如果该参数为负数，表示从原数组中的倒数第几个元素开始提取到最后一个
+  arr.slice(2,3)//3 不包含end
+  ```
+
+  <font size="2" face="arial" color="#666">【**返回值**】：新数组或新的字符串，不改变原数组 </font>
+
+- **`splice()`**
+
+- **`some()`**
+
+  <font size="2" face="arial" color="#666">【**作用**】：数组中是否有元素满足传入的函数条件</font>
+
+  <font size="2" face="arial" color="#666">【**返回值**】：布尔值 </font>
+
+- **`sort()`**
+
+  <font size="2" face="arial" color="#666">【**作用**】：数组排序</font>
+
+  > 如果指明了 fn，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：
+  >
+  > 如果 fn(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
+  > 如果 fn(a, b) 等于 0 ， a 和 b 的相对位置不变。
+  > 如果 fn(a, b) 大于 0 ， b 会被排列到 a 之前。
+  > fn(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
+
+  <font size="2" face="arial" color="#666">【**返回值**】：新数组，不改变原数组 </font>
+
+- **`splice()`**
+
+  <font size="2" face="arial" color="#666">【**作用**】：删除或替换现有元素或者原地添加新的元素来修改数组</font>
+
+  ```javascript
+  let arr = [1,2,3,4];
+  arr.splice(2) // [3,4] //arr:[1,2]
+  arr.splice(-2) // [3,4] //arr:[1,2]
+  arr.splice(2,2) // [3,4] //arr:[1,2]
+  arr.splice(2,0,2)//[] //arr:[1,2,2,3,4]
+  arr.splice(2,1,2) // [] arr:[1,2,2,4]
+  ```
+
+  <font size="2" face="arial" color="#666">【**返回值**】：被删除元素组成新数组，改变原数组 </font>
+
+- **`toString()`**
+
+  <font size="2" face="arial" color="#666">【**作用**】：将数组转换成字符串</font>
+
+  `和join()的区别：join()可以指定连接符`
+
+  <font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
 
 #### ES6新特性
 
-#### 微任务和宏任务
+- **let 和 const**
+
+  区别：let 和 var都是声明变量，let 有块级作用域，同一作用域下不允许重复声明；const声明常量，[不可改变](#堆栈的理解)
+
+- **扩展运算符**
+
+  - `...`   将一个数组转为用逗号分隔的参数序列，可以用来深拷贝数组，合并数组等操作，也可以将字符串转成数组
+  - 和 `rest` 正好相反
+
+- **模板字符串**
+
+- **[异步](#JS中的异步)**
+
+- **Set和Map数据结构**
+
+  - Set数据结构
+    - 成员值唯一，不会重复
+    - 使用`new Set()`创建一个Set数据结构
+    - 不会发生数据类型转换
+  -  Map 数据结构
+    - 解决JS对象只能用字符串作为键的限制
+    - get 和set 方法
+
+- **箭头函数**
+
+  - 值得注意，箭头函数的[this](#this的指向)来自父级
+
+- **解构赋值:**  从数组和对象中提取值，对变量进行赋值
+
+- **函数默认参数**
+
+- **Class**
 
 #### 柯里化函数
 
@@ -290,11 +384,109 @@
 
 #### this的指向
 
+#### Event-loop、事件队列、微任务和宏任务
+
+![](assets\img\JS异步，事件循环，任务队列.png)
+
+常见的宏任务：setTimeout , setInterval
+
+常见的微任务Promise.then,catch,finally
+
+Even-loop:![](assets/img/事件循环.png)
+
+在执行完同步任务后，会执行任务队列中的微任务，微任务执行完后，会执行任务队列中的宏任务，宏任务会一个一个的执行，重复过程
+
 #### JS中的异步
 
 - promise
+
+  - then()
+
+  - catch()
+
+  - finally() 无论状态如何，都会执行，且不接受任何参数
+
+  - all()
+
+    ```javascript
+    let p1 = new Promise(resolve => {
+        resolve('a')
+    })
+    let p2 = new Promise(resolve => {
+        setTimeout(() => {
+            resolve('b')
+        }, 3000);
+    })
+    
+    let p3 = new Promise((resolve, reject) => {
+        reject('error')
+    })
+    function promiseFn(arr) {
+        Promise.all(arr).then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+    
+    promiseFn([p1, p2, p3]) //error
+    promiseFn([p1, p2]) //3s后：['a','b']
+    //可以看出Promise.all接受一个由promise对象组成的数组，当所有状态都变为resolve时触发then(),参数为每个promise对象返回值组成的数组；有一个为reject的时候，都会触发catch回调
+    ```
+
+  - race()
+
+    ```javascript
+    let p1 = new Promise(resolve => {
+        setTimeout(() => {
+            resolve('a')
+        }, 10);
+    })
+    let p2 = new Promise(resolve => {
+        resolve('b')
+    })
+    let p3 = new Promise((resolve, reject) => {
+        reject('err')
+    })
+    function promiseFn(arr) {
+        Promise.race(arr)
+            .then(res => { console.log(res) }
+            .catch(err => { console.log(err) })
+    }
+    promiseFn([p1, p3, p2]) //err
+    promiseFn([p1, p2, p3]) //b
+    //race接受一个promise对象组成的数组，里面谁的状态先改变就先触发回调（无论状态如何）
+    ```
+
 - async await
-- Generators/ yield
+
+  ```javascript
+  async function async1() {
+       console.log('async1 start')
+       await async2()
+       console.log('async1 end')
+  }
+  async function async2() {
+      console.log('async2')
+  }
+  console.log('script start')
+  setTimeout(()=>{
+      console.log('setTimeout')
+  }, 0)
+  async1();
+  new Promise(resolve=> {
+      console.log('promise1')
+      resolve();
+  }).then(()=> {
+      console.log('promise2')
+  })
+  console.log('script end')
+  //script start   async1 start  async2   promise1   script end   async1 end   promise2   setTimeout
+  ```
+
+  本质上是Generator和Promise的语法糖，将异步的变为同步的写法，更加优雅；await 关键字只在async函数内有效，且阻塞代码执行
+
+- Generator/ yield
 
 #### 跨域
 
@@ -311,9 +503,9 @@
 
 #### 闭包
 
-#### Object.defineProperty和Proxy的区别
+#### 防抖节流
 
-#### Event-loop
+#### Object.defineProperty和Proxy的区别
 
 #### 事件兼容
 
@@ -323,6 +515,5 @@
 
 #### 浏览器存储
 
-#### webpack 热更新原理
-
 #### 设计模式
+
