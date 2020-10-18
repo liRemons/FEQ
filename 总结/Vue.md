@@ -41,7 +41,13 @@ Object.defineProperty(obj, 'name', {
 
 #### watch和computed的区别
 
+- watch：监听属性
+- computed：计算属性
+
 #### 组件通信
+
+- 父子组件通信
+- 非父子组件通信
 
 #### 封装组件的思路
 
@@ -50,6 +56,9 @@ Object.defineProperty(obj, 'name', {
 #### 路由守卫及执行顺序
 
 #### 路由模式有哪些，区别是什么
+
+- hash
+- history
 
 #### route 和 router 的区别
 
@@ -61,7 +70,13 @@ Object.defineProperty(obj, 'name', {
 
 #### v-if 和 v-show 的区别
 
+v-if:不渲染，意思就是压根就没有这个元素
+
+v-show:  `display:none`
+
 #### v-if 和 v-for 的优先级（2.0版本）
+
+v-for 的优先级更高，但一般不建议两者同时使用
 
 #### v-for 中为什么传入 key 
 
@@ -77,7 +92,12 @@ Object.defineProperty(obj, 'name', {
 
 #### slot
 
-#### 性能优化
+#### Vue性能优化
+
+- 事件委托
+- 路由懒加载
+- 按需引入
+- 组件复用
 
 #### 环境变量配置
 
