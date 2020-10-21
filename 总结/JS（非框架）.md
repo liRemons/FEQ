@@ -340,6 +340,14 @@
 
   <font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
 
+#### 对象的方法
+
+-  **`Object.assign()`**
+
+  将一个或多个源对象复制到目标对象中，且源对象会随之改变
+
+  当复制的对象的属性值为简单数据类型时，为深拷贝，当复制的属性值为复杂数据类型时，为深拷贝
+
 #### ES6新特性
 
 - **let 和 const**
@@ -518,9 +526,47 @@ Even-loop:![](assets/img/事件循环.png)
 
 #### fetch、axios、ajax
 
-#### 事件冒泡和事件委托
+#### 事件冒泡、事件捕获、事件委托
+
+事件流分为三个阶段：事件捕获=>目标阶段=>事件冒泡
+
+事件冒泡：从最具体的元素到最不具体的元素
+
+事件捕获：从最不具体的元素到最具体的元素
+
+当然，默认是事件冒泡
+
+事件委托：将子元素的事件委托给父元素执行（当子元素过多时，委托为父元素执行，也可以提高性能）
 
 #### 深浅拷贝
+
+```javascript
+    const deepCopy = (data) => {
+      function checkType(val) {
+        return Object.prototype.toString.call(val).slice(8, -1);
+      }
+      let BaseType = [
+        'Null',
+        'String',
+        'Boolean',
+        "Number",
+        'Undefined',
+        'Function'
+      ]
+      if (BaseType.includes(checkType(data))) {
+        return data
+      }
+      if (checkType(data) === 'RegExp') return new RegExp(data);
+      if (checkType(data) === 'Date') return new Date(data);
+      let newData = checkType(data) === 'Array' ? [] : {}
+      for (let key in data) {
+        newData[key] = deepCopy(data[key])
+      }
+      return newData
+    }
+```
+
+
 
 #### 模块化
 
