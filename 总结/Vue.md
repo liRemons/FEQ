@@ -35,9 +35,9 @@ Object.defineProperty(obj, 'name', {
 
 ### Vue2.0
 
-#### 为什么data中定义初始值是对象而不是其他值
+#### 为什么data是个函数，retrun的是对象而不是其他值
 
-#### 双向数据绑定的原理
+#### 双向数据绑定的原理，如何自定义v-model
 
 #### watch和computed的区别
 
@@ -102,6 +102,15 @@ v-for 的优先级更高，但一般不建议两者同时使用
 #### 环境变量配置
 
 #### MVVM 和 MVC
+
+- MVVM（[实现](#Vue2.0中Object.defineProperty 和 Vue3.0中proxy))
+  - Model:数据模型
+  - View:视图
+  - ViewModel:模型与视图做了一层绑定关系
+- MVC
+  - Model:数据模型
+  - View:视图
+  - Controller:数据模型与View之间的桥梁层
 
 #### keep-alive
 

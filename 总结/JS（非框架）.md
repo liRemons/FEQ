@@ -540,30 +540,33 @@ Even-loop:![](assets/img/事件循环.png)
 
 #### 深浅拷贝
 
+- 常用的深拷贝：
+  - `JSON.parse(JSON.stringify())`  缺点：属性值的类型为undifind，正则或者函数时，无法正确拷贝
+
 ```javascript
-    const deepCopy = (data) => {
-      function checkType(val) {
+const deepCopy = (data) => {
+    function checkType(val) {
         return Object.prototype.toString.call(val).slice(8, -1);
-      }
-      let BaseType = [
+    }
+    let BaseType = [
         'Null',
         'String',
         'Boolean',
         "Number",
         'Undefined',
         'Function'
-      ]
-      if (BaseType.includes(checkType(data))) {
+    ]
+    if (BaseType.includes(checkType(data))) {
         return data
-      }
-      if (checkType(data) === 'RegExp') return new RegExp(data);
-      if (checkType(data) === 'Date') return new Date(data);
-      let newData = checkType(data) === 'Array' ? [] : {}
-      for (let key in data) {
-        newData[key] = deepCopy(data[key])
-      }
-      return newData
     }
+    if (checkType(data) === 'RegExp') return new RegExp(data);
+    if (checkType(data) === 'Date') return new Date(data);
+    let newData = checkType(data) === 'Array' ? [] : {}
+    for (let key in data) {
+        newData[key] = deepCopy(data[key])
+    }
+    return newData
+}
 ```
 
 
@@ -577,10 +580,6 @@ Even-loop:![](assets/img/事件循环.png)
 #### Object.defineProperty和Proxy的区别
 
 #### 事件兼容
-
-#### HTTP和HTTPS的区别及建立连接的过程
-
-#### HTTP状态码
 
 #### 浏览器存储
 
