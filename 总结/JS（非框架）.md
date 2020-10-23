@@ -569,7 +569,10 @@ const deepCopy = (data) => {
 }
 ```
 
-
+- 浅拷贝
+  - concat()
+  - slice()
+  - Object.assign()
 
 #### 模块化
 
