@@ -346,6 +346,46 @@
 
   当复制的对象的属性值为简单数据类型时，为深拷贝，当复制的属性值为复杂数据类型时，为深拷贝
 
+#### 函数提升和变量提升
+
+es6之前没有块级作用域
+
+- 变量提升
+
+  ```javascript
+  console.log(v1);       //undefined
+  var v1 = 100;
+  function foo() {
+      console.log(v1);   //undefined
+      var v1 = 200;     
+      console.log(v1);   //200
+  }
+  foo();
+  console.log(v1);       //100
+  
+  //其实类似于下面的
+  var v1;
+  console.log(v1);
+  v1 = 100;
+  function foo() {
+      var v1;
+      console.log(v1);
+      v1 = 200;
+      console.log(v1);
+  }
+  foo();
+  console.log(v1); 
+  ```
+
+- 函数提升
+
+  ```javascript
+  //函数声明式
+  function bar () {}    //  会提升到该作用域的最顶端，而且高于变量提升。
+  //函数字面量式 
+  var foo = function () {}  //没有函数提升
+  ```
+
 #### ES6新特性
 
 - **let 和 const**
@@ -407,7 +447,12 @@ https://segmentfault.com/a/1190000008739672
 
 #### this的指向
 
-- 普通函数里面的this指向全局
+- 如果一个函数中有this，这个函数被上一级的对象所调用，this指向上一级的对象
+- 如果一个函数中有this，这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向上一级的对象
+- this永远指向的是最后调用它的对象
+- 箭头函数的this指向父级
+- 如何改变this指向
+  - call,apply,bind   区别：call和bind挨个传值，apply传一个数组，call和apply会直接执行这个函数
 
 #### Event-loop、事件队列、微任务和宏任务
 
@@ -593,4 +638,8 @@ const deepCopy = (data) => {
 #### 事件兼容
 
 #### 设计模式
+
+#### 高阶函数
+
+接受或返回另一个函数称为高阶函数
 

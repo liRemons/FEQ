@@ -35,19 +35,80 @@ Object.defineProperty(obj, 'name', {
 
 ### Vue2.0
 
-#### 为什么data是个函数，retrun的是对象而不是其他值
+#### 为什么data是个函数
+
+如果两个实例引用同一个对象，当其中一个实例的属性发生改变时，另一个实例属性也随之改变，只有当两个实例拥有自己的作用域时，才不会相互干扰，也就是不会有变量污染
 
 #### 双向数据绑定的原理，如何自定义v-model
 
+Vue2.0: 采用数据劫持结合发布者-订阅者模式的方式，通过`Object.defineProperty()`来劫持各个属性的`setter`，`getter`，在数据变动时发布消息给订阅者，触发相应的监听回调
+
+[实现双向数据绑定](https://www.cnblogs.com/canfoo/p/6891868.html)
+
+- 自定义v-model
+
+  ```html
+  <!-- 父组件注册并使用 -->
+  <k-input v-model="search" placeholder="请输入搜索关键词"></k-input>
+  <!-- 子组件 -->
+  <input type="text" :value="value" @input="handleInput" />
+  ```
+
+  ```javascript
+  //子组件
+  export default {
+    name: "kInput",
+    model: {
+      prop: "value",
+      event: "input",
+    },
+    props: ["value"],
+    methods: {
+      handleInput(e) {
+        this.$emit("input", e.target.value);
+      },
+    },
+  };
+  ```
+
 #### watch和computed的区别
 
-- watch：监听属性
-- computed：计算属性
+- watch：监听属性  依赖缓存，只有当依赖发生变化的时候才会重新计算，同时监听多个数据时推荐使用
+- computed：计算属性  数据改变立即触发
+  - immediate：立即执行
+  - deep：深度监听
 
 #### 组件通信
 
 - 父子组件通信
+
+  - 父----->子：props传值，子组件props接收
+  - 子----->父：$emit()调用父组件传递的方法并携带参数给父组件
+
 - 非父子组件通信
+
+  - bus事件总线
+
+  - provide / inject
+
+    ```javascript
+    //祖先组件
+    provide:{
+        provideData:"hello"
+    }
+    //后代组件
+    //1.
+    inject:["provideData"]
+    //2. 
+    inject:{
+        provideData:{
+            from:"provideData",
+            default:"hello"
+        }
+    }
+    ```
+
+  - [Vuex](#Vuex)
 
 #### 封装组件的思路
 
@@ -60,7 +121,7 @@ Object.defineProperty(obj, 'name', {
 - hash
 - history
 
-#### route 和 router 的区别
+#### route 和 router 的区
 
 #### mixin
 
