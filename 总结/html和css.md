@@ -14,11 +14,11 @@
 
 用正确的标签做正确的事，利于理解，有利于SEO
 
-[^举例]: header, nav, article, sections, footer, main, aside......
+<font size="2" face="arial" color="#666">【**举例**】：header, nav, article, sections, footer, main, aside......</font>
 
 #### 水平垂直居中
 
-[^注]: box相对于body垂直居中
+<font size="2" face="arial" color="#666">【**注**】：box相对于body垂直居中</font>
 
 ```css
 html,body{
@@ -103,9 +103,11 @@ html,body{
 
 flex,  table,   gird（网格布局）
 
-[^flex的兼容]: 
-[^grid]: grid-template-columns:定义每一列的列宽；grid-template-rows:每行的行高
-[^display:none 与 visibility:hidden 的区别]: 两者都会看不见，前者宽高等信息会消失，后者会占据空间
+<font size="2" face="arial" color="#666">【**flex的兼容**】</font>
+
+<font size="2" face="arial" color="#666">【**grid**】:grid-template-columns:定义每一列的列宽；grid-template-rows:每行的行高</font>
+
+<font size="2" face="arial" color="#666">【**display:none 与 visibility:hidden 的区别**】:两者都会看不见，前者宽高等信息会消失，后者会占据空间</font>
 
 #### rem、em、px、vw、vh、百分比布局
 
@@ -113,7 +115,7 @@ em相对于父元素，rem相对于根元素。
 
  vw、vh相对于视口的宽高
 
-[^margin和padding设置百分比]: margin 设置成百分比的时候，只跟父容器宽度有关
+<font size="2" face="arial" color="#666">【**margin和padding设置百分比**】:margin 设置成百分比的时候，只跟父容器宽度有关</font>
 
 #### align-items 和 align-content 的区别
 
@@ -151,7 +153,7 @@ em相对于父元素，rem相对于根元素。
 
 内部的box会在垂直方向一个接一个的放置，但相邻的box  margin会重叠
 
-[^注]: 可以包裹一层使其成为两个BFC
+<font size="2" face="arial" color="#666">【**注**】:可以包裹一层使其成为两个BFC</font>
 
 是一个独立的容器，容器内的元素不会影响到外部的元素
 
@@ -170,7 +172,7 @@ BFC的区域不会与float box重叠
 
 伪元素：用于将特殊的效果添加到某些选择器
 
-[^区别]: 有没有生成新的元素
+<font size="2" face="arial" color="#666">【**区别**】:有没有生成新的元素</font>
 
 #### 重绘和回流
 
