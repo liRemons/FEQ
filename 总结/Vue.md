@@ -82,7 +82,7 @@ Vue2.0: 采用数据劫持结合发布者-订阅者模式的方式，通过`Obje
 
 - 父子组件通信
 
-  - 父----->子：props传值，子组件props接收
+  - 父----->子：props传值，子组件props接收，也可以通过ref获得子组件的数据及方法
   - 子----->父：$emit()调用父组件传递的方法并携带参数给父组件
 
 - 非父子组件通信
@@ -120,43 +120,111 @@ import vueRouter from "vue-router";
 Vue.use(vueRouter);
 
 //嵌套路由
-
-
+routes: [{
+    path: '/offerreward',
+    name: 'offerreward',
+    component: () => import('路径'),
+    children: [{
+      path: 'rewIndex',
+      name: 'rewardIndex',
+      component: () => import('路径'),
+    }]
+}]
 //路由重定向
+{ path: '当前路由', redirect: '重定向目标路由'}
+//动态路由
+{ path: '当前路由/:id', component: () => import('路径')}
+//地址栏可以通过 当前路由/123  匹配到当前的路由，页面中可以通过params获取id
+//路由传参
+//页面中可以通过传递query或者params进行传参，接收参数通过this.$route
 ```
 
 #### 路由守卫及执行顺序
 
+- 路由守卫
+  - `beforeEach`：全局前置守卫
+  - `beforeResolve` ：全局解析守卫
+  - `beforeEnter` ：路由独享守卫
+  - `afterEach`：全局后置守卫
+  - `beforeRouteEnter`：组件内守卫，在渲染该组件的对应路由被 confirm 前调用，不能访问this，可以给next传递一个回调获取组件实例（也是唯一可以给next传递回调的钩子）
+  - `beforeRouteUpdate`：组件内守卫，在当前路由改变，但是该组件被复用时调用
+  - `beforeRouteLeave`：组件内守卫，导航离开该组件的对应路由时调用
+- 执行顺序
+  - 导航被触发。
+  - 在失活的组件里调用 `beforeRouteLeave` 守卫
+  - 调用全局的 `beforeEach` 守卫
+  - 在重用的组件里调用 `beforeRouteUpdate` 守卫 
+  - 在路由配置里调用 `beforeEnter`
+  - 解析异步路由组件
+  - 在被激活的组件里调用 `beforeRouteEnter`
+  - 调用全局的 `beforeResolve` 守卫 
+  - 导航被确认
+  - 调用全局的 `afterEach` 钩子。
+  - 触发 DOM 更新。
+  - 用创建好的实例调用 `beforeRouteEnter` 守卫中传给 `next` 的回调函数
+
 #### 编程式导航和声明式导航
+
+- 编程式导航：`router.replace(...)`
+- 声明式导航：`<router-link :to="..." replace>`
+  - 如何传参：`to="{path:'/test',query:{name:id}}`
+- push和replace的区别：
+  - push 会向 history 添加一个新的记录
 
 #### 如何进行权限管理
 
-#### 动态路由和路由传参
+- 菜单管理
+  - 纯前端管理：在路由中设置meta标签，设置role数组，登录时将登录人的权限保存，进行判断，菜单栏隐藏或显示
+  - 前后端结合：有时菜单是后端返回，同时管理员会有修改权限的功能
+  - 当然，两种方式都需要在路由守卫判断当前将要进入的路由是否有相应的权限，如果没有，则重定向到相应的路由
+
+- 操作管理（仅针对前端，后端暂且不提）
+  - 根据路由配置中的权限，进行判断
 
 #### 路由模式有哪些，区别是什么
 
-- hash
-- history
+- hash:#后面的字符，改变hash不会重新进行http请求
+- history:刷新页面如果没有后端配置，则会作为get请求，导致错误
 
 #### route 和 router 的区别
+
+- router未VueRouter的实例，包含一些属性和方法
+- route是当前的路由对象，包含name、path、query等信息
 
 #### mixin
 
 #### 事件修饰符
 
+- `.stop`：阻止冒泡
+- `.once` ：只执行一次
+- `.native`：监听组件根元素的原生事件
+
 #### 生命周期
+
+- `beforeCreate`
+- `created`
+- `beforeMount`
+- `mounted`
+- `beforeUpdate`
+- `updated`
+- `activated`
+- `deactivated`
+- `beforeDestroy`
+- `destroyed`
 
 #### v-if 和 v-show 的区别
 
-v-if:不渲染，意思就是压根就没有这个元素
+`v-if`: 不渲染，意思就是压根就没有这个元素
 
-v-show:  `display:none`
+`v-show`:  `display:none`
 
 #### v-if 和 v-for 的优先级（2.0版本）
 
 v-for 的优先级更高，但一般不建议两者同时使用
 
 #### v-for 中为什么传入 key 
+
+使用v-for进行列表渲染的时候，它会默认使用“就地更新”的策略。
 
 #### Vue中进行跨域请求
 
@@ -170,14 +238,22 @@ v-for 的优先级更高，但一般不建议两者同时使用
 
 #### slot
 
-#### Vue性能优化
+#### 白屏解决
 
-- 事件委托
-- 路由懒加载
-- 按需引入
-- 组件复用
+- 报错白屏
+  - publicPath设置
+  - 路由模式，app为hash
+  - 其他问题（打包配置、资源引用...）
+- 首页白屏时间过长
+  - 首页加载数据过多
+  - 加入loading
+  - 路由懒加载
 
 #### 环境变量配置
+
+- .env.development  
+- .env.production
+- NODE_ENV=当前环境     通过process.env.NODE_ENV获取   package.json  里面  script     --mode development
 
 #### MVVM 和 MVC
 
