@@ -201,16 +201,16 @@ routes: [{
 
 #### 生命周期
 
-- `beforeCreate`
-- `created`
-- `beforeMount`
-- `mounted`
-- `beforeUpdate`
-- `updated`
-- `activated`
-- `deactivated`
-- `beforeDestroy`
-- `destroyed`
+- `beforeCreate` ：在实例初始化之后，数据观测 和 event/watcher 事件配置之前被调用。
+- `created` ：实例创建完成后被立即调用，数据观测 和 event/watcher 事件已完成，$el无法获取
+- `beforeMount` ：在挂载开始之前被调用：相关的 `render` 函数首次被调用
+- `mounted` ：实例被挂载后调用，最先获取到DOM，如果加入[$nextTick()](#nextTick原理)，在上面也是可以的
+- `beforeUpdate` ：数据更新时调用
+- `updated`：数据更改导致的虚拟 DOM 重新渲染之后
+- `activated `：被 keep-alive 缓存的组件激活时调用
+- `deactivated `：被 keep-alive 缓存的组件停用时调用
+- `beforeDestroy` ：实例销毁之前调用
+- `destroyed `：实例销毁后调用
 
 #### v-if 和 v-show 的区别
 
@@ -229,6 +229,10 @@ v-for 的优先级更高，但一般不建议两者同时使用
 #### Vue中进行跨域请求
 
 #### 请求的封装
+
+#### nextTick原理
+
+在下次DOM更新循环结束之后执行延迟回调
 
 #### Vuex
 
