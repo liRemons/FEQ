@@ -228,6 +228,18 @@ v-for 的优先级更高，但一般不建议两者同时使用
 
 #### Vue中进行跨域请求
 
+```javascript
+proxyTable: { 
+  '/api': {  //使用"/api"来代替"http://xxxx" 
+    target: 'http://xxxx', //源地址 
+    changeOrigin: true, //改变源 
+    pathRewrite: { 
+      '^/api': 'http://xxxx' //路径重写 
+      } 
+  } 
+}
+```
+
 #### 请求的封装
 
 #### nextTick原理
@@ -237,6 +249,8 @@ v-for 的优先级更高，但一般不建议两者同时使用
 #### Vuex
 
 #### diff算法
+
+
 
 #### 封装自定义指令
 
