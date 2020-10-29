@@ -149,7 +149,7 @@
   ```javascript
   let arr=[1,2,3],arr2=[{val:1},{val:2},{val:3}];
   arr.find(item => item >= 1)//1
-  arr.find(item => item.val > 1) //{val:2}
+  arr2.find(item => item.val > 1) //{val:2}
   //和filter的区别：find方法返回符合条件的第一个元素，filter则是返回符合条件的所有元素，返回新的数组
   ```
 
