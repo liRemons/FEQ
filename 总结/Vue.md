@@ -248,11 +248,160 @@ proxyTable: {
 
 #### Vuex
 
+- 介绍：vue 的状态管理系统 ，state用来定义数据，actions用来触发 mutations 创建的动作，mutations里面修改完数据后，通知vue更新视图
+
+- 用法 (模块化)
+
+  - 文件目录如下：
+
+  ![image-20201031131913420](assets/img/image-20201031131913420.png)
+
+  - store代码
+
+    ```javascript
+    //  store/index.js
+    import Vue from 'vue'
+    import Vuex from 'vuex'
+    import About from './about'
+    Vue.use(Vuex)
+    
+    export default new Vuex.Store({
+      modules: {
+        About //所使用的模块
+      }
+    })
+    
+    // store/about/index.js
+    import state from './state'
+    import actions from './actions'
+    import mutations from './mutations'
+    import getters from './getters'
+    export default {
+      namespaced: true,//开启命名空间
+      state,           // 定义数据
+      mutations,       // 动作的创建者  
+      actions,         // 触发动作
+      getters          // 获取数据
+    }
+    
+    // store/about/state.js
+    const state = {
+      count: 0
+    }
+    export default state
+    
+    // store/about/type.js
+    export const ADD_COUNT = "ADD_COUNT"
+    
+    // store/about/actions.js
+    import * as type from './type'   //动作的类型
+    const actions = {
+      addCount({ commit }, payload) {
+        commit(type.ADD_COUNT, payload)   // 通过commit触发mutations动作，如果是异步修改数据，则必须放在 actions 执行  ，payload是页面中传递的数据
+      }
+    }
+    export default actions
+    
+    // store/about/mutations.js
+    //只可以执行同步代码
+    import * as type from './type'
+    const mutations = {
+      [type.ADD_COUNT](state, payload) {
+        state.count = payload   //payload 是 action 传递的数据
+      }
+    }
+    export default mutations
+    
+    // store/about/getter.js
+    const getters = {
+      count: state => state.count
+    }
+    export default getters
+    ```
+
+  - 页面中的使用
+
+    ```html
+    <div class="about">
+        <button @click="ADD_COUNT(8)">+</button>
+        <!-- <button @click="addCount(8)">+</button> -->
+        <br />
+        {{ count }}
+        <!--还可以这么写 {{$store.state.count}} -->
+     </div>
+    ```
+
+    ```javascript
+    //没有开启命名空间时：
+    // 为了方便书写，vuex提供了四个方法
+    import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
+    export default {
+      computed: {
+        // ...mapState(["count"]),// 获取state  等同于 $store.state.count
+        ...mapGetters(["count"]), // 获取getter 等同于 $store.getter.count
+      },
+      methods: {
+    	// 当然也可以使用，第二个参数是传递给vuex的数据
+        // this.$store.dispatch('addCount',8)对应 actions
+        // this.$store.commit('addCount',8)  对应 mutations 
+        ...mapActions(["addCount"]),
+        ...mapMutations(["ADD_COUNT"]),
+      },
+    };
+    ```
+
+    ```javascript
+    // 如果开启了命名空间
+    import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
+    export default {
+      computed: {
+        // ...mapState("About", ["count"]),
+        ...mapGetters("About", ["count"]),
+      },
+      methods: {
+        ...mapActions("About", ["addCount"]),
+        ...mapMutations("About", ["ADD_COUNT"]),
+      },
+    };
+    ```
+
+    
+
 #### diff算法
 
-#### 封装自定义指令
+#### 封装自定义指令   [directive](https://cn.vuejs.org/v2/guide/custom-directive.html)
 
 #### slot
+
+```html
+<!-- Child -->
+<template>
+  <div>
+    <div class="header">
+      <slot name="header" ></slot>
+    </div>
+    <slot name="body" :scope="{a:52}"></slot>
+  </div>
+</template>
+```
+
+```html
+<Child>
+    <template #header>
+        我是header
+    </template>
+    <template v-slot:body="{scope}">
+        我是body <div>{{scope}}</div>
+    </template>
+</Child>
+<!--  
+我是header
+我是body
+{ "a": 52 }
+-->
+```
+
+
 
 #### 白屏解决
 
@@ -284,7 +433,11 @@ proxyTable: {
 
 #### keep-alive
 
-#### component is
+缓存不活动的组件实例
+
+- `include` 名称匹配的组件会被缓存。
+- `exclude` 名称匹配的组件不会被缓存。
+- `max` - 数字。最多可以缓存多少组件实例。
 
 #### assets和static的区别
 
