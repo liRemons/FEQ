@@ -447,7 +447,42 @@ proxyTable: {
 
 #### 组合式 API
 
+##### setUp
+
+##### Provide / Inject的优化
+
 #### 响应式 API
+
+##### reactive
+
+##### readonly
+
+##### ref
+
+##### toRefs
+
+##### Computed 与 watch
+
+- computed
+
+  ```javascript
+  import { computed } from 'vue'
+  const plusOne = computed(() => count.value + 1)
+  ```
+
+- watch
+
+  ```javascript
+  const state = reactive({ count: 0 })
+  watch(
+    () => state.count,
+    (count, prevCount) => {
+      /* ... */
+    }
+  )
+  ```
+
+  
 
 #### 组件通信
 
@@ -456,6 +491,10 @@ proxyTable: {
 #### 高阶组件（HOC）
 
 #### Vue3的优化
+
+#### 其他变化
+
+##### 当 `v-if` 与 `v-for` 一起使用时，`v-if` 具有比 `v-for` 更高的优先级。
 
 ------
 
