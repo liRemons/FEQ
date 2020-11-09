@@ -447,7 +447,12 @@ proxyTable: {
 
 #### 组合式 API
 
-##### setUp
+##### setup
+
+- 两个参数：props,context
+- 在组件创建之前使用
+- 访问 `this` 输出 `undefined`
+- [传送门](https://vue3js.cn/docs/zh/guide/composition-api-setup.html#%E5%8F%82%E6%95%B0)
 
 ##### Provide / Inject的优化
 
@@ -461,7 +466,7 @@ proxyTable: {
 
 ##### toRefs
 
-##### Computed 与 watch
+##### computed 与 watch
 
 - computed
 
@@ -482,7 +487,7 @@ proxyTable: {
   )
   ```
 
-  
+  注意：如果 `watch`  监听  `vuex`  值，请将 `watch` 写在 `computed` 之前
 
 #### 组件通信
 
