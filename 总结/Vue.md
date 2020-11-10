@@ -456,15 +456,58 @@ proxyTable: {
 
 ##### Provide / Inject的优化
 
+在一定程度下，或许可以考虑替代 Vuex
+
+用法：
+
+```javascript
+//1.  祖先组件
+
+// setup 中
+import { provide , readonly } from 'vue'
+const location = reactive({
+    count: 1,
+    name: "remons",
+});
+//  设置为响应式，第一个参数：注入的名称；第二个参数：注入的值
+provide("location", location);
+// provide("location", readonly(location)); 这样可以保证值不会被改变
+// vue 官方推荐的改变 Provide 的方式，后代组件调用祖先组件的方法
+const changeLocation = () => {
+    location.count++
+};
+provide('changeLocation',changeLocation)
+
+
+//2.  后代组件：
+import { inject } from 'vue'
+// 获取祖先传递的值，第一个参数：祖先传值的名称；第二个参数：默认值
+const location = inject("location");
+// 此处改变值，则父级的值也会改变
+const changeLocation = () => {
+    location.count++;
+};
+// vue 官方推荐使用的改变传值的方式，调用祖先组件的方法
+// const changeLocation = inject(changeLocation)
+```
+
 #### 响应式 API
 
 ##### reactive
 
 ##### readonly
 
+对象只读代理（深层）
+
 ##### ref
 
+返回一个响应式且可变的 ref 对象
+
+访问时：`.value` ,但在模板中使用可以不用加
+
 ##### toRefs
+
+将响应式对象转换为普通对象
 
 ##### computed 与 watch
 
@@ -489,9 +532,19 @@ proxyTable: {
 
   注意：如果 `watch`  监听  `vuex`  值，请将 `watch` 写在 `computed` 之前
 
-#### 组件通信
+##### watchEffect
 
 #### 生命周期
+
+除去加上on 之外，销毁钩子有以下转变，使用时需引入，并在setup中
+
+1. beforeDestroy -> onBeforeUnmount
+2. destroyed -> onUnmounted
+
+新增两个调试钩子
+
+1. onRenderTracked
+2. onRenderTriggered
 
 #### 高阶组件（HOC）
 
