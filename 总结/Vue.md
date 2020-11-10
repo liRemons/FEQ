@@ -218,9 +218,9 @@ routes: [{
 
 `v-show`:  `display:none`
 
-#### v-if 和 v-for 的优先级（2.0版本）
+#### v-if 和 v-for 的优先级
 
-v-for 的优先级更高，但一般不建议两者同时使用
+v-for 的优先级更高
 
 #### v-for 中为什么传入 key 
 
@@ -498,8 +498,6 @@ proxyTable: {
 #### Vue3的优化
 
 #### 其他变化
-
-##### 当 `v-if` 与 `v-for` 一起使用时，`v-if` 具有比 `v-for` 更高的优先级。
 
 ------
 
