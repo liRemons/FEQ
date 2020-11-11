@@ -503,7 +503,7 @@ const changeLocation = () => {
 
 返回一个响应式且可变的 ref 对象
 
-访问时：`.value` ,但在模板中使用可以不用加
+访问时：`.value` ,但在模板中使用可以不用加, `reactive` 中也会自动解套
 
 ##### toRefs
 
@@ -538,8 +538,8 @@ const changeLocation = () => {
 
 除去加上on 之外，销毁钩子有以下转变，使用时需引入，并在setup中
 
-1. beforeDestroy -> onBeforeUnmount
-2. destroyed -> onUnmounted
+1. beforeDestroy => onBeforeUnmount
+2. destroyed => onUnmounted
 
 新增两个调试钩子
 

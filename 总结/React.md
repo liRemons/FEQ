@@ -1,6 +1,6 @@
 ## React
 
-#### React和Vue的区别
+### React 16
 
 #### react-router
 
@@ -28,8 +28,25 @@
 
 #### Redux、Flux、Mobx区别
 
-#### React-Hook
+#### react-thunk
 
-#### React-saga
+#### react-Hook
+
+#### react-saga
 
 #### dva
+
+### React 17
+
+### React和Vue的区别
+
+##### 相同点
+
+- 虚拟DOM，数据驱动，组件化
+
+##### 不同点：
+
+- react使用fiber算法，vue采用diff算法
+- react  jsx语法，vue 推荐html模板
+- react 是单向数据流，vue双向数据绑定
+- react  MVC，vue MVVM

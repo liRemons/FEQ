@@ -75,42 +75,42 @@
 
 #### 数组的方法
 
-- **`Array.from()`**  
+##### `Array.from()`
 
-  ```javascript
-  // 1.
-  Array.from('abc')//['a','b','c']
-  // 2.
-  let arr=[1,2,3];
-  Array.from(arr,(item)=>{console.log(item)})//1,2,3
-  ```
+```javascript
+// 1.
+Array.from('abc')//['a','b','c']
+// 2.
+let arr=[1,2,3];
+Array.from(arr,(item)=>{console.log(item)})//1,2,3
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：新的数组实例</font>
+<font size="2" face="arial" color="#666">【**返回值**】：新的数组实例</font>
 
-- **`Array.isArray()`** 
+##### `Array.isArray()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：判断是否为数组.</font>
+<font size="2" face="arial" color="#666">【**作用**】：判断是否为数组.</font>
 
-  ```javascript
-  Array.isArray([1]) //true
-  ```
+```javascript
+Array.isArray([1]) //true
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：布尔值.</font>
+<font size="2" face="arial" color="#666">【**返回值**】：布尔值.</font>
 
-- **`Array.of()`**   
+##### `Array.of()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：生成数组</font>
+<font size="2" face="arial" color="#666">【**作用**】：生成数组</font>
 
-  ```javascript
-  Array.of(1)//[1]    创建新的数组，参数是任意类型
-  ```
+```javascript
+Array.of(1)//[1]    创建新的数组，参数是任意类型
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：新的数组实例</font>
+<font size="2" face="arial" color="#666">【**返回值**】：新的数组实例</font>
 
-- **`concat()`**
+##### `concat()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：合并数组</font>
-  
+<font size="2" face="arial" color="#666">【**作用**】：合并数组</font>
+
 ```javascript
   let arr=[1,2],arr2=[3,4],arr3=[5,6];
   let newArr=arr.concat(arr2,arr3) //[1,2,3,4,5,6]
@@ -119,224 +119,224 @@
 
 <font size="2" face="arial" color="#666">【**返回值**】：新的数组实例，不改变原数组</font>
 
-- **`every()`**
+##### `every()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：数组中所有元素是否都满足条件</font>
+<font size="2" face="arial" color="#666">【**作用**】：数组中所有元素是否都满足条件</font>
 
-  ```javascript
-  let arr=[1,2,3];
-  arr.every(item => item > 1)//false
-  arr.every(item => item > 0)//true
-  ```
+```javascript
+let arr=[1,2,3];
+arr.every(item => item > 1)//false
+arr.every(item => item > 0)//true
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：布尔值</font>
+<font size="2" face="arial" color="#666">【**返回值**】：布尔值</font>
 
-- **`filter()`**
+##### `filter()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：获取数组中满足条件的元素</font>
+<font size="2" face="arial" color="#666">【**作用**】：获取数组中满足条件的元素</font>
 
-  ```javascript
-  let arr=[1,2,3];
-  let newArr=arr.filter(item => item > 1) //[2,3]
-  ```
+```javascript
+let arr=[1,2,3];
+let newArr=arr.filter(item => item > 1) //[2,3]
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：满足条件的元素数组，不改变原数组</font>
+<font size="2" face="arial" color="#666">【**返回值**】：满足条件的元素数组，不改变原数组</font>
 
-- **`find()`**
+##### `find()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：查找数组中符合条件第一个元素的值</font>
+<font size="2" face="arial" color="#666">【**作用**】：查找数组中符合条件第一个元素的值</font>
 
-  ```javascript
-  let arr=[1,2,3],arr2=[{val:1},{val:2},{val:3}];
-  arr.find(item => item >= 1)//1
-  arr2.find(item => item.val > 1) //{val:2}
-  //和filter的区别：find方法返回符合条件的第一个元素，filter则是返回符合条件的所有元素，返回新的数组
-  ```
+```javascript
+let arr=[1,2,3],arr2=[{val:1},{val:2},{val:3}];
+arr.find(item => item >= 1)//1
+arr2.find(item => item.val > 1) //{val:2}
+//和filter的区别：find方法返回符合条件的第一个元素，filter则是返回符合条件的所有元素，返回新的数组
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：符合条件的元素，不改变原数组</font>
+<font size="2" face="arial" color="#666">【**返回值**】：符合条件的元素，不改变原数组</font>
 
-- **`findIndex()`**
+##### `findIndex()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：查找数组中满足条件的第一个元素的索引</font>
+<font size="2" face="arial" color="#666">【**作用**】：查找数组中满足条件的第一个元素的索引</font>
 
-  ```javascript
-  let arr=[1,2,3];
-  arr.findIndex(item => item > 1) // 1
-  arr.findIdnex(item => item > 4) //-1
-  ```
+```javascript
+let arr=[1,2,3];
+arr.findIndex(item => item > 1) // 1
+arr.findIdnex(item => item > 4) //-1
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：第一个符合条件的索引，没有则返回 -1</font>
+<font size="2" face="arial" color="#666">【**返回值**】：第一个符合条件的索引，没有则返回 -1</font>
 
-- **`flat()`**
+##### `flat()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：数组扁平化</font>
+<font size="2" face="arial" color="#666">【**作用**】：数组扁平化</font>
 
-  ```javascript
-  let arr = [1, 2, [3, 4]];
-  arr.flat() //[1, 2, 3, 4]
-  let arr1=[1,[2,[3]]]
-  arr1.flat(2) // [1, 2, 3];
-  //使用 Infinity，可展开任意深度的嵌套数组
-  arr1.flat(Infinity) //[1, 2, 3]
-  ```
+```javascript
+let arr = [1, 2, [3, 4]];
+arr.flat() //[1, 2, 3, 4]
+let arr1=[1,[2,[3]]]
+arr1.flat(2) // [1, 2, 3];
+//使用 Infinity，可展开任意深度的嵌套数组
+arr1.flat(Infinity) //[1, 2, 3]
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：新的数组，不改变原数组</font>
+<font size="2" face="arial" color="#666">【**返回值**】：新的数组，不改变原数组</font>
 
-- **`forEach()`**
+##### `forEach()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：遍历数组</font>
+<font size="2" face="arial" color="#666">【**作用**】：遍历数组</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：无返回值</font>
+<font size="2" face="arial" color="#666">【**返回值**】：无返回值</font>
 
-- **`includes()`**
+##### `includes()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：查找数组中是否包含某一项</font>
+<font size="2" face="arial" color="#666">【**作用**】：查找数组中是否包含某一项</font>
 
-  ```javascript
-  let arr=[1,2,3];
-  arr.includes(2) //true
-  let arr2=[1,2,1,3,4,5,6];
-  // 第二个参数为查找的索引起始位置（包含），为负数则从后向前的绝对值
-  arr2.includes(2,1) //true
-  arr2.includes(2,2) //false
-  arr2.includes(2,-6) //true
-  let str='abc';
-  // 也可以查找字符串是否包含某个字符
-  str.includes('a') //true
-  ```
+```javascript
+let arr=[1,2,3];
+arr.includes(2) //true
+let arr2=[1,2,1,3,4,5,6];
+// 第二个参数为查找的索引起始位置（包含），为负数则从后向前的绝对值
+arr2.includes(2,1) //true
+arr2.includes(2,2) //false
+arr2.includes(2,-6) //true
+let str='abc';
+// 也可以查找字符串是否包含某个字符
+str.includes('a') //true
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：布尔值</font>
+<font size="2" face="arial" color="#666">【**返回值**】：布尔值</font>
 
-- **`indexOf()`**
+##### `indexOf()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：数组中（字符串）包含指定元素的第一个索引</font>
+<font size="2" face="arial" color="#666">【**作用**】：数组中（字符串）包含指定元素的第一个索引</font>
 
-  ```javascript
-  // 特别说明
-  // indexOf的第二个参数,从第几个开始，为负数则从后向前
-  let arr=[1,2,3,2];
-  arr.indexOf(2,2) // 3 
-  arr.indexOf(2,5) // -1 为正数的时候，如果大于length，则返回-1
-  arr.indexOf(2,-3) // 1 
-  arr.indexOf(2,-5) // 1 如果绝对值大于length，则从数组第一项开始找
-  ```
+```javascript
+// 特别说明
+// indexOf的第二个参数,从第几个开始，为负数则从后向前
+let arr=[1,2,3,2];
+arr.indexOf(2,2) // 3 
+arr.indexOf(2,5) // -1 为正数的时候，如果大于length，则返回-1
+arr.indexOf(2,-3) // 1 
+arr.indexOf(2,-5) // 1 如果绝对值大于length，则从数组第一项开始找
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：索引值或 -1 </font>
+<font size="2" face="arial" color="#666">【**返回值**】：索引值或 -1 </font>
 
-- **`join()`**
+##### `join()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：将数组分割成字符串并进行连接</font>
+<font size="2" face="arial" color="#666">【**作用**】：将数组分割成字符串并进行连接</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
+<font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
 
-- **`lastIndexOf()`**
+##### `lastIndexOf()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：数组（字符串）中最后一个指定元素的索引</font>
+<font size="2" face="arial" color="#666">【**作用**】：数组（字符串）中最后一个指定元素的索引</font>
 
-  ```javascript
-  //特别说明
-  //lastIndexOf第二个参数
-  let arr=[1,2,3,2];
-  arr.lastIndexOf(2,2) // 1 正数为查找到第几个索引为止
-  arr.lastIndexOf(2,-3) //1 负数为从后向前，查找到第几个索引（绝对值），大于length则返回 -1 
-  ```
+```javascript
+//特别说明
+//lastIndexOf第二个参数
+let arr=[1,2,3,2];
+arr.lastIndexOf(2,2) // 1 正数为查找到第几个索引为止
+arr.lastIndexOf(2,-3) //1 负数为从后向前，查找到第几个索引（绝对值），大于length则返回 -1 
+```
 
-  <font size="2" face="arial" color="#666">【**返回值**】：索引值或 -1 </font>
+<font size="2" face="arial" color="#666">【**返回值**】：索引值或 -1 </font>
 
-- **`map()`**
+##### `map()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：遍历数组</font>
+<font size="2" face="arial" color="#666">【**作用**】：遍历数组</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：元素执行函数后组成的新数组 </font>
+<font size="2" face="arial" color="#666">【**返回值**】：元素执行函数后组成的新数组 </font>
 
-- **`pop()`**
+##### `pop()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：删除数组的最后一项</font>
+<font size="2" face="arial" color="#666">【**作用**】：删除数组的最后一项</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：删除的元素，改变原数组 </font>
+<font size="2" face="arial" color="#666">【**返回值**】：删除的元素，改变原数组 </font>
 
-- **`push()`**
+##### `push()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：数组后添加一或多项</font>
+<font size="2" face="arial" color="#666">【**作用**】：数组后添加一或多项</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：数组的长度，改变原数组 </font>
+<font size="2" face="arial" color="#666">【**返回值**】：数组的长度，改变原数组 </font>
 
-- **`shift()`**
+##### `shift()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：删除数组第一项</font>
+<font size="2" face="arial" color="#666">【**作用**】：删除数组第一项</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：删除的元素，改变原数组 </font>
+<font size="2" face="arial" color="#666">【**返回值**】：删除的元素，改变原数组 </font>
 
-- **`unshift()`**
+##### `unshift()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：数组前添加一项或多项</font>
+<font size="2" face="arial" color="#666">【**作用**】：数组前添加一项或多项</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：数组的长度，改变原数组 </font>
-  
-- **`reduce()`**
+<font size="2" face="arial" color="#666">【**返回值**】：数组的长度，改变原数组 </font>
 
-- **`reverse()`**
+##### `reduce()`
 
-  <font size="2" face="arial" color="#666">【**作用**】：翻转数组</font>
+##### `reverse()`
 
-  <font size="2" face="arial" color="#666">【**返回值**】：翻转后的数组，改变原数组 </font>
+<font size="2" face="arial" color="#666">【**作用**】：翻转数组</font>
 
-- **`slice()`**
+<font size="2" face="arial" color="#666">【**返回值**】：翻转后的数组，改变原数组 </font>
 
-  <font size="2" face="arial" color="#666">【**作用**】：返回数组或字符串的一部分</font>
+##### `slice()`
 
-  ```javascript
-  let arr=[1,2,3,4]
-  arr.slice() // [1,2,3,4]
-  arr.slice(2) //[3]
-  arr.slice(4) // []
-  arr.slice(-2) // [3,4] 如果该参数为负数，表示从原数组中的倒数第几个元素开始提取到最后一个
-  arr.slice(2,3)//3 不包含end
-  ```
+<font size="2" face="arial" color="#666">【**作用**】：返回数组或字符串的一部分</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：新数组或新的字符串，不改变原数组 </font>
+```javascript
+let arr=[1,2,3,4]
+arr.slice() // [1,2,3,4]
+arr.slice(2) //[3]
+arr.slice(4) // []
+arr.slice(-2) // [3,4] 如果该参数为负数，表示从原数组中的倒数第几个元素开始提取到最后一个
+arr.slice(2,3)//3 不包含end
+```
 
-- **`some()`**
+<font size="2" face="arial" color="#666">【**返回值**】：新数组或新的字符串，不改变原数组 </font>
 
-  <font size="2" face="arial" color="#666">【**作用**】：数组中是否有元素满足传入的函数条件</font>
+##### `some()`
 
-  <font size="2" face="arial" color="#666">【**返回值**】：布尔值 </font>
+<font size="2" face="arial" color="#666">【**作用**】：数组中是否有元素满足传入的函数条件</font>
 
-- **`sort()`**
+<font size="2" face="arial" color="#666">【**返回值**】：布尔值 </font>
 
-  <font size="2" face="arial" color="#666">【**作用**】：数组排序</font>
+##### `sort()`
 
-  > 如果指明了 fn，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：
-  >
-  > 如果 fn(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
-  > 如果 fn(a, b) 等于 0 ， a 和 b 的相对位置不变。
-  > 如果 fn(a, b) 大于 0 ， b 会被排列到 a 之前。
-  > fn(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
+<font size="2" face="arial" color="#666">【**作用**】：数组排序</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：新数组，不改变原数组 </font>
+> 如果指明了 fn，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：
+>
+> 如果 fn(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
+> 如果 fn(a, b) 等于 0 ， a 和 b 的相对位置不变。
+> 如果 fn(a, b) 大于 0 ， b 会被排列到 a 之前。
+> fn(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
 
-- **`splice()`**
+<font size="2" face="arial" color="#666">【**返回值**】：新数组，不改变原数组 </font>
 
-  <font size="2" face="arial" color="#666">【**作用**】：删除或替换现有元素或者原地添加新的元素来修改数组</font>
+##### `splice()`
 
-  ```javascript
-  let arr = [1,2,3,4];
-  arr.splice(2) // [3,4] //arr:[1,2]
-  arr.splice(-2) // [3,4] //arr:[1,2]
-  arr.splice(2,2) // [3,4] //arr:[1,2]
-  arr.splice(2,0,2)//[] //arr:[1,2,2,3,4]
-  arr.splice(2,1,2) // [] arr:[1,2,2,4]
-  ```
+<font size="2" face="arial" color="#666">【**作用**】：删除或替换现有元素或者原地添加新的元素来修改数组</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：被删除元素组成新数组，改变原数组 </font>
+```javascript
+let arr = [1,2,3,4];
+arr.splice(2) // [3,4] //arr:[1,2]
+arr.splice(-2) // [3,4] //arr:[1,2]
+arr.splice(2,2) // [3,4] //arr:[1,2]
+arr.splice(2,0,2)//[] //arr:[1,2,2,3,4]
+arr.splice(2,1,2) // [] arr:[1,2,2,4]
+```
 
-- **`toString()`**
+<font size="2" face="arial" color="#666">【**返回值**】：被删除元素组成新数组，改变原数组 </font>
 
-  <font size="2" face="arial" color="#666">【**作用**】：将数组转换成字符串</font>
+##### `toString()`
 
-  `和join()的区别：join()可以指定连接符`
+<font size="2" face="arial" color="#666">【**作用**】：将数组转换成字符串</font>
 
-  <font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
+`和join()的区别：join()可以指定连接符`
+
+<font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
 
 #### 对象的方法
 
@@ -388,41 +388,43 @@ es6之前没有块级作用域
 
 #### ES6新特性
 
-- **let 和 const**
+##### let 和 const
 
-  区别：let 和 var都是声明变量，let 有块级作用域，同一作用域下不允许重复声明；const声明常量，[不可改变](#堆栈的理解)
+区别：let 和 var都是声明变量，let 有块级作用域，同一作用域下不允许重复声明；const声明常量，[不可改变](#堆栈的理解)
 
-- **扩展运算符**
+##### 扩展运算符
 
-  - `...`   将一个数组转为用逗号分隔的参数序列，可以用来深拷贝数组，合并数组等操作，也可以将字符串转成数组
-  - 和 `rest` 正好相反
+- `...`   将一个数组转为用逗号分隔的参数序列，可以用来深拷贝数组，合并数组等操作，也可以将字符串转成数组
+- 和 `rest` 正好相反
 
-- **模板字符串**
+##### 模板字符串
 
-- **[异步](#JS中的异步)**
+##### [异步](#JS中的异步)
 
-- **Set和Map数据结构**
+##### Set和Map数据结构
 
-  - Set数据结构
-    - 成员值唯一，不会重复
-    - 使用`new Set()`创建一个Set数据结构
-    - 不会发生数据类型转换
-  -  Map 数据结构
-    - 解决JS对象只能用字符串作为键的限制
-    - get 和set 方法
+- Set数据结构
+  - 成员值唯一，不会重复
+  - 使用`new Set()`创建一个Set数据结构
+  - 不会发生数据类型转换
+-  Map 数据结构
+  - 解决JS对象只能用字符串作为键的限制
+  - get 和set 方法
 
-- **箭头函数**
+##### 箭头函数
 
-  - 值得注意，箭头函数的[this](#this的指向)来自父级
-  - 不能使用arguments对象
-  - 不能作为构造函数
-  - 不可使用 yield
+- 值得注意，箭头函数的[this](#this的指向)来自父级
+- 不能使用arguments对象
+- 不能作为构造函数
+- 不可使用 yield
 
-- **解构赋值:**  从数组和对象中提取值，对变量进行赋值
+##### 解构赋值
 
-- **函数默认参数**
+从数组和对象中提取值，对变量进行赋值
 
-- **Class**
+##### 函数默认参数
+
+##### Class
 
 #### 柯里化函数
 
@@ -473,13 +475,13 @@ Even-loop:![](assets/img/事件循环.png)
 
 - promise
 
-  - then()
+  - `then()`
 
-  - catch()
+  - `catch()`
 
-  - finally() 无论状态如何，都会执行，且不接受任何参数
+  - `finally()` 无论状态如何，都会执行，且不接受任何参数
 
-  - all()
+  - `all()`
 
     ```javascript
     let p1 = new Promise(resolve => {
@@ -507,7 +509,7 @@ Even-loop:![](assets/img/事件循环.png)
     //可以看出Promise.all接受一个由promise对象组成的数组，当所有状态都变为resolve时触发then(),参数为每个promise对象返回值组成的数组；有一个为reject的时候，都会触发catch回调
     ```
 
-  - race()
+  - `race()`
 
     ```javascript
     let p1 = new Promise(resolve => {
@@ -620,9 +622,9 @@ const deepCopy = (data) => {
 ```
 
 - 浅拷贝
-  - concat()
-  - slice()
-  - Object.assign()
+  - `concat()`
+  - `slice()`
+  - `Object.assign()`
 
 #### 模块化
 
@@ -638,6 +640,27 @@ const deepCopy = (data) => {
 
 #### 防抖节流
 
+- 防抖（例：滚动条）
+
+  ```javascript
+  const debonce = (fn, delay) => {
+      let time = null
+      return () => {
+          if (time) {
+              clearTimeout(time)
+          }
+          time = setTimeout(fn, delay);
+      }
+  }
+  const scroll = () => {
+      let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      console.log(scrollTop)
+  }
+  window.onscroll = debonce(scroll, 1000) // 每隔 1s 输出
+  ```
+
+- 节流：一段时期内重复触发事件只会执行一次
+
 #### Object.defineProperty和Proxy的区别
 
 #### 事件兼容
@@ -650,6 +673,16 @@ const deepCopy = (data) => {
 
 #### 数组去重
 
+- 基本数据类型可以用 `new Set()`
+- 数组对象可以用 `reduce()`
+- ES6之前可以用循环等方法
+
 #### 数组排序
 
+- `sort`
+- 冒泡排序
+- 快速排序
+
 #### 数组扁平化
+
+- `flat()`
