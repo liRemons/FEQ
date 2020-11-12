@@ -34,8 +34,6 @@
 
 #### react-saga
 
-#### dva
-
 ### React 17
 
 ### React和Vue的区别
@@ -50,3 +48,8 @@
 - react  jsx语法，vue 推荐html模板
 - react 是单向数据流，vue双向数据绑定
 - react  MVC，vue MVVM
+
+### umi
+
+### dva
+
