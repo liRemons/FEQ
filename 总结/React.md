@@ -4,6 +4,29 @@
 
 #### react-router
 
+- 二级路由
+
+- 路由匹配和重定向
+
+  ```html
+  <!-- SWitch 包裹，例 -->
+  <Switch>
+      <!-- 重定向 -->
+  	<Redirect from="/" to="/home" exact></Redirect>
+      <!-- 如果都没匹配到，则跳转到下面的 -->
+  	<Route component={Error}></Route>
+  </Switch>
+  ```
+
+- 路由传参和动态路由
+
+  ```html
+  <!-- 传入一个动态路由/:id -->
+   <Route path = "/shopcar/:id" component ={ Shopcar } />   
+  <!-- to属性增加pathname和search -->
+  <Link to ={{pathname: '/shopcar/001',search: '?a=1&b=2',}}></Link>
+  ```
+
 #### 生命周期
 
 - react 性能优化是哪个周期函数
@@ -15,6 +38,14 @@
 #### 无状态组件和类组件
 
 #### 属性(props)和状态(state)
+
+| Conditions           | States | Props |
+| :------------------- | :----: | :---: |
+| 可从父组件接收初始值 |   是   |  是   |
+| 可在父组件中改变其值 |   否   |  是   |
+| 在组件内设置默认值   |   是   |  是   |
+| 在组件内可改变       |   是   |  否   |
+| 可作为子组件的初始值 |   是   |  是   |
 
 #### 受控组件和非受控组件
 
