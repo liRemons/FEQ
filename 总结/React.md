@@ -2,6 +2,23 @@
 
 ### React 16
 
+#### super
+
+在ES6中，在子类的 `constructor` 中必须先调用 `super` 才能引用 `this` 。
+
+#### setState
+
+#### refs
+
+Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。例：
+
+```html
+<form onSubmit={this.handleSubmit}>
+    <input type='text' ref={(input) => this.input = input} />
+</form>
+<!-- this.input.value  访问 -->
+```
+
 #### react-router
 
 - 二级路由
@@ -29,13 +46,30 @@
 
 #### 生命周期
 
-- react 性能优化是哪个周期函数
+- 创建
+- 挂载
+- 更新
+- 卸载
 
 #### 高阶组件（HOC）
 
+高阶组件是一个函数，接收一个组件作为参数，并返回一个组件，例如`connect` 、 `withRouter()`
+
 #### 组件通信
 
-#### 无状态组件和类组件
+- 父子组件：通过props传递给子组件，子组件通过props接收；子组件通过父组件传递的函数传参给父组件。
+- 跨组件通信
+  - 层层传递
+  - [Context](#context)
+- 非嵌套组件
+  - 发布订阅模式
+  - Redux、Mobx
+
+#### 无状态组件和有状态组件
+
+无状态组件：使用函数直接创建组件，使用方便，易于书写。应避免使用this
+
+有状态组件：通过class创建组件，有生命周期，可以通过this接收状态和属性
 
 #### 属性(props)和状态(state)
 
@@ -49,7 +83,61 @@
 
 #### 受控组件和非受控组件
 
+使用setState进行更新状态的称为受控组件
+
+使用refs获取的称为非受控组件
+
+#### 业务组件和UI组件
+
 #### context
+
+```javascript
+// Context 可以让我们无须明确地传遍每一个组件，就能将值深入传递进组件树。
+// 为当前的 theme 创建一个 context（“light”为默认值）。
+const ThemeContext = React.createContext('light');
+class App extends React.Component {
+  render() {
+    // 使用一个 Provider 来将当前的 theme 传递给以下的组件树。
+    // 无论多深，任何组件都能读取这个值。
+    // 在这个例子中，我们将 “dark” 作为当前的值传递下去。
+    return (
+      <ThemeContext.Provider value="dark">
+        <Toolbar />
+      </ThemeContext.Provider>
+    );
+  }
+}
+
+// 中间的组件再也不必指明往下传递 theme 了。
+function Toolbar() {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+class ThemedButton extends React.Component {
+  // 指定 contextType 读取当前的 theme context。
+  // React 会往上找到最近的 theme Provider，然后使用它的值。
+  // 在这个例子中，当前的 theme 值为 “dark”。
+  static contextType = ThemeContext;
+  render() {
+    return <Button theme={this.context} />;
+  }
+}
+
+
+// 也有下面的用法
+const {Provider, Consumer} = React.createContext(defaultValue);
+<Provider value={/*共享的数据*/}>
+    /*里面可以渲染对应的内容*/
+</Provider>
+// 子代组件
+<Consumer>
+  {value => /*根据上下文  进行渲染相应内容*/}
+</Consumer>
+```
 
 #### Redux
 
