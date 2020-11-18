@@ -17,6 +17,8 @@
 
 问题:`this.state.a='11'` 为何不会更新
 
+也可以使用一个函数作为参数，上一个 state 作为第一个参数，此次更新的 props 第二个参数
+
 #### refs
 
 Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。例：
@@ -102,53 +104,107 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 #### context
 
-```javascript
-// Context 可以让我们无须明确地传遍每一个组件，就能将值深入传递进组件树。
-// 为当前的 theme 创建一个 context（“light”为默认值）。
-const ThemeContext = React.createContext('light');
-class App extends React.Component {
-  render() {
-    // 使用一个 Provider 来将当前的 theme 传递给以下的组件树。
-    // 无论多深，任何组件都能读取这个值。
-    // 在这个例子中，我们将 “dark” 作为当前的值传递下去。
+- 第一种写法
+
+  ```javascript
+  //App.js
+  import React from 'react';
+  import Son from './son';//引入子组件
+  // 创建一个 theme Context,
+  export const { Provider, Consumer } = React.createContext("默认名称");
+  export default class App extends React.Component {
+    render() {
+      let name = "小人头"
+      return (
+        //Provider共享容器 接收一个name属性
+        <Provider value={name}>
+          <p>父组件定义的值:{name}</p>
+          <Son />
+        </Provider>
+      );
+    }
+  }
+  
+  //son.js 子类
+  import React from 'react';
+  import { Consumer } from "./App";//引入父组件的Consumer容器
+  import Grandson from "./grandson.js";//引入子组件
+  function Son(props) {
     return (
-      <ThemeContext.Provider value="dark">
-        <Toolbar />
-      </ThemeContext.Provider>
+      //Consumer容器,可以拿到上文传递下来的name属性,并可以展示对应的值
+      <Consumer>
+        {(name) =>
+          <div>
+            <p>子组件。获取父组件的值:{name}</p>
+            {/* 孙组件内容 */}
+            <Grandson />
+          </div>
+        }
+      </Consumer>
     );
   }
-}
-
-// 中间的组件再也不必指明往下传递 theme 了。
-function Toolbar() {
-  return (
-    <div>
-      <ThemedButton />
-    </div>
-  );
-}
-
-class ThemedButton extends React.Component {
-  // 指定 contextType 读取当前的 theme context。
-  // React 会往上找到最近的 theme Provider，然后使用它的值。
-  // 在这个例子中，当前的 theme 值为 “dark”。
-  static contextType = ThemeContext;
-  render() {
-    return <Button theme={this.context} />;
+  export default Son;
+  
+  //grandson.js 孙类
+  import React from 'react';
+  import { Consumer } from "./App";//引入父组件的Consumer容器
+  function Grandson(props) {
+    return (
+      //Consumer容器,可以拿到上文传递下来的name属性,并可以展示对应的值
+      <Consumer>
+        { (name) => <p>孙组件。获取传递下来的值:{name}</p>}
+      </Consumer>
+    );
   }
-}
+  export default Grandson;
+  ```
 
+- 第二种写法
 
-// 也有下面的用法
-const {Provider, Consumer} = React.createContext(defaultValue);
-<Provider value={/*共享的数据*/}>
-    /*里面可以渲染对应的内容*/
-</Provider>
-// 子代组件
-<Consumer>
-  {value => /*根据上下文  进行渲染相应内容*/}
-</Consumer>
-```
+  ```javascript
+  // 新建global.js
+  import React from 'react'
+  export const ThemeContext = React.createContext('light');
+  
+  //App.js
+  import React from 'react';
+  import Toolbar from './toolbar';//引入子组件
+  import { ThemeContext } from './global'
+  class App extends React.Component {
+    render() {
+      return (
+        <ThemeContext.Provider value="dark">
+          <Toolbar />
+        </ThemeContext.Provider>
+      );
+    }
+  }
+  
+  export default App
+  
+  // Toolbar.js
+  import  ThemedButton from './ThemedButton'
+  function Toolbar() {
+    return (
+      <div>
+        <ThemedButton />
+      </div>
+    );
+  }
+  export default Toolbar
+  
+  //ThemedButton.js
+  import React from 'react'
+  import { ThemeContext } from './global'
+  
+  class ThemedButton extends React.Component {
+    static contextType = ThemeContext;
+    render() {
+      return <p>{this.context}</p>;
+    }
+  }
+  export default ThemedButton
+  ```
 
 #### Redux
 
