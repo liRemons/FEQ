@@ -8,6 +8,15 @@
 
 #### setState
 
+有两个参数
+
+- 对象键值对
+- 函数：可以获取最新值
+
+异步更新state，将短时间内的多个setState合并成一个,将其放入到队列中，一起更新，节约性能
+
+问题:`this.state.a='11'` 为何不会更新
+
 #### refs
 
 Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。例：
@@ -53,7 +62,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 #### 高阶组件（HOC）
 
-高阶组件是一个函数，接收一个组件作为参数，并返回一个组件，例如`connect` 、 `withRouter()`
+高阶组件是一个函数，接收一个组件作为参数，并返回一个组件，例如 `connect` 、 `withRouter`
 
 #### 组件通信
 
@@ -72,6 +81,8 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 有状态组件：通过class创建组件，有生命周期，可以通过this接收状态和属性
 
 #### 属性(props)和状态(state)
+
+组件不可修改属性，但可以修改自己的状态
 
 | Conditions           | States | Props |
 | :------------------- | :----: | :---: |
@@ -150,6 +161,74 @@ const {Provider, Consumer} = React.createContext(defaultValue);
 #### react-thunk
 
 #### react-Hook
+
+- `useState()` 
+
+  ```javascript
+  // useState()这个函数接受状态的初始值作为参数，该函数返回一个数组，数组的第一个成员是一个变量，指向状态的当前值。第二个成员是一个函数，用来更新状态，约定是set前缀加上状态的变量名。例如下面：
+  import React, { useState } from 'react';
+  function Example() {
+    // 声明一个叫 “count” 的 state 变量。
+    const [count, setCount] = useState(0);
+  
+    return (
+      <div>
+        <p>You clicked {count} times</p>
+        <button onClick={() => setCount(count + 1)}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+  ```
+
+- `useContext()`
+
+  ```javascript
+  // 组件之间共享状态 
+  import React, { useContext } from "react";
+  import ReactDOM from "react-dom";
+  const AppContext = React.createContext({});
+  
+  const Navbar = () => {
+    const { username } = useContext(AppContext)
+    return (
+      <div className="navbar">
+        <p>{username}</p>
+      </div>
+    )
+  }
+  
+  const Messages = () => {
+    const { username } = useContext(AppContext)
+    return (
+      <p>1 message for {username}</p>
+    )
+  }
+  
+  function App() {
+    return (
+      <AppContext.Provider value={{
+        username: 'superawesome'
+      }}>
+        <div className="App">
+          <Navbar />
+          <Messages />
+        </div>
+      </AppContext.Provider>
+    );
+  }
+  
+  const rootElement = document.getElementById("root");
+  ReactDOM.render(<App />, rootElement);
+  
+  ```
+
+  
+
+- `useReducer()`
+
+- `useEffect()`
 
 #### react-saga
 
