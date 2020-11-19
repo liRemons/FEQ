@@ -100,8 +100,6 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 使用refs获取的称为非受控组件
 
-#### 业务组件和UI组件
-
 #### context
 
 - 第一种写法
@@ -208,13 +206,104 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 #### Redux
 
+store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着旧的 `state`,传递给 `action`,`action`通过 `dispatch` 传递并触发 `reducer` , `reducer` 改变 `state` 并返回，界面更新
+
+- `action`
+
+  ```javascript
+  // 用户通过导出的 ActiconCreators 触发action的方法，dispatch 将接收的数据给 reducer
+  //  如果需要异步，引入中间件 redux-thunk 或 redux-saga
+  changeLoading(data) {
+     // return dispatch =>  //异步 
+          const action = {
+              type: type.LOADING,
+              payload: data
+          }
+          store.dispatch(action)
+     // }  //异步
+  }
+  ```
+
+- `reducer`
+
+  ```javascript
+  // 接收 action 传递的值，并返回一个新的 state ，直接改变state并不会更新，一般会这么写
+  const reducer = (previousState = state, action) => {
+    let newState = {
+      ...previousState,
+    };
+     switch (action.type) {
+      case type.IMG_BANNER:
+        newState.bannerList = action.payload;
+        break;
+    }
+    return newState;
+  }
+  ```
+
+- `type`：用来标识各个数据及方法
+
+- `state` ： 定义数据
+
+- `applyMiddleware`
+
+  ```javascript
+  // 顾名思义，middleware是中间件的意思，那么 applyMiddleware 就是redux 的方法，用来将所有中间件组成一个数组，依次执行
+  import { createStore, applyMiddleware } from 'redux'
+  import thunk from 'redux-thunk'
+  import reducer from './reducer'
+  const store = createStore(reducer, applyMiddleware(thunk))
+  export default store
+  ```
+
+- `combineReducers`
+
+  ```javascript
+  // 模块化，将多个 reducer 合成一个
+  import { combineReducers } from 'redux'
+  import Layout from './layout/reducer'
+  const reducer = combineReducers({
+    Layout
+  })
+  export default reducer
+  ```
+
+- `connect`  从 UI 组件生成容器组件
+
+  ```javascript
+  // 应用 API
+  import { connect } from 'react-redux'
+  const VisibleTodoList = connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(TodoList)
+  
+  // mapStateToProps
+  // 是一个函数，它接受state作为参数，返回一个对象,第二个参数是容器组件的props对象，其发生变化，UI界面也会发生变化
+  
+  // mapDispatchToProps 
+  // 建立 UI 组件的参数到store.dispatch方法的映射,可以是对象或者函数
+  // 如果mapDispatchToProps是一个函数，会得到dispatch和ownProps（容器组件的props对象）两个参数。这个函数返回一个对象，对象中键是action的名字，值是进行dispatch处理的函数,例如下面的写法：
+  mapDispatchToProps((dispatch)=>{
+  　　return {
+  　　　　action:(data) => dispatch( actioncreator(data) )  
+     }
+  })
+  // 通常，和 bindActionCreators 一起使用，它有 2 个参数
+  // 第一个参数 actionCreators
+  // 第二个参数 dispatch： 一个由 Store 实例提供的 dispatch 函数。
+  mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actionCreators, dispatch)
+  }
+  ```
+
+#### react-thunk
+
 #### Flux
 
 #### Mobx
 
 #### Redux、Flux、Mobx区别
-
-#### react-thunk
 
 #### react-Hook
 
