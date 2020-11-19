@@ -17,7 +17,7 @@
 
 问题:`this.state.a='11'` 为何不会更新
 
-也可以使用一个函数作为参数，上一个 state 作为第一个参数，此次更新的 props 第二个参数
+也可以使用一个函数作为参数，上一个 state 作为函数第一个参数，此次更新的 props 函数第二个参数
 
 #### refs
 
@@ -241,50 +241,56 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 - `useContext()`
 
   ```javascript
-  // 组件之间共享状态 
-  import React, { useContext } from "react";
-  import ReactDOM from "react-dom";
-  const AppContext = React.createContext({});
-  
-  const Navbar = () => {
-    const { username } = useContext(AppContext)
-    return (
-      <div className="navbar">
-        <p>{username}</p>
-      </div>
-    )
-  }
-  
-  const Messages = () => {
-    const { username } = useContext(AppContext)
-    return (
-      <p>1 message for {username}</p>
-    )
-  }
-  
+  // 组件之间共享状态 ，类似于context
+  // 新建global.js
+  import React from 'react'
+  export const AppContext = React.createContext({});
+  // App.js
+  import React from "react";
+  import Navbar from "./Navbar";
+  import Messages from "./Messages";
+  import { AppContext } from "./global";
   function App() {
     return (
-      <AppContext.Provider value={{
-        username: 'superawesome'
-      }}>
-        <div className="App">
-          <Navbar />
-          <Messages />
-        </div>
+      <AppContext.Provider
+        value={{
+          username: "superawesome",
+        }}
+      >
+        <Navbar />
+        <Messages />
       </AppContext.Provider>
     );
   }
   
-  const rootElement = document.getElementById("root");
-  ReactDOM.render(<App />, rootElement);
+  export default App;
+  // Messages
+  import React, { useContext } from "react";
+  import { AppContext } from "./global";
+  const Messages = () => {
+    const { username } = useContext(AppContext);
+    return <h1>Messages :{username}</h1>;
+  };
   
+  export default Messages;
+  // Navbar
+  import React, { useContext } from "react";
+  import { AppContext } from "./global";
+  const Navbar = () => {
+    const { username } = useContext(AppContext);
+    return <p>AwesomeSite :{username}</p>;
+  };
+  export default Navbar;
   ```
-
-  
 
 - `useReducer()`
 
 - `useEffect()`
+
+  ```javascript
+  // 接受两个参数，第一个参数是一个执行函数，第二个参数是依赖项，其变化时会执行函数
+  useEffect(()  =>  {}, [dependencies])
+  ```
 
 #### react-saga
 
