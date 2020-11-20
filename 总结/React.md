@@ -212,14 +212,14 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
   ```javascript
   // 用户通过导出的 ActiconCreators 触发action的方法，dispatch 将接收的数据给 reducer
-  //  如果需要异步，引入中间件 redux-thunk 或 redux-saga
+  // 如果需要异步，引入中间件 redux-thunk 或 redux-saga
   changeLoading(data) {
      // return dispatch =>  //异步 
           const action = {
               type: type.LOADING,
               payload: data
           }
-          store.dispatch(action)
+     0.0.     store.dispatch(action)
      // }  //异步
   }
   ```
@@ -289,7 +289,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
   　　　　action:(data) => dispatch( actioncreator(data) )  
      }
   })
-  // 通常，和 bindActionCreators 一起使用，它有 2 个参数
+  // 通常，和 bindActionCreators 一起使用，它有 2 个参数，将actionCreators批量传递给UI组件
   // 第一个参数 actionCreators
   // 第二个参数 dispatch： 一个由 Store 实例提供的 dispatch 函数。
   mapDispatchToProps = (dispatch) => {
@@ -378,7 +378,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
   ```javascript
   // 接受两个参数，第一个参数是一个执行函数，第二个参数是依赖项，其变化时会执行函数
-  useEffect(()  =>  {}, [dependencies])
+  useEffect(()  =>  {}, [依赖项])
   ```
 
 #### react-saga
