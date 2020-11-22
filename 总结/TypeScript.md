@@ -61,24 +61,65 @@
 
 #### 接口
 
-```javascript
-interface Person {
-  readonly name: string, // 只读属性
-  age?: number,  // 可选
-  [propName: string]: any // 可以接受任意的属性 
-}
-// 一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集
-let num: Person;
-num = {
-  name: 'Remons',
-  sex: '男'
-}
-// 也可以用接口定义数组
-interface NumberArray {
-    [index: number]: number;
-}
-let fibonacci: NumberArray = [1, 1, 2, 3, 5];
-```
+- 普通接口
+
+  ```javascript
+  interface Person {
+    readonly name: string, // 只读属性
+    age?: number,  // 可选
+    [propName: string]: any // 可以接受任意的属性 
+  }
+  // 一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集
+  let num: Person;
+  num = {
+    name: 'Remons',
+    sex: '男'
+  }
+  // 也可以用接口定义数组或对象
+  interface NumberArray {
+      [index: number]: number;
+     // [index: string]:any // 对象
+  }
+  let fibonacci: NumberArray = [1, 1, 2, 3, 5];
+  ```
+
+- 类的接口及接口继承
+
+  ```javascript
+  interface fatherInterface {
+    name: string,
+    eat(str?: string): void
+  }
+  // 接口继承
+  interface childInterface extends fatherInterface {
+    age: number,
+    work(str?: string): void
+  }
+  
+  class Person implements childInterface {
+    name: string
+    age: number
+    constructor(name: string, age: number) {
+      this.name = name
+      this.age = age
+    }
+    eat(food?: string) {
+      console.log(this.name + '吃' + food)
+    }
+    work(work?: string) {
+      console.log(this.name + '做' + work)
+    }
+  }
+  // 类的继承
+  class Web extends Person implements childInterface {
+    constructor(name: string, age: number) {
+      super(name, age)
+    }
+  }
+  let web = new Web('小明',25)
+  web.eat('屎')  //小明吃屎
+  web.work('代码') // 小明做代码
+  ```
 
 #### 函数
 
@@ -104,3 +145,49 @@ console.log(getInfo('Remons', 20))
 
 #### 类
 
+- `public`:共有的， ts中，成员默认都是public
+
+- `private`：私有的，子类或类外部无法访问
+
+  ```javascript
+  class Animal {
+      private name: string;
+      constructor(theName: string) { this.name = theName; }
+  }
+  new Animal("Cat").name; // 错误: 'name' 是私有的.
+  ```
+
+- `protected`：保护类型，在子类或类中可以访问，类外部无法访问
+
+- `readonly`：只读
+
+- `static` ：静态方法，不需要实例化，直接通过类来调用
+
+- `abstract`：抽象类
+
+  ```javascript
+  abstract class Animal {
+    public name;
+    public constructor(name) {
+      this.name = name;
+    }
+    public abstract sayHi();
+  }
+  
+  class Cat extends Animal {
+    // 抽象类中的抽象方法必须被子类实现：如果没有下面的内容，会报错
+    public sayHi() {
+      console.log(`Meow, My name is ${this.name}`);
+    }
+  }
+  // let animal = new Animal('Tom') // 不允许被实例化,报错
+  let cat = new Cat('Tom');
+  ```
+
+#### 泛型
+
+泛型代表的是泛指某一类型，更像是一个类型变量。由尖括号包裹
+
+主要作用是创建逻辑可复用的组件。
+
+泛型可以作用在函数、类、接口上。
