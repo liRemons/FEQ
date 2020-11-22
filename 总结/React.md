@@ -57,10 +57,77 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 #### 生命周期
 
-- 创建
+![image-20201121091647026](assets/img/image-20201121091647026.png)
+
 - 挂载
+
+  - ~~`componentWillMount()`~~
+
+    > 在挂载之前被调用
+
+  - `constructor()`
+
+    > 组件挂载之前，会调用它的构造函数
+    > 应在其他语句之前前调用 `super(props)` ,否则无法访问 `this`
+
+  - `static getDerivedStateFromProps(props, state)`
+
+    > 会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用
+    >
+    > 应返回一个对象来更新 state，如果返回 `null` 则不更新任何内容。
+
+  - `render()`
+
+    > `render()` 方法是 class 组件中唯一必须实现的方法。
+    > 当 render 被调用时，它会检查 `this.props` 和 `this.state` 的变化
+
+  - `componentDidMount()`
+
+    > 在组件挂载后（插入 DOM 树中）立即调用，可以进行实例化请求
+
 - 更新
+
+  - `static getDerivedStateFromProps(props, state)`
+
+  - ~~`componentWillReceiveProps(nextProps)`~~
+
+    > 已挂载的组件接收新的 props 之前被调用
+    >
+    > 父组件导致组件重新渲染，即使 props 没有更改，也会触发此方法
+
+  - `shouldComponentUpdate(nextProps, nextState)`
+
+    > 当 `props` 或 `state` 发生变化时,会在渲染之前调用，默认返回 `true` ,如果返回 `false` ,则会跳过更新
+    > 可以将 `this.state` 和 `nextState` , `this.props` 和 `nextProps` 比较
+    > 此处可以通过返回 `true` 或 `false` 进行性能优化
+
+  - `render()`
+
+  - `getSnapshotBeforeUpdate(prevProps, prevState)`
+
+    > 在最近一次渲染输出（提交到 DOM 节点）之前调用
+    >
+    > 任何返回值将作为参数传递给 `componentDidUpdate()`
+
+  - `componentDidUpdate(prevProps, prevState, snapshot)`
+
+    >  在更新后会被立即调用，首次渲染不会执行此方法。
+
 - 卸载
+
+  - `componentWillUnmount()`
+
+    > 会在组件卸载及销毁之前直接调用
+
+- 错误处理
+
+  - `static getDerivedStateFromError(error)`
+
+    > 在后代组件抛出错误后被调用。 它将抛出的错误作为参数，并返回一个值以更新 state
+
+  - `componentDidCatch(error, info)`
+
+    > 此生命周期在后代组件抛出错误后被调用
 
 #### 高阶组件（HOC）
 
@@ -297,7 +364,9 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
   }
   ```
 
-#### react-thunk
+#### react-thunk 
+
+可以在actionCreators内部编写逻辑，处理请求结果。而不只是单纯的返回一个action对象
 
 #### Flux
 

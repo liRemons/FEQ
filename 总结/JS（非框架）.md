@@ -424,8 +424,6 @@ es6之前没有块级作用域
 
 ##### 函数默认参数
 
-##### Class
-
 #### 柯里化函数
 
 #### 构造函数
@@ -448,7 +446,89 @@ es6之前没有块级作用域
 
 https://segmentfault.com/a/1190000008739672
 
+#### Class
+
+类的数据类型就是函数，类本身就指向构造函数。
+
+必须使用`new`命令，才能使用类
+
+`static`关键字不会被实例继承
+
+`constructor`方法是类的默认方法，默认返回实例对象（即`this`），通过`new`命令生成对象实例时，自动调用该方法。一个类必须有`constructor`方法，如果没有显式定义，一个空的`constructor`方法会被默认添加。
+
+类里面共有的属性和方法必须使用this访问
+
 #### 继承
+
+```javascript
+function Father(name) {
+    //属性
+    this.name = name || 'Annie'
+    //实例方法
+    this.sleep = () => {
+        console.log('名字：'+this.name)
+    }
+}
+//原型方法
+Father.prototype.eat = function (food) {
+    console.log(this.name + '正在吃：' + food);
+}
+```
+
+- 原型链继承
+
+  ```javascript
+  let Son = function () {};
+  Son.prototype = new Father() // 创建实例时父类构造函数中传参数无效
+  Son.prototype.name = 'Remons'
+  let child = new Son() 
+  child.sleep() // 名字：Remons
+  ```
+
+- 构造函数继承
+
+  ```javascript
+  function Son(name) {
+      Father.call(this);
+      this.name = name
+  }
+  let Child = new Son('Remons')
+  Child.sleep() // 名字：Remons
+  // 无法继承父级原型上的方法和属性  Child.eat is not a function
+  ```
+
+- 原型继承
+
+  ```javascript
+  function Son(name) {
+      let this_ = new Father()
+      this_.name = name;
+      return this_
+  }
+  let Child = new Son('Remons') 
+  Child.sleep() // 名字：Remons
+  ```
+
+- Class继承
+
+  ```javascript
+  class Father{
+      constructor(x,y){
+          this.x=x;
+          this.y=y
+      }
+      sum(){
+          return this.x + this.y
+      }
+  }
+  class Son extends Father{
+      constructor(x,y){
+          super(x,y) // 必须先使用super，才能访问this，用来调用父类的属性和方法
+      }
+  }
+  let sum=new Son(5,6)
+  console.log(sum.sum()) // 11
+  ```
 
 #### this的指向
 
