@@ -554,6 +554,25 @@ const changeLocation = () => {
 
 #### 其他变化
 
+##### teleport
+
+to:渲染的节点：有点类似于是个插槽
+
+##### Suspense 
+
+```html
+<Subpense>
+	<template #default>
+        <!-- 加载成功之后显示 -->
+    </template>
+    <template #fallback>
+        <!-- 加载之前显示 -->
+    </template>
+</Subpense>
+```
+
+
+
 ------
 
 ### Vite
