@@ -497,7 +497,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 2. `npm i less less-loader --save`
 
-3. 如果还是报错,请将less-loader===>5.0.0
+3. 如果还是报错,请将`less-loader===>5.0.0`
 
 #### 路径别名
 
@@ -513,6 +513,14 @@ const pathResolve = (url) => {
 ```
 
 #### 解决兼容性
+
+```javascript
+// 兼容IE浏览器
+// npm i react-app-polyfill --save
+// 入口文件中顶部
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+```
 
 ### React 17
 
