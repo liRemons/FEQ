@@ -541,13 +541,13 @@ Father.prototype.eat = function (food) {
 
 #### Event-loop、事件队列、微任务和宏任务
 
-![](assets/img/异步任务队列.png)
+![](../assets/img/异步任务队列.png)
 
 常见的宏任务：setTimeout , setInterval
 
 常见的微任务Promise.then,catch,finally
 
-Even-loop:![](assets/img/事件循环.png)
+Even-loop:![](../assets/img/事件循环.png)
 
 在执行完同步任务后，会执行任务队列中的微任务，微任务执行完后，会执行任务队列中的宏任务，宏任务会一个一个的执行，重复过程
 

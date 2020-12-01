@@ -138,7 +138,7 @@ mySearch = function(source: string, subString: string) {
 }
 // 默认参数、可选参，可以用 rest 获取剩余参数，rest只能位于最后，且不能有可选参
 function getInfo(name: string = '54', age?: number): string {
-  return `${name}：${age}岁`
+  return ${name}：${age}岁
 }
 console.log(getInfo('Remons', 20))
 ```
@@ -177,7 +177,7 @@ console.log(getInfo('Remons', 20))
   class Cat extends Animal {
     // 抽象类中的抽象方法必须被子类实现：如果没有下面的内容，会报错
     public sayHi() {
-      console.log(`Meow, My name is ${this.name}`);
+      console.log(Meow, My name is ${this.name});
     }
   }
   // let animal = new Animal('Tom') // 不允许被实例化,报错
