@@ -117,6 +117,8 @@ em相对于父元素，rem相对于根元素。
 
 <font size="2" face="arial" color="#666">【**margin和padding设置百分比**】:margin 设置成百分比的时候，只跟父容器宽度有关</font>
 
+amfe-flexible：移动端适配解决方案
+
 #### align-items 和 align-content 的区别
 
 都是用于定义flex容器中元素在交叉轴上的对齐方式
