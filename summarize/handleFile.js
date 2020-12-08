@@ -2,7 +2,7 @@ let fs = require('fs')
 const readFile = (path, fileName) => {
   let fileContent = fs.readFileSync(path).toString('utf-8')
   let reg = /<body[^>]*>([\s\S]*)<\/body>/;
-  fs.writeFileSync(`./data/${fileName}.ts`, 'let data:any = ' + '`' + `${fileContent.match(reg)[1]}` + '` ;export default data', "utf8");
+  fs.writeFileSync(`./data/${fileName}.js`, fileContent.match(reg)[1], "utf8");
 }
 fs.readdir('./html', (err, files) => {
   if (err) throw err
