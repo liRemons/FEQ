@@ -252,7 +252,7 @@ proxyTable: {
 
   - 文件目录如下：
 
-  ![image-20201031131913420](../assets/img/image-20201031131913420.png)
+  ![image-20201031131913420](https://remons.gitee.io/feq/summarize/assets//img/image-20201031131913420.png)
 
   - store代码
 

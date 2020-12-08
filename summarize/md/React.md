@@ -57,7 +57,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 #### 生命周期
 
-![image-20201121091647026](../assets/img/image-20201121091647026.png)
+![image-20201121091647026](https://remons.gitee.io/feq/summarize/assets/img/image-20201121091647026.png)
 
 - 挂载
 
