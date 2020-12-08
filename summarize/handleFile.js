@@ -2,9 +2,9 @@ let fs = require('fs')
 const readFile = (path, fileName) => {
   let fileContent = fs.readFileSync(path).toString('utf-8')
   let reg = /<body[^>]*>([\s\S]*)<\/body>/;
-  let content =fileContent.match(reg)[1]
-  content.replace('../assets/','https://remons.gitee.io/feq/summarize/assets/')
-  fs.writeFileSync(`./data/${fileName}.js`, fileContent.match(reg)[1], "utf8");
+  let content = fileContent.match(reg)[1]
+  content = content.replace('../assets/', 'https://remons.gitee.io/feq/summarize/assets/')
+  fs.writeFileSync(`./data/${fileName}.js`, content, "utf8");
 }
 fs.readdir('./html', (err, files) => {
   if (err) throw err
