@@ -429,6 +429,7 @@ proxyTable: {
   - View:视图
   - Controller:数据模型与View之间的桥梁层
 
+> mvvm 和 mvc 的区别并不大，都是一种设计思想，主要是mvc 中的controller 演变成mvvm中的viewModel，mvvm主要解决了mvc中的大量dom 操作，使页面渲染性能降低，加载数据减慢，影响用户体验。
 #### keep-alive
 
 缓存不活动的组件实例

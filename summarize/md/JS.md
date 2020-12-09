@@ -4,7 +4,7 @@
 
 - 数据类型	
   - 基本类型：undefined、NULL 、Number、Boolean、String
-  - 复杂类型：Object、Symbol
+  - 复杂类型：Object、Symbol（es6 新增）
 
 - 检测数据类型的方法
 
@@ -20,9 +20,20 @@
      console.log(typeof {a:1,b:2,c:3}); //object
      console.log(typeof function(){}); //function
      console.log(typeof Symbol()); //symbol
+     console.log(typeof BigInt('1'));//bigint(BigInt是ES2020新增内置对象)
      ```
 
   2. instanceof
+
+     ```javascript
+     function A(){}
+     function B(){}
+
+     var c = new A()
+
+     console.log(c instaceof A) //true   Object.getProtypeOf(c) === A.prototype
+     console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
+     ```
 
   3. constructor
 
@@ -390,7 +401,8 @@ es6之前没有块级作用域
 
 ##### let 和 const
 
-区别：let 和 var都是声明变量，let 有块级作用域，同一作用域下不允许重复声明；const声明常量，[不可改变](#堆栈的理解)
+区别：let 和 var都是声明变量，let 有块级作用域，同一作用域下不允许重复声明，var 可以；const声明常量，[不可改变](#堆栈的理解)
+let 和const 不存在变量提升，var声明变量存在变量提升；
 
 ##### 扩展运算符
 
@@ -556,6 +568,18 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 - promise
 
   - `then()`
+  
+  ```javascript
+  Promise.resolve().then(function success (res) {
+    throw new Error('error')
+  }, function fail1 (e) {
+    console.error('fail1: ', e)
+  })
+  .catch(function fail2 (e) {
+    console.error('fail2: ', e)
+  })
+  //then 可以接收两个参数，第一个是处理成功的函数，第二个是处理错误的函数。.catch 是 .then 第二个参数的简便写法，但是.then 的第二个处理错误的函数捕获不了第一个处理成功的函数抛出的错误，而后续的 .catch 可以捕获之前的错误。
+  ```
 
   - `catch()`
 
