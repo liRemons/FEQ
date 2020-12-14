@@ -533,9 +533,14 @@ import 'react-app-polyfill/stable';
 ##### 不同点：
 
 - react使用fiber算法，vue采用diff算法
+
 - react  jsx语法，vue 推荐html模板
+
 - react 是单向数据流，vue双向数据绑定
+
 - react  MVC，vue MVVM
+
+##### React-Hook和Vue compositionApi 的区别
 
 ### umi
 
