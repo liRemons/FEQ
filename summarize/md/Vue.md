@@ -49,7 +49,7 @@ Object.defineProperty(obj, 'name', {
 
 Vue2.0: 采用数据劫持结合发布者-订阅者模式的方式，通过`Object.defineProperty()`来劫持各个属性的`setter`，`getter`，在数据变动时发布消息给订阅者，触发相应的监听回调
 
-![image-20201216213741983](assets/img/image-20201216213741983.png)
+![image-20201216213741983](https://remons.gitee.io/feq/summarize/assets/img/image-20201216213741983.png)
 
 [实现双向数据绑定](https://www.cnblogs.com/canfoo/p/6891868.html)
 
@@ -264,7 +264,7 @@ proxyTable: {
 
   - 文件目录如下：
 
-  ![image-20201031131913420](https://remons.gitee.io/feq/summarize/assets//img/image-20201031131913420.png)
+  ![image-20201031131913420](https://remons.gitee.io/feq/summarize/assets/img/image-20201031131913420.png)
 
   - store代码
 
