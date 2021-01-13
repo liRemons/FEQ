@@ -368,6 +368,11 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
   mapDispatchToProps = (dispatch) => {
     return bindActionCreators(actionCreators, dispatch)
   }
+  
+  // 原理： 在原应用组件上包裹一层，使原来整个应用成为Provider的子组件,接收Redux的store作为props，通过context对象传递给子孙组件上的connect,是一个高阶组件
+  // 它真正连接 Redux 和 React，它包在我们的容器组件的外一层，它接收上面 Provider 提供的 store 里面的 state 和 dispatch，传给一个构造函数，返回一个对象，以属性形式传给我们的容器组件。
+  
+  
   ```
 
 #### react-thunk 
