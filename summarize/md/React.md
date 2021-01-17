@@ -352,7 +352,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
   )(TodoList)
   
   // mapStateToProps
-  // 是一个函数，它接受state作为参数，返回一个对象,第二个参数是容器组件的props对象，其发生变化，UI界面也会发生变化
+  // 是一个函数，它接受state作为参数，返回一个对象,第二个参数是容器组件的props对象，其发生变化，UI界面也会发生变化，当state发生变化或者容器组件的props发生变化时，都会触发此方法进行重新计算
   
   // mapDispatchToProps 
   // 建立 UI 组件的参数到store.dispatch方法的映射,可以是对象或者函数
@@ -372,7 +372,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
   // 原理： 在原应用组件上包裹一层，使原来整个应用成为Provider的子组件,接收Redux的store作为props，通过context对象传递给子孙组件上的connect,是一个高阶组件
   // 它真正连接 Redux 和 React，它包在我们的容器组件的外一层，它接收上面 Provider 提供的 store 里面的 state 和 dispatch，传给一个构造函数，返回一个对象，以属性形式传给我们的容器组件。
   
-  
+  // 参考链接 ： https://zhuanlan.zhihu.com/p/30671973
   ```
 
 #### react-thunk 
