@@ -461,6 +461,19 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
   useEffect(()  =>  {}, [依赖项])
   ```
 
+- `useCallback` 
+
+  ```javascript
+  // 性能优化
+  
+  ```
+
+  
+
+- `useMemo`
+
+- `useRef`
+
 #### react-saga
 
 #### 项目配置less
