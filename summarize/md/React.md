@@ -385,94 +385,220 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 #### Redux、Flux、Mobx区别
 
+#### React.memo
+
+- React.memo 为高阶组件，仅可在函数组件使用
+- 仅检查 props 变更，当context变化时仍然会重新渲染
+- 默认情况下其只会对复杂对象做浅层对比，如果想要控制对比过程，通过第二个参数传入来实现
+
+- 与` shouldComponentUpdate() `返回值相反
+
 #### react-Hook
 
-- `useState()` 
+##### `useState()` 
 
-  ```javascript
-  // useState()这个函数接受状态的初始值作为参数，该函数返回一个数组，数组的第一个成员是一个变量，指向状态的当前值。第二个成员是一个函数，用来更新状态，约定是set前缀加上状态的变量名。例如下面：
-  import React, { useState } from 'react';
-  function Example() {
-    // 声明一个叫 “count” 的 state 变量。
-    const [count, setCount] = useState(0);
-  
-    return (
-      <div>
-        <p>You clicked {count} times</p>
-        <button onClick={() => setCount(count + 1)}>
-          Click me
-        </button>
-      </div>
-    );
+```javascript
+// useState()这个函数接受状态的初始值作为参数，该函数返回一个数组，数组的第一个成员是一个变量，指向状态的当前值。第二个成员是一个函数，用来更新状态，约定是set前缀加上状态的变量名。例如下面：
+import React, { useState } from 'react';
+function Example() {
+  // 声明一个叫 “count” 的 state 变量。
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+##### `useContext()`
+
+```javascript
+// 组件之间共享状态 ，类似于context
+import React, { useState, useContext } from "react";
+const MyContext = React.createContext("");
+const Child = (props) => {
+  const { count, setCount } = useContext(MyContext);
+  return (
+    <>
+      count:{count}
+      <button onClick={() => setCount((count) => (count += 1))}> + </button>
+    </>
+  );
+};
+
+export default function LayOut() {
+  const [count, setCount] = useState(0);
+  return (
+    <MyContext.Provider value={{ count, setCount }}>
+      <Child></Child>
+    </MyContext.Provider>
+  );
+}
+```
+
+##### `useReducer()`
+
+```javascript
+import React, { useReducer } from "react";
+const initialState = { count: 0 };
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
   }
-  ```
+}
+ // 第三个参数，初始化数据
+const init = (state) => {
+   state.count ++
+   return state
+};
+function Counter() {
+   // 解构出来 dispatch 和 state ,和 Redux 类似
+  const [state, dispatch] = useReducer(reducer, initialState, init);
+  return (
+    <>
+     count:  {state.count} <br></br>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+    </>
+  );
+}
+export default function LayOut() {
+  return (
+    <>
+      <Counter></Counter>
+    </>
+  );
+}
+```
 
-- `useContext()`
+##### `useReducer`  和 `useContext` 结合使用
 
-  ```javascript
-  // 组件之间共享状态 ，类似于context
-  // 新建global.js
-  import React from 'react'
-  export const AppContext = React.createContext({});
-  // App.js
-  import React from "react";
-  import Navbar from "./Navbar";
-  import Messages from "./Messages";
-  import { AppContext } from "./global";
-  function App() {
-    return (
-      <AppContext.Provider
-        value={{
-          username: "superawesome",
-        }}
-      >
-        <Navbar />
-        <Messages />
-      </AppContext.Provider>
-    );
+```javascript
+// Count.js
+import React, { useReducer } from "react";
+export const MyContext = React.createContext("");
+export const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      return state;
   }
-  
-  export default App;
-  // Messages
-  import React, { useContext } from "react";
-  import { AppContext } from "./global";
-  const Messages = () => {
-    const { username } = useContext(AppContext);
-    return <h1>Messages :{username}</h1>;
-  };
-  
-  export default Messages;
-  // Navbar
-  import React, { useContext } from "react";
-  import { AppContext } from "./global";
-  const Navbar = () => {
-    const { username } = useContext(AppContext);
-    return <p>AwesomeSite :{username}</p>;
-  };
-  export default Navbar;
-  ```
+};
 
-- `useReducer()`
+export const Father = (props) => {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+  return (
+    <MyContext.Provider value={{ state, dispatch }}>
+      {props.children}
+    </MyContext.Provider>
+  );
+};
 
-- `useEffect()`
+// Layout.js
+import { Father } from "../Count";
+import Area from "../../pages/Area";
+import Buttons from "../../pages/Btn";
+export default function LayOut() {
+  return (
+    <Father>
+      <Area></Area>
+      <Buttons></Buttons>
+    </Father>
+  );
+}
+// Area.js
+import { useContext } from "react";
+import { MyContext } from "../../components/Count";
+export default function Area() {
+  const { state } = useContext(MyContext);
+  const { count } = state;
+  return <div>count:{count}</div>;
+}
+// Buttons.js
+import React, { useContext } from "react";
+import { MyContext } from "../../components/Count";
+const Buttons = () => {
+  const { dispatch } = useContext(MyContext);
 
-  ```javascript
-  // 接受两个参数，第一个参数是一个执行函数，第二个参数是依赖项，其变化时会执行函数
-  useEffect(()  =>  {}, [依赖项])
-  ```
+  return (
+    <React.Fragment>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+    </React.Fragment>
+  );
+};
 
-- `useCallback` 
+export default Buttons;
 
-  ```javascript
-  // 性能优化
-  
-  ```
+```
 
-  
+##### `useEffect()`
 
-- `useMemo`
+```javascript
+// 接受两个参数，第一个参数是一个执行函数，第二个参数是依赖项，其变化时会执行函数
+useEffect(()  =>  {}) // 如果不传入第二个参数，则会每次重新渲染都会执行
+useEffect(()  =>  {}, [依赖项]) // 如果第二个参数为空数组，则相当于componentDidMount ,如果传入依赖项，则会在依赖项变化时执行
+// 可以在函数内写return，则会在组价卸载的时候执行return的函数
+```
 
-- `useRef`
+##### `useCallback`  和  `useMemo`
+
+```javascript
+import { useState, useMemo, useCallback } from "react";
+const set = new Set();
+export default function LayOut() {
+  const [count, setCount] = useState(0);
+  const [val, setVal] = useState(0);
+
+  const countRender = useMemo(() => {
+    // 每次count改变触发
+    console.log("changeCount");
+    return count;
+  }, [count]);   
+  const valRender = useMemo(() => {
+    // 每次 val 改变触发
+    console.log("changeVal");
+    return val;
+  }, [val]);
+
+  const callback = useCallback(() => {
+    console.log("count");
+  }, [count]);
+  set.add(callback);
+  return (
+    <>
+      count:{count}
+      <br />
+      <button onClick={() => setCount(count + 1)}>count + </button>
+      ------------------------------------
+      <br />
+      <p>{set.size}</p>
+      val:{val} <br />
+      <button onClick={() => setVal(val + 1)}>val + </button>
+      <p> countRender: {countRender}</p>
+      <p> valRender: {valRender}</p>
+    </>
+  );
+}
+// useMemo 和 useCallback 类似，但 useMemo 返回值， useCallback 返回一个函数，都是为了避免不必要的更新
+```
+
+
+
+##### `useRef`
 
 #### react-saga
 
