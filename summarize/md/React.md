@@ -596,9 +596,30 @@ export default function LayOut() {
 // useMemo 和 useCallback 类似，但 useMemo 返回值， useCallback 返回一个函数，都是为了避免不必要的更新
 ```
 
-
-
 ##### `useRef`
+
+```javascript
+import React, { useRef, useState } from "react";
+export default function LayOut(params) {
+  const [count, setCount] = useState(0);
+  const useRefCount = useRef();
+  const createRef = React.createRef();
+  !useRefCount.current && (useRefCount.current = count);
+  !createRef.current && (createRef.current = count);
+  return (
+    <>
+      <p>useRefCount:{useRefCount.current}</p>  // 第一次变为1后，每次都是1
+      <p>createRef:{createRef.current}</p> // 每次 + 1
+      <button onClick={() => setCount((pre) => pre + 1)}>count + </button>
+    </>
+  );
+}
+// useRef 在 react hook 中的作用, 正如官网说的, 它像一个变量, 类似于 this , 它就像一个盒子, 你可以存放任何东西
+// createRef 每次渲染都会返回一个新的引用，而 useRef 每次都会返回相同的引用
+
+```
+
+
 
 #### react-saga
 
