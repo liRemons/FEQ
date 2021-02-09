@@ -1,6 +1,6 @@
-var fs = require("fs");
-
-fs.readdir("./html", function (err, files) {
+// 格式化html，去除style
+const fs = require("fs");
+fs.readdir("./html", (err, files) => {
   if (err) {
     console.log("目录不存在");
   } else {
@@ -18,5 +18,5 @@ const readFile = (path, name) => {
 };
 
 const writeFile = (data, name) => {
-  fs.writeFile("./html/" + name, data, "utf-8", (err) => {});
+  fs.writeFile("./html/" + name, data, "utf-8", (err) => { });
 };
