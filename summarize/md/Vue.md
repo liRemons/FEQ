@@ -140,6 +140,8 @@ routes: [{
 }]
 //路由重定向
 { path: '当前路由', redirect: '重定向目标路由'}
+// 对于vue-router 4.0版本，其匹配未找到的路由写法
+{ path: '/:pathMatch(.*)*', redirect: "/404" }
 //动态路由
 { path: '当前路由/:id', component: () => import('路径')}
 //地址栏可以通过 当前路由/123  匹配到当前的路由，页面中可以通过params获取id
@@ -582,5 +584,35 @@ to:渲染的节点：有点类似于是个插槽
 
 ------
 
-### Vite
+### Vue3.0 结合 Vuex 4.0
+
+```javascript
+// 使用方式没有太大差别 ,创建时，其他和vuex3.0一样
+import { createStore } from 'vuex';
+export default createStore({
+  modules: {
+    //所使用的模块
+  }
+})
+// 组件中
+import { useStore, mapState, mapGetters, mapMutations, mapActions } from "vuex";
+import { computed } from "vue";
+export default {
+  setup() {
+    const store = useStore();
+    // 普通用法
+    let detailCount = computed(() => store.state.detail.detailCount).value,
+      listCount = computed(() => store.state.list.listCount).value;
+    const addDetailCount = (val) =>
+      store.dispatch("detail/addDetailCount", val);
+    const addListCount = (val) => store.dispatch("list/addListCount", val);
+    // mapState使用， mapGetters, mapMutations, mapActions 也类似
+    // const listState = mapState("list", ["listCount"]);
+    // const detailState = mapState("detail", ["detailCount"]);
+    // let listCount = computed(listState.listCount.bind({ $store: store }));
+    // let detailCount = computed(detailState.listCount.bind({ $store: store }));
+    return {};
+  },
+};
+```
 
