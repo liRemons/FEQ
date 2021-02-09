@@ -1,4 +1,4 @@
-## WebPack
+## Webpack
 
 ```javascript
 // 以vue.config.js为例
