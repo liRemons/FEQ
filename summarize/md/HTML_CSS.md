@@ -1,5 +1,7 @@
 ## HTML 和 CSS 总结
 
+[个人网站持续更新](http://remons.gitee.io/)
+
 #### 关于盒模型的理解
 
 怪异模式（IE）：`box-sizing:border-box;` 

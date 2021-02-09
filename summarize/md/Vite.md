@@ -1,6 +1,17 @@
 ## Vite
 
+[个人网站持续更新](http://remons.gitee.io/)
+
 [官网](https://vitejs.dev/)
+
+#### 创建应用
+
+- `npm init @vitejs/app `   or   `yarn create @vitejs/app`
+- `npm init @vitejs/app my-vue-app --template vue`   `npm 6+`
+- `npm init @vitejs/app my-vue-app -- --template vue`  `npm 7+`
+- 根据提示进入文件夹，`npm i`
+
+#### vite配置
 
 ```javascript
 // vite.config.js   2.0 beta （正式版本可能有变化）

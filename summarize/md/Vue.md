@@ -1,5 +1,7 @@
 ## Vue
 
+[个人网站持续更新](http://remons.gitee.io/)
+
 ### Vue2.0和Vue3.0的变化
 
 #### Vue2.0中Object.defineProperty 和 Vue3.0中proxy

@@ -1,5 +1,7 @@
 ## TypeScript
 
+[个人网站持续更新](http://remons.gitee.io/)
+
 #### 数据类型
 
 - `boolean`

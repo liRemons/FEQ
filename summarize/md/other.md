@@ -1,5 +1,7 @@
 ## 其他
 
+[个人网站持续更新](http://remons.gitee.io/)
+
 ### 性能优化
 
 #### HTML 和 CSS

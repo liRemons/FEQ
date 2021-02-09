@@ -1,5 +1,7 @@
 ## Webpack
 
+[个人网站持续更新](http://remons.gitee.io/)
+
 ```javascript
 // 以vue.config.js为例
 const path = require('path')
