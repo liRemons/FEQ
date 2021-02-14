@@ -292,8 +292,13 @@ table.md-table td {
   cursor: pointer;
   right: 0;
 }
-.copy_code:hover::before{
+.CodeMirror:hover::before{
   content: '复制代码';
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  right: 0;
+  cursor: pointer;
   color: #546E7A;
 }
 .CodeMirror-placeholder {
