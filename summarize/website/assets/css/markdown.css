@@ -1262,8 +1262,8 @@ tt {
   color: rgba(255, 83, 112, 1);
 }
 .cm-s-inner .cm-error {
-  color: rgba(255, 255, 255, 1);
-  background-color: #ec5f67;
+  /* color: rgba(255, 255, 255, 1);
+  background-color: #ec5f67; */
 }
 .cm-s-inner .CodeMirror-matchingbracket {
   text-decoration: underline;

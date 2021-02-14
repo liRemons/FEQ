@@ -17,7 +17,7 @@
 
 异步更新state，将短时间内的多个setState合并成一个,将其放入到队列中，一起更新，节约性能
 
-setTimeout，setInterval 绕过React添加的事件处理，同步更新
+setTimeout，setInterval ,Promise 绕过React添加的事件处理，同步更新
 
 问题:`this.state.a='11'` 为何不会更新
 
@@ -31,7 +31,7 @@ React 的合成事件利用事件冒泡的形式冒泡到document，将事件封
 
 Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。例：
 
-```html
+```jsx
 <form onSubmit={this.handleSubmit}>
     <input type='text' ref={(input) => this.input = input} />
 </form>
@@ -56,7 +56,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 - 路由传参和动态路由
 
-  ```html
+  ```jsx
   <!-- 传入一个动态路由/:id -->
    <Route path = "/shopcar/:id" component ={ Shopcar } />   
   <!-- to属性增加pathname和search -->
@@ -179,7 +179,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 - 第一种写法
 
-  ```javascript
+  ```jsx
   //App.js
   import React from 'react';
   import Son from './son';//引入子组件
@@ -234,7 +234,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 - 第二种写法
 
-  ```javascript
+  ```jsx
   // 新建global.js
   import React from 'react'
   export const ThemeContext = React.createContext('light');
@@ -285,23 +285,23 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `action`
 
-  ```javascript
+  ```jsx
   // 用户通过导出的 ActiconCreators 触发action的方法，dispatch 将接收的数据给 reducer
   // 如果需要异步，引入中间件 redux-thunk 或 redux-saga
   changeLoading(data) {
      // return dispatch =>  //异步 
-          const action = {
-              type: type.LOADING,
-              payload: data
-          }
-     0.0.     store.dispatch(action)
+      const action = {
+          type: type.LOADING,
+          payload: data
+      }
+      store.dispatch(action)
      // }  //异步
   }
   ```
 
 - `reducer`
 
-  ```javascript
+  ```jsx
   // 接收 action 传递的值，并返回一个新的 state ，直接改变state并不会更新，一般会这么写
   const reducer = (previousState = state, action) => {
     let newState = {
@@ -322,7 +322,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `applyMiddleware`
 
-  ```javascript
+  ```jsx
   // 顾名思义，middleware是中间件的意思，那么 applyMiddleware 就是redux 的方法，用来将所有中间件组成一个数组，依次执行
   import { createStore, applyMiddleware } from 'redux'
   import thunk from 'redux-thunk'
@@ -333,7 +333,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `combineReducers`
 
-  ```javascript
+  ```jsx
   // 模块化，将多个 reducer 合成一个
   import { combineReducers } from 'redux'
   import Layout from './layout/reducer'
@@ -345,7 +345,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `connect`  从 UI 组件生成容器组件
 
-  ```javascript
+  ```jsx
   // 应用 API
   import { connect } from 'react-redux'
   const VisibleTodoList = connect(
@@ -399,7 +399,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 ##### `useState()` 
 
-```javascript
+```jsx
 // useState()这个函数接受状态的初始值作为参数，该函数返回一个数组，数组的第一个成员是一个变量，指向状态的当前值。第二个成员是一个函数，用来更新状态，约定是set前缀加上状态的变量名。例如下面：
 import React, { useState } from 'react';
 function Example() {
@@ -419,7 +419,7 @@ function Example() {
 
 ##### `useContext()`
 
-```javascript
+```jsx
 // 组件之间共享状态 ，类似于context
 import React, { useState, useContext } from "react";
 const MyContext = React.createContext("");
@@ -445,7 +445,7 @@ export default function LayOut() {
 
 ##### `useReducer()`
 
-```javascript
+```jsx
 import React, { useReducer } from "react";
 const initialState = { count: 0 };
 function reducer(state, action) {
@@ -485,7 +485,7 @@ export default function LayOut() {
 
 ##### `useReducer`  和 `useContext` 结合使用
 
-```javascript
+```jsx
 // Count.js
 import React, { useReducer } from "react";
 export const MyContext = React.createContext("");
@@ -549,7 +549,7 @@ export default Buttons;
 
 ##### `useEffect()`
 
-```javascript
+```jsx
 // 接受两个参数，第一个参数是一个执行函数，第二个参数是依赖项，其变化时会执行函数
 useEffect(()  =>  {}) // 如果不传入第二个参数，则会每次重新渲染都会执行
 useEffect(()  =>  {}, [依赖项]) // 如果第二个参数为空数组，则相当于componentDidMount ,如果传入依赖项，则会在依赖项变化时执行
@@ -558,7 +558,7 @@ useEffect(()  =>  {}, [依赖项]) // 如果第二个参数为空数组，则相
 
 ##### `useCallback`  和  `useMemo`
 
-```javascript
+```jsx
 import { useState, useMemo, useCallback } from "react";
 const set = new Set();
 export default function LayOut() {
@@ -600,7 +600,7 @@ export default function LayOut() {
 
 ##### `useRef`
 
-```javascript
+```jsx
 import React, { useRef, useState } from "react";
 export default function LayOut(params) {
   const [count, setCount] = useState(0);
@@ -629,7 +629,7 @@ export default function LayOut(params) {
 
 1. `webpack.config.js`
 
-   ```javascript
+   ```jsx
    // 1 . 
    const lessRegex = /\.less$/;
    const lessModuleRegex = /\.module\.less$/;
@@ -674,7 +674,7 @@ export default function LayOut(params) {
 
 #### 路径别名
 
-```javascript
+```jsx
 // webpack.config.js
 // 1 .
 const pathResolve = (url) => {
@@ -687,7 +687,7 @@ const pathResolve = (url) => {
 
 #### 解决兼容性
 
-```javascript
+```jsx
 // 兼容IE浏览器
 // npm i react-app-polyfill --save
 // 入口文件中顶部

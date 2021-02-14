@@ -30,17 +30,15 @@
      ```javascript
      function A(){}
      function B(){}
-
-     var c = new A()
-
+var c = new A()
      console.log(c instaceof A) //true   Object.getProtypeOf(c) === A.prototype
-     console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
+console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
      ```
-
+     
   3. constructor
 
      ```javascript
-     let num = 123;
+   let num = 123;
      console.log(num.constructor); //ƒ Number() { [native code] }
      console.log(''.constructor); //ƒ String() { [native code] }
      console.log(true.constructor); //ƒ Boolean() { [native code] }
@@ -50,14 +48,13 @@
      console.log(new Date().constructor); //ƒ Date() { [native code] }
      console.log(new RegExp().constructor); //ƒ RegExp() { [native code] }
      console.log(Symbol().constructor); //ƒ Symbol() { [native code] }
-     
      ```
-
+     
   4. Object.prototype.toString.call().slice(8,-1)
-
-     ```javascript
+  
+   ```javascript
      const checkType = (val) => {
-         let type = Object.prototype.toString.call(val).slice(8, -1);
+       let type = Object.prototype.toString.call(val).slice(8, -1);
          console.log(type)
      }
      checkType('')//String
