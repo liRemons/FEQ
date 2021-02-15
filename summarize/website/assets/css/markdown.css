@@ -116,6 +116,7 @@ body.typora-export {
   #write {
     padding-left: 15px !important;
     padding-right: 15px !important;
+    background: transparent;
   }
   .CodeMirror-sizer {
     margin-left: 0px !important;
@@ -1071,6 +1072,7 @@ body {
   max-width: 60em;
   margin: 0 auto;
   padding: 20px 30px 50px;
+  background: rgba(255, 255, 255, 0.445);
 }
 h1,
 h2,
