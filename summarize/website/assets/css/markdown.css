@@ -821,6 +821,7 @@ mark .md-meta {
 }
 .cm-s-inner .cm-comment,
 .cm-s-inner.cm-comment {
+  white-space: break-spaces;
   color: rgb(170, 85, 0);
 }
 .cm-s-inner .cm-string-2 {
@@ -1147,7 +1148,7 @@ table td {
 blockquote {
   border-left: 5px solid #ddd;
   padding-left: 0.5em;
-  font-family: Source Han Serif SC, serif;
+  /* font-family: Source Han Serif SC, serif; */
   color: #555;
 }
 blockquote blockquote {
