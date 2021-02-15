@@ -597,7 +597,7 @@ code,
 pre,
 samp,
 tt {
-  font-family: var(--monospace);
+  /* font-family: var(--monospace); */
 }
 kbd {
   margin: 0px 0.1em;
