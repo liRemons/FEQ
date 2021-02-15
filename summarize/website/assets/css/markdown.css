@@ -307,6 +307,8 @@ table.md-table td {
 }
 .CodeMirror pre {
   padding: 0px 4px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px #040404;
 }
 .CodeMirror-lines {
   padding: 0px;
