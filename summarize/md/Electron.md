@@ -1,5 +1,3 @@
-# Electron
-
 [个人网站持续更新](http://remons.gitee.io/)
 
 #### 主进程和渲染进程

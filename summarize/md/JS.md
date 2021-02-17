@@ -1,5 +1,3 @@
-## JS（非框架）
-
 [个人网站持续更新](http://remons.gitee.io/)
 
 #### 数据的类型有哪些
@@ -68,10 +66,10 @@ console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
      checkType(1)//Number
      checkType(Symbol())//Symbol
      checkType(true)//Boolean
-     ```
+   ```
+  
      
-     
-     
+  
 
 #### 堆栈的理解
 
@@ -418,13 +416,23 @@ symbol（表示独一无二的值）
 - symbol函数前不能使用new，否则会报错，原因在于symbol 是一个原始类型的值，不是对象。
 ##### Set和Map数据结构
 
-- Set数据结构
+- `Set` 
   - 成员值唯一，不会重复
   - 使用`new Set()`创建一个Set数据结构
   - 不会发生数据类型转换
--  Map 数据结构
+- `WeakSet`
+  - `WeakSet` 结构与 `Set` 类似，也是不重复的值的集合
+-  `Map` 
   - 解决JS对象只能用字符串作为键的限制
   - get 和set 方法
+- `WeakMap` 
+  - `WeakMap`结构与`Map`结构类似，也是用于生成键值对的集合
+- `WeakSet `与 `Set `的区别
+  - `WeakSet `的成员只能是对象，而不能是其他类型的值
+  - `WeakSet `中的对象都是弱引用
+- `WeakMap`与`Map`的区别
+  - `WeakMap`只接受对象作为键名（`null`除外），不接受其他类型的值作为键名
+  - `WeakMap`的键名所指向的对象，不计入垃圾回收机制
 
 ##### 箭头函数
 

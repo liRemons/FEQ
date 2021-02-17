@@ -2,8 +2,19 @@
 
 [个人网站持续更新](http://remons.gitee.io/)
 
+#### webpack 动态加载的原理
+
+#### webpack 热更新的原理
+
+#### babel
+
+#### plugins
+
+#### chunk
+
+#### 打包优化、分包
+
 ```javascript
-// 以vue.config.js为例
 const path = require('path')
 module.exports = {
   // 入口文件

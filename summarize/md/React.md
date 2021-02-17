@@ -8,20 +8,28 @@
 
 在ES6中，在子类的 `constructor` 中必须先调用 `super` 才能引用 `this` 。
 
-#### setState
+#### `setState (partialState, callback ) `
 
 有两个参数
 
 - 对象键值对
 - 函数：可以获取最新值
 
-异步更新state，将短时间内的多个setState合并成一个,将其放入到队列中，一起更新，节约性能
+在合成事件和钩子函数中是“异步”的，在原生事件和 setTimeout 中都是同步的。
 
-setTimeout，setInterval ,Promise 绕过React添加的事件处理，同步更新
+setState的“异步”并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，形式了所谓的“异步”，当然可以通过第二个参数拿到更新后的结果。
 
-问题:`this.state.a='11'` 为何不会更新
+setState 的批量更新优化也是建立在“异步”（合成事件、钩子函数）之上的，在原生事件和setTimeout 中不会批量更新，在“异步”中如果对同一个值进行多次 setState ， setState 的批量更新策略会对其进行覆盖，取最后一次的执行，如果是同时 setState 多个不同的值，在更新时会对其进行合并批量更新。
 
-也可以使用一个函数作为参数，上一个 state 作为函数第一个参数，此次更新的 props 函数第二个参数
+问题：调用 setState 之后发生了什么
+
+- 在 `setState` 的时候，React 会为当前节点创建一个 `updateQueue` 的更新列队。
+- 然后会触发 `reconciliation` 过程，在这个过程中，会使用名为 Fiber 的调度算法，开始生成新的 Fiber 树， Fiber 算法的最大特点是可以做到异步可中断的执行。
+- 然后 `React Scheduler` 会根据优先级高低，先执行优先级高的节点，具体是执行 `doWork` 方法。
+- 在 `doWork` 方法中，React 会执行一遍 `updateQueue` 中的方法，以获得新的节点。然后对比新旧节点，为老节点打上 更新、插入、替换 等 Tag。
+- 当前节点 `doWork` 完成后，会执行 `performUnitOfWork` 方法获得新节点，然后再重复上面的过程。
+- 当所有节点都 `doWork` 完成后，会触发 `commitRoot` 方法，React 进入 commit 阶段。
+- 在 commit 阶段中，React 会根据前面为各个节点打的 Tag，一次性更新整个 dom 元素。
 
 #### 原生事件和合成事件
 
@@ -80,7 +88,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
   - `static getDerivedStateFromProps(props, state)`
 
-    > 会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用
+    > 会在调用 render 方法之前调用，并且在初始挂载及后续更新时(挂载时，接收到新的props，调用了setState和forceUpdate)都会被调用
     >
     > 应返回一个对象来更新 state，如果返回 `null` 则不更新任何内容。
 
@@ -140,6 +148,10 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 #### 高阶组件（HOC）
 
 高阶组件是一个函数，接收一个组件作为参数，并返回一个组件，例如 `connect` 、 `withRouter`
+
+### `suspense` 组件
+
+Suspense 让组件“等待”某个异步操作，直到该异步操作结束即可渲染
 
 #### 组件通信
 
