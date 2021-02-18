@@ -4,7 +4,7 @@
 
 在ES6中，在子类的 `constructor` 中必须先调用 `super` 才能引用 `this` 。
 
-#### `setState (partialState, callback ) `
+#### setState (partialState, callback )
 
 有两个参数
 
@@ -145,7 +145,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 高阶组件是一个函数，接收一个组件作为参数，并返回一个组件，例如 `connect` 、 `withRouter`
 
-### `suspense` 组件
+#### `suspense` 组件
 
 Suspense 让组件“等待”某个异步操作，直到该异步操作结束即可渲染
 

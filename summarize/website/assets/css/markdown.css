@@ -292,7 +292,7 @@ table.md-table td {
   padding: 0px 4px;
 }
 .md-fences {
-  border-radius: 5px;
+ 
   box-shadow: rgb(0 0 0 / 55%) 0px 2px 10px;
   position: relative;
 }
@@ -1088,7 +1088,7 @@ body {
   color: #555;
 }
 #write {
-  max-width: 60em;
+  max-width: 80em;
   margin: 0 auto;
   padding: 20px 30px 50px;
   background: rgba(255, 255, 255, 0.445);
@@ -1185,6 +1185,7 @@ tt {
   border-radius: 2px;
 }
 .md-fences {
+  border-radius: 5px;
   margin: 15px auto;
   padding: 2.4em 1em 0.7em;
   text-shadow: none;
