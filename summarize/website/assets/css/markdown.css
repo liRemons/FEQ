@@ -284,25 +284,7 @@ table.md-table td {
 .CodeMirror {
   text-align: left;
 }
-.copy_code {
-  position: absolute;
-  top: -10px;
-  width: 64px;
-  height: 20px;
-  z-index: 10;
-  cursor: pointer;
-  right: 0;
-}
-.CodeMirror:hover::before {
-  content: "复制代码";
-  position: absolute;
-  top: -10px;
-  z-index: 9;
-  right: 0;
-  font-size: 12px;
-  cursor: pointer;
-  color: #546e7a;
-}
+
 .CodeMirror-placeholder {
   opacity: 0.3;
 }
@@ -321,11 +303,30 @@ table.md-table td {
   z-index: 11;
   height: 15px;
   content: '';
- 
   background: url('https://remons.gitee.io/feq/summarize/website/assets/img/code_icon.png') no-repeat;
   background-size: contain;
 }
-.CodeMirror-lines {
+
+.copy_code {
+  position: absolute;
+  top: 5px;
+  width: 64px;
+  height: 20px;
+  z-index: 10;
+  cursor: pointer;
+  right: 5px;
+}
+.md-fences:hover::after {
+  content: "复制代码";
+  position: absolute;
+  top: 5px;
+  z-index: 9;
+  right: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #546e7a;
+}
+.md-fences-lines {
   padding: 0px;
 }
 div.hr:focus {
