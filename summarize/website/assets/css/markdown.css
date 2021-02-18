@@ -296,14 +296,15 @@ table.md-table td {
   box-shadow: rgb(0 0 0 / 55%) 0px 2px 10px;
   position: relative;
 }
-.md-fences::before{
+.md-fences::before {
   position: absolute;
-  width: 40px;
-  top:4px;
+  width: 50px;
+  top: 8px;
   z-index: 11;
-  height: 15px;
-  content: '';
-  background: url('https://remons.gitee.io/feq/summarize/website/assets/img/code_icon.png') no-repeat;
+  height: 16px;
+  content: "";
+  background: url("https://remons.gitee.io/feq/summarize/website/assets/img/code_icon.png")
+    no-repeat;
   background-size: contain;
 }
 
@@ -1184,7 +1185,7 @@ tt {
 }
 .md-fences {
   margin: 15px auto;
-  padding: 1.6em 1em 0.7em;
+  padding: 2.4em 1em 0.7em;
   text-shadow: none;
 }
 .cm-s-inner.CodeMirror {
