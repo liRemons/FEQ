@@ -311,6 +311,18 @@ table.md-table td {
 .md-fences {
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 55%) 0px 2px 10px;
+  position: relative;
+}
+.md-fences::before{
+  position: absolute;
+  width: 50px;
+  top:4px;
+  z-index: 11;
+  height: 15px;
+  content: '';
+ 
+  background: url('https://remons.gitee.io/feq/summarize/website/assets/img/code_icon.png') no-repeat;
+  background-size: contain;
 }
 .CodeMirror-lines {
   padding: 0px;
@@ -1170,7 +1182,7 @@ tt {
 }
 .md-fences {
   margin: 15px auto;
-  padding: 0.7em 1em;
+  padding: 1.5em 1em 0.7rem;
   text-shadow: none;
 }
 .cm-s-inner.CodeMirror {
