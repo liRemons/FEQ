@@ -1,5 +1,3 @@
-[个人网站持续更新](http://remons.gitee.io/)
-
 ### 性能优化
 
 #### HTML 和 CSS
@@ -134,3 +132,11 @@
 #### 1px边框
 
 #### `input`的`placeholder`偏上
+
+```css
+{
+  line-height: normal;
+}
+```
+
+[个人网站持续更新](http://remons.gitee.io/)

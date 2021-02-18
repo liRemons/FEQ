@@ -1,7 +1,3 @@
-## TypeScript
-
-[个人网站持续更新](http://remons.gitee.io/)
-
 #### 数据类型
 
 - `boolean`
@@ -193,3 +189,5 @@ console.log(getInfo('Remons', 20))
 主要作用是创建逻辑可复用的组件。
 
 泛型可以作用在函数、类、接口上。
+
+[个人网站持续更新](http://remons.gitee.io/)

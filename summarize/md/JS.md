@@ -1,5 +1,3 @@
-[个人网站持续更新](http://remons.gitee.io/)
-
 #### 数据的类型有哪些
 
 - 数据类型	
@@ -936,4 +934,4 @@ const deepCopy = (data) => {
   document.documentElement.clientHeight
   ```
 
-
+[个人网站持续更新](http://remons.gitee.io/)

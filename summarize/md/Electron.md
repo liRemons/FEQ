@@ -1,5 +1,3 @@
-[个人网站持续更新](http://remons.gitee.io/)
-
 #### 主进程和渲染进程
 
 在桌面端应用中，进程分为主进程和渲染进程。
@@ -36,10 +34,15 @@
 项目根目录新建`install.nsh`文件：
 
 ```nsis
-
+!macro preInit
+      SetRegView 64
+      WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\Users\Administrator\AppData\szlims_winapp"
+      WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\Users\Administrator\AppData\szlims_winapp"
+      SetRegView 32
+      WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\Users\Administrator\AppData\szlims_winapp"
+      WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\Users\Administrator\AppData\szlims_winapp"
+!macroend
 ```
-
-`!macro preInit SetRegView 64 WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\Users\Administrator\AppData\szlims_winapp" WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\Users\Administrator\AppData\szlims_winapp" SetRegView 32 WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\Users\Administrator\AppData\szlims_winapp" WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\Users\Administrator\AppData\szlims_winapp" !macroend`
 
 package.json 增加 `nsis:{"include": "./install.nsh"}`
 
@@ -108,3 +111,4 @@ mainWindow.webContents.session.on(
 
 [Electron官方文档](http://www.electronjs.org/)
 
+[个人网站持续更新](http://remons.gitee.io/)

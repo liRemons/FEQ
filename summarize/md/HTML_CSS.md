@@ -1,5 +1,3 @@
-[个人网站持续更新](http://remons.gitee.io/)
-
 #### 关于盒模型的理解
 
 怪异模式（IE）：`box-sizing:border-box;` 
@@ -207,3 +205,4 @@ BFC的区域不会与float box重叠
 
 
 
+[个人网站持续更新](http://remons.gitee.io/)

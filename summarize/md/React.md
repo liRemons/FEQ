@@ -1,7 +1,3 @@
-## React
-
-[个人网站持续更新](http://remons.gitee.io/)
-
 ### React 16
 
 #### super
@@ -648,35 +644,35 @@ export default function LayOut(params) {
    
    // 2 .getStyleLoaders 函数，不要忘了传参lessOptions
    {
-       loader: require.resolve('less-loader'),
-       options: lessOptions,
+     loader: require.resolve('less-loader'),
+     options: lessOptions,
    },
        
    // 3. 
    {
-       test: lessRegex, 
-           exclude: lessModuleRegex, 
-               use: getStyleLoaders( 
-                   {
-                       importLoaders: 1, 
-                       sourceMap: isEnvProduction && shouldUseSourceMap, 
-                   }, 
-                   'less-loader' 
-               ), 
-                   sideEffects: true, 
+     test: lessRegex, 
+       exclude: lessModuleRegex, 
+         use: getStyleLoaders( 
+           {
+             importLoaders: 1, 
+             sourceMap: isEnvProduction && shouldUseSourceMap, 
+           }, 
+           'less-loader' 
+         ), 
+      sideEffects: true, 
    }, 
-       {
-           test: lessModuleRegex, 
-               use: getStyleLoaders(
-                   {
-                       importLoaders: 1, 
-                       sourceMap: isEnvProduction && shouldUseSourceMap,
-                       module: true,
-                       getLocalIdent: getCSSModuleLocalIdent
-                   },
-                   'less-loader'
-               ),
-       },
+   {
+     test: lessModuleRegex, 
+       use: getStyleLoaders(
+         {
+           importLoaders: 1, 
+           sourceMap: isEnvProduction && shouldUseSourceMap,
+           module: true,
+           getLocalIdent: getCSSModuleLocalIdent
+         },
+         'less-loader'
+       ),
+   },
    
    ```
 
@@ -731,3 +727,4 @@ import 'react-app-polyfill/stable';
 
 ### dva
 
+[个人网站持续更新](http://remons.gitee.io/)

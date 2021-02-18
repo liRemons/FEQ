@@ -1,10 +1,8 @@
-## Webpack
-
-[个人网站持续更新](http://remons.gitee.io/)
-
 #### webpack 动态加载的原理
 
 #### webpack 热更新的原理
+
+webpack-dev-server 启动后，使用`express`框架启动本地`server`，让浏览器可以请求本地的静态资源，浏览器端和服务端由websocket进行长连接，会监听本地文件的变化，文件变化后进行编译，通知浏览器进行更新
 
 #### babel
 
@@ -59,3 +57,4 @@ module.exports = {
 }
 ```
 
+[个人网站持续更新](http://remons.gitee.io/)
