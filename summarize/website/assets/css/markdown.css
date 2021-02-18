@@ -286,8 +286,8 @@ table.md-table td {
 }
 .copy_code {
   position: absolute;
-  top: 0;
-  width: 60px;
+  top: -10px;
+  width: 64px;
   height: 20px;
   z-index: 10;
   cursor: pointer;
@@ -296,9 +296,10 @@ table.md-table td {
 .CodeMirror:hover::before {
   content: "复制代码";
   position: absolute;
-  top: -8px;
+  top: -10px;
   z-index: 9;
   right: 0;
+  font-size: 12px;
   cursor: pointer;
   color: #546e7a;
 }
