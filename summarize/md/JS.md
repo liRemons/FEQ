@@ -48,10 +48,10 @@ console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
      
   4. Object.prototype.toString.call().slice(8,-1)
   
-   ```javascript
+     ```javascript
      const checkType = (val) => {
        let type = Object.prototype.toString.call(val).slice(8, -1);
-         console.log(type)
+       console.log(type)
      }
      checkType('')//String
      checkType(null)//Null
@@ -64,7 +64,9 @@ console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
      checkType(1)//Number
      checkType(Symbol())//Symbol
      checkType(true)//Boolean
-   ```
+     ```
+  
+     
   
      
   
