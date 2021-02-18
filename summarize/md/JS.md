@@ -934,4 +934,10 @@ const deepCopy = (data) => {
   document.documentElement.clientHeight
   ```
 
+#### 一些JS新特性
+
+##### `IntersectionObserver`
+
+##### `scrollIntoView`
+
 [个人网站持续更新](http://remons.gitee.io/)

@@ -24,7 +24,6 @@
 
 - 唯一 id 作为 key
 
-  
 
 #### Vue
 
@@ -123,7 +122,30 @@
 
 #### 300ms延迟
 
+```javascript
+import Fastclick from "fastclick";
+FastClick.attach(document.body);
+```
+
 #### IOS `fixed`定位失效
+
+```css
+/** 使用 flex + absolute **/
+.box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.nav {
+  background: rgba(255, 255, 255, 0.363);
+}
+.main {
+  flex: 1;
+  overflow-y: auto;
+}
+```
 
 #### 软键盘弹起遮挡
 
@@ -134,9 +156,11 @@
 #### `input`的`placeholder`偏上
 
 ```css
-{
-  line-height: normal;
+input {
+    line-height: normal;
 }
 ```
+
+
 
 [个人网站持续更新](http://remons.gitee.io/)

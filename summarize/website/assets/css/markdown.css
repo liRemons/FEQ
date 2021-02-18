@@ -296,7 +296,7 @@ table.md-table td {
 .CodeMirror:hover::before {
   content: "复制代码";
   position: absolute;
-  top: 0;
+  top: -8px;
   z-index: 9;
   right: 0;
   cursor: pointer;
@@ -315,7 +315,7 @@ table.md-table td {
 }
 .md-fences::before{
   position: absolute;
-  width: 50px;
+  width: 40px;
   top:4px;
   z-index: 11;
   height: 15px;
@@ -1182,7 +1182,7 @@ tt {
 }
 .md-fences {
   margin: 15px auto;
-  padding: 1.5em 1em 0.7rem;
+  padding: 1.6em 1em 0.7em;
   text-shadow: none;
 }
 .cm-s-inner.CodeMirror {
