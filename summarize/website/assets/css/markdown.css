@@ -292,7 +292,6 @@ table.md-table td {
   padding: 0px 4px;
 }
 .md-fences {
- 
   box-shadow: rgb(0 0 0 / 55%) 0px 2px 10px;
   position: relative;
 }
@@ -1091,7 +1090,7 @@ body {
   max-width: 80em;
   margin: 0 auto;
   padding: 20px 30px 50px;
-  background: rgba(255, 255, 255, 0.445);
+  background: rgba(255, 255, 255, 0.7);
 }
 h1,
 h2,
@@ -1457,10 +1456,9 @@ footer {
   white-space: normal;
 }
 
-
-img{
+img {
   cursor: zoom-in;
 }
-#remons-view-img{
+#remons-view-img {
   cursor: zoom-out;
 }
