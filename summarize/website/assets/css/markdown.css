@@ -1461,6 +1461,6 @@ footer {
 img{
   cursor: zoom-in;
 }
-.remons-view-img{
+#remons-view-img{
   cursor: zoom-out;
 }
