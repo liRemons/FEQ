@@ -1090,7 +1090,7 @@ body {
   max-width: 80em;
   margin: 0 auto;
   padding: 20px 30px 50px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
 }
 h1,
 h2,
@@ -1456,7 +1456,7 @@ footer {
   white-space: normal;
 }
 
-img {
+#write img {
   cursor: zoom-in;
 }
 #remons-view-img {
