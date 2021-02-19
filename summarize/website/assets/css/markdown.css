@@ -1456,3 +1456,11 @@ footer {
 .footnote-line {
   white-space: normal;
 }
+
+
+img{
+  cursor: zoom-in;
+}
+.remons-view-img{
+  cursor: zoom-out;
+}
