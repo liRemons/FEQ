@@ -8,7 +8,7 @@
 
 - `array`
 
-  ```javascript
+  ```typescript
   // 两种创建方式
   // 1. 
   let list: number[] = [1, 2, 3];
@@ -18,7 +18,7 @@
 
 - `tuple`
 
-  ```javascript
+  ```typescript
   // 元组:表示一个已知元素数量和类型的数组，各元素的类型不必相同
   let x: [string, number];
   x = ['hello', 10]; // OK
@@ -27,7 +27,7 @@
 
 - `enum`
 
-  ```javascript
+  ```typescript
   // 1.
   enum Color {Red, Green, Blue}
   let c: Color = Color.Green;  // 1
@@ -42,7 +42,7 @@
 
 - `void` 
 
-  ```javascript
+  ```typescript
   // 没有返回值
   function warnUser(): void {
       console.log("This is my warning message");
@@ -61,7 +61,7 @@
 
 - 普通接口
 
-  ```javascript
+  ```typescript
   interface Person {
     readonly name: string, // 只读属性
     age?: number,  // 可选
@@ -83,7 +83,7 @@
 
 - 类的接口及接口继承
 
-  ```javascript
+  ```typescript
   interface fatherInterface {
     name: string,
     eat(str?: string): void
@@ -121,7 +121,7 @@
 
 #### 函数
 
-```javascript
+```typescript
 // 不同于js ,  => 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。
 let mySum: (x: number, y: number) => number = function (x: number, y: number): number {
     return x + y;
@@ -147,7 +147,7 @@ console.log(getInfo('Remons', 20))
 
 - `private`：私有的，子类或类外部无法访问
 
-  ```javascript
+  ```typescript
   class Animal {
       private name: string;
       constructor(theName: string) { this.name = theName; }
@@ -163,7 +163,7 @@ console.log(getInfo('Remons', 20))
 
 - `abstract`：抽象类
 
-  ```javascript
+  ```typescript
   abstract class Animal {
     public name;
     public constructor(name) {

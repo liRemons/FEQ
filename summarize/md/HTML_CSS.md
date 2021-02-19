@@ -14,6 +14,17 @@
 
 <font size="2" face="arial" color="#666">【**举例**】：header, nav, article, sections, footer, main, aside......</font>
 
+#### 多行文本溢出
+
+```css
+overflow : hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+/* 如果考虑兼容问题，使用伪元素添加省略号 */
+```
+
 #### 水平垂直居中
 
 <font size="2" face="arial" color="#666">【**注**】：box相对于body垂直居中</font>
@@ -95,7 +106,7 @@ html,body{
 
 4.  JS获取元素进行处理
 
-   
+  
 
 #### display的属性
 
@@ -149,7 +160,7 @@ amfe-flexible：移动端适配解决方案
 
 #### BFC
 
-直译为块级格式化上下文
+块级格式化上下文
 
 内部的box会在垂直方向一个接一个的放置，但相邻的box  margin会重叠
 

@@ -122,7 +122,7 @@
 
 #### 300ms延迟
 
-```javascript
+```js
 import Fastclick from "fastclick";
 FastClick.attach(document.body);
 ```
@@ -149,9 +149,58 @@ FastClick.attach(document.body);
 
 #### 软键盘弹起遮挡
 
+封装公共方法，使用 JS 设置高度，使元素滚动到相应位置
+
+```js
+window.addEventListener('resize', function () {
+  if (
+    document.activeElement.tagName === 'INPUT' ||
+    document.activeElement.tagName === 'TEXTAREA'
+  ) {
+    window.setTimeout(function () {
+      if ('scrollIntoView' in document.activeElement) {
+        document.activeElement.scrollIntoView();
+      } else {
+        document.activeElement.scrollIntoViewIfNeeded();
+      }
+    }, 0);
+  }
+});
+```
+
 #### 点击边框
 
+```css
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-tap-highlight-color: transparent; /* For some Androids */
+-webkit-user-modify: read-write-plaintext-only;  /* android 4.0.4 */
+```
+
 #### 1px边框
+
+```css
+.elem {
+    position: relative;
+    width: 200px;
+    height: 80px;
+    &::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid #f66;
+        width: 200%;
+        height: 200%;
+        content: "";
+        transform: scale(.5);
+        transform-origin: left top;
+    }
+}
+```
 
 #### `input`的`placeholder`偏上
 

@@ -17,6 +17,7 @@ const readFile = (path, name) => {
   writeFile(data, name);
 };
 
+
 const writeFile = (data, name) => {
   fs.writeFile("./html/" + name, data, "utf-8", (err) => { });
 };
