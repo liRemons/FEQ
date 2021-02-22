@@ -1,34 +1,3 @@
-### Vue2.0和Vue3.0的变化
-
-#### Vue2.0中Object.defineProperty 和 Vue3.0中proxy
-
-```js
-let obj = { name: [] };
-// proxy
-obj = new Proxy(obj, {
-    get(target, prop) {
-        return target[prop]
-    },
-    set(target, prop, val) {
-        target[prop] = val
-    }
-})
-// Object.defineProperty
-let newObj = JSON.parse(JSON.stringify(obj))
-Object.defineProperty(obj, 'name', {
-    get() {
-        return newObj.name
-    },
-    set(val) {
-        newObj.name !== val && (obj.name = val)
-    }
-})
-```
-
-可以看出，Vue3.0对性能是有很大提升的，在Object.defineProperty方法中，需要对每个属性进行递归监听，不但浪费性能，而且如果初始值中没有定义相关属性，就无法进行监听，这也就是Vue2.0中新增属性不会在视图发生变化，从而必须使用$set进行新增属性的原因
-
-------
-
 ### Vue2.0
 
 #### 为何虚拟DOM的性能更好

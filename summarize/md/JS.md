@@ -408,8 +408,6 @@ let 和const 不存在变量提升，var声明变量存在变量提升；
 
 ##### 模板字符串
 
-##### [异步](#JS中的异步)
-
 ##### Symbol 类型
 symbol（表示独一无二的值）
 - 首字母大写
@@ -805,6 +803,31 @@ const deepCopy = (data) => {
 - 节流：一段时期内重复触发事件只会执行一次
 
 #### Object.defineProperty和Proxy的区别
+
+```js
+let obj = { name: [] };
+// proxy
+obj = new Proxy(obj, {
+    get(target, prop) {
+        return target[prop]
+    },
+    set(target, prop, val) {
+        target[prop] = val
+    }
+})
+// Object.defineProperty
+let newObj = JSON.parse(JSON.stringify(obj))
+Object.defineProperty(obj, 'name', {
+    get() {
+        return newObj.name
+    },
+    set(val) {
+        newObj.name !== val && (obj.name = val)
+    }
+})
+```
+
+可以看出，Vue3.0对性能是有很大提升的，在Object.defineProperty方法中，需要对每个属性进行递归监听，不但浪费性能，而且如果初始值中没有定义相关属性，就无法进行监听，这也就是Vue2.0中新增属性不会在视图发生变化，从而必须使用$set进行新增属性的原因
 
 #### 事件兼容
 
