@@ -478,6 +478,8 @@ add(1)(2)  // 3
 
 当寻找一个属性时，首先在对象上找，如果找不到，则顺着`__proto__`寻找它的 `prototype`对象，一层一层逐级寻找，直到找到并返回，原型链的终点为null
 
+<img src="https://remons.gitee.io/feq/summarize/assets/img/原型.png" alt="原型" style="zoom:75%;" />
+
 [传送门](https://zhuanlan.zhihu.com/p/35790971)
 
 https://segmentfault.com/a/1190000008739672
