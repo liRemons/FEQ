@@ -23,14 +23,14 @@
 
   2. instanceof
 
-     ```js
-     function A(){}
-     function B(){}
-var c = new A()
-     console.log(c instaceof A) //true   Object.getProtypeOf(c) === A.prototype
-console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
-     ```
-     
+    ```js
+    function A(){}
+    function B(){}
+    var c = new A()
+    console.log(c instaceof A) //true   Object.getProtypeOf(c) === A.prototype
+    console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
+    ```
+    
   3. constructor
 
      ```js
@@ -575,7 +575,7 @@ Father.prototype.eat = function (food) {
 - this永远指向的是最后调用它的对象
 - 箭头函数的this指向父级
 - 如何改变this指向
-  - call,apply,bind   区别：call和bind挨个传值，apply传一个数组，call和apply会直接执行这个函数
+  - call 、apply、bind  区别：call和bind挨个传值，apply传一个数组，call和apply会直接执行这个函数，bind 返回绑定this之后的函数，调用时执行
 
 #### Event-loop、事件队列、微任务和宏任务
 
@@ -693,6 +693,18 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 
 - Generator/ yield
 
+    ```js
+    function* gen(x){
+      let y = yield x + 2;
+      return y;
+    }
+    // yield 会阻断代码执行
+    // 直接调用 函数并不会返回计算结果，会返回一个指针
+    // gen(1).next()   // 3
+    ```
+
+    
+
 #### 跨域
 
 - 跨域的产生
@@ -734,6 +746,8 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 事件委托：将子元素的事件委托给父元素执行（当子元素过多时，委托为父元素执行，也可以提高性能，减少事件注册，节约内存）
 
 #### 深浅拷贝
+
+-   问题由来：深浅拷贝针对于引用类型来说的，基本类型的值是存放在栈内存中，当复制一个基本类型的值是，会额外开辟一个地址，赋予相同的值；而引用类型将地址存放在栈中，值存储在堆内存中，两者相互关联，当复制时，复制的是栈内存中的地址，它们指向同一堆内存中的值，所以当改变值时，原来的值也会改变。
 
 - 常用的深拷贝：
   - `JSON.parse(JSON.stringify())`  缺点：属性值的类型为undifind，正则或者函数时，无法正确拷贝

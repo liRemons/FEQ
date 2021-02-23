@@ -43,6 +43,10 @@
 
 <a href="https://blog.csdn.net/banana960531/article/details/85621865" target="_blank">参考资料</a>
 
+### 缓存
+
+https://juejin.cn/post/6844903593275817998
+
 ### 浏览器的渲染过程
 
 #### 输入URL后发生了什么
