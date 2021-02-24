@@ -13,12 +13,14 @@
 // vite.config.js   2.0 beta （正式版本可能有变化）
 import vue from "@vitejs/plugin-vue";
 const { resolve } = require("path");
+// 获取环境变量 ，目前我只能在生产环境中获取到
+const NODE_ENV = process.env.NODE_ENV;
 /**
  * https://vitejs.dev/config/
  * @type {import('vite').UserConfig}
  */
 export default {
-  // 访问路径
+  // 访问路径 , 默认 ./
   base: "/dist/",
   plugins: [vue()],
   // 路径别名
@@ -29,7 +31,9 @@ export default {
     rollupOptions: {
       input: {
         // 入口文件
-        main: resolve(__dirname, "mindex.html"),
+        main: resolve(__dirname, "index.html"),
+        // 其他入口
+        nested: resolve(__dirname, 'xxxx.html')
       },
     },
   },
