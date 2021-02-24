@@ -93,31 +93,31 @@ let arr=[1,2,3];
 Array.from(arr,(item)=>{console.log(item)})//1,2,3
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：新的数组实例</font>
+<font size="2" face="arial">【**返回值**】：新的数组实例</font>
 
 ##### `Array.isArray()`
 
-<font size="2" face="arial" color="#666">【**作用**】：判断是否为数组.</font>
+<font size="2" face="arial">【**作用**】：判断是否为数组.</font>
 
 ```js
 Array.isArray([1]) //true
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：布尔值.</font>
+<font size="2" face="arial">【**返回值**】：布尔值.</font>
 
 ##### `Array.of()`
 
-<font size="2" face="arial" color="#666">【**作用**】：生成数组</font>
+<font size="2" face="arial">【**作用**】：生成数组</font>
 
 ```js
 Array.of(1)//[1]    创建新的数组，参数是任意类型
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：新的数组实例</font>
+<font size="2" face="arial">【**返回值**】：新的数组实例</font>
 
 ##### `concat()`
 
-<font size="2" face="arial" color="#666">【**作用**】：合并数组</font>
+<font size="2" face="arial">【**作用**】：合并数组</font>
 
 ```js
   let arr=[1,2],arr2=[3,4],arr3=[5,6];
@@ -125,11 +125,11 @@ Array.of(1)//[1]    创建新的数组，参数是任意类型
   console.log(arr) //[1,2]
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：新的数组实例，不改变原数组</font>
+<font size="2" face="arial">【**返回值**】：新的数组实例，不改变原数组</font>
 
 ##### `every()`
 
-<font size="2" face="arial" color="#666">【**作用**】：数组中所有元素是否都满足条件</font>
+<font size="2" face="arial">【**作用**】：数组中所有元素是否都满足条件</font>
 
 ```js
 let arr=[1,2,3];
@@ -137,22 +137,22 @@ arr.every(item => item > 1)//false
 arr.every(item => item > 0)//true
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：布尔值</font>
+<font size="2" face="arial">【**返回值**】：布尔值</font>
 
 ##### `filter()`
 
-<font size="2" face="arial" color="#666">【**作用**】：获取数组中满足条件的元素</font>
+<font size="2" face="arial">【**作用**】：获取数组中满足条件的元素</font>
 
 ```js
 let arr=[1,2,3];
 let newArr=arr.filter(item => item > 1) //[2,3]
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：满足条件的元素数组，不改变原数组</font>
+<font size="2" face="arial">【**返回值**】：满足条件的元素数组，不改变原数组</font>
 
 ##### `find()`
 
-<font size="2" face="arial" color="#666">【**作用**】：查找数组中符合条件第一个元素的值</font>
+<font size="2" face="arial">【**作用**】：查找数组中符合条件第一个元素的值</font>
 
 ```js
 let arr=[1,2,3],arr2=[{val:1},{val:2},{val:3}];
@@ -161,11 +161,11 @@ arr2.find(item => item.val > 1) //{val:2}
 //和filter的区别：find方法返回符合条件的第一个元素，filter则是返回符合条件的所有元素，返回新的数组
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：符合条件的元素，不改变原数组</font>
+<font size="2" face="arial">【**返回值**】：符合条件的元素，不改变原数组</font>
 
 ##### `findIndex()`
 
-<font size="2" face="arial" color="#666">【**作用**】：查找数组中满足条件的第一个元素的索引</font>
+<font size="2" face="arial">【**作用**】：查找数组中满足条件的第一个元素的索引</font>
 
 ```js
 let arr=[1,2,3];
@@ -173,11 +173,11 @@ arr.findIndex(item => item > 1) // 1
 arr.findIdnex(item => item > 4) //-1
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：第一个符合条件的索引，没有则返回 -1</font>
+<font size="2" face="arial">【**返回值**】：第一个符合条件的索引，没有则返回 -1</font>
 
 ##### `flat()`
 
-<font size="2" face="arial" color="#666">【**作用**】：数组扁平化</font>
+<font size="2" face="arial">【**作用**】：数组扁平化</font>
 
 ```js
 let arr = [1, 2, [3, 4]];
@@ -188,17 +188,17 @@ arr1.flat(2) // [1, 2, 3];
 arr1.flat(Infinity) //[1, 2, 3]
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：新的数组，不改变原数组</font>
+<font size="2" face="arial">【**返回值**】：新的数组，不改变原数组</font>
 
 ##### `forEach()`
 
-<font size="2" face="arial" color="#666">【**作用**】：遍历数组</font>
+<font size="2" face="arial">【**作用**】：遍历数组</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：无返回值</font>
+<font size="2" face="arial">【**返回值**】：无返回值</font>
 
 ##### `includes()`
 
-<font size="2" face="arial" color="#666">【**作用**】：查找数组中是否包含某一项</font>
+<font size="2" face="arial">【**作用**】：查找数组中是否包含某一项</font>
 
 ```js
 let arr=[1,2,3];
@@ -213,11 +213,11 @@ let str='abc';
 str.includes('a') //true
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：布尔值</font>
+<font size="2" face="arial">【**返回值**】：布尔值</font>
 
 ##### `indexOf()`
 
-<font size="2" face="arial" color="#666">【**作用**】：数组中（字符串）包含指定元素的第一个索引</font>
+<font size="2" face="arial">【**作用**】：数组中（字符串）包含指定元素的第一个索引</font>
 
 ```js
 // 特别说明
@@ -229,17 +229,17 @@ arr.indexOf(2,-3) // 1
 arr.indexOf(2,-5) // 1 如果绝对值大于length，则从数组第一项开始找
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：索引值或 -1 </font>
+<font size="2" face="arial">【**返回值**】：索引值或 -1 </font>
 
 ##### `join()`
 
-<font size="2" face="arial" color="#666">【**作用**】：将数组分割成字符串并进行连接</font>
+<font size="2" face="arial">【**作用**】：将数组分割成字符串并进行连接</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
+<font size="2" face="arial">【**返回值**】：字符串，不改变原数组</font>
 
 ##### `lastIndexOf()`
 
-<font size="2" face="arial" color="#666">【**作用**】：数组（字符串）中最后一个指定元素的索引</font>
+<font size="2" face="arial">【**作用**】：数组（字符串）中最后一个指定元素的索引</font>
 
 ```js
 //特别说明
@@ -249,49 +249,49 @@ arr.lastIndexOf(2,2) // 1 正数为查找到第几个索引为止
 arr.lastIndexOf(2,-3) //1 负数为从后向前，查找到第几个索引（绝对值），大于length则返回 -1 
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：索引值或 -1 </font>
+<font size="2" face="arial">【**返回值**】：索引值或 -1 </font>
 
 ##### `map()`
 
-<font size="2" face="arial" color="#666">【**作用**】：遍历数组</font>
+<font size="2" face="arial">【**作用**】：遍历数组</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：元素执行函数后组成的新数组 </font>
+<font size="2" face="arial">【**返回值**】：元素执行函数后组成的新数组 </font>
 
 ##### `pop()`
 
-<font size="2" face="arial" color="#666">【**作用**】：删除数组的最后一项</font>
+<font size="2" face="arial">【**作用**】：删除数组的最后一项</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：删除的元素，改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：删除的元素，改变原数组 </font>
 
 ##### `push()`
 
-<font size="2" face="arial" color="#666">【**作用**】：数组后添加一或多项</font>
+<font size="2" face="arial">【**作用**】：数组后添加一或多项</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：数组的长度，改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：数组的长度，改变原数组 </font>
 
 ##### `shift()`
 
-<font size="2" face="arial" color="#666">【**作用**】：删除数组第一项</font>
+<font size="2" face="arial">【**作用**】：删除数组第一项</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：删除的元素，改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：删除的元素，改变原数组 </font>
 
 ##### `unshift()`
 
-<font size="2" face="arial" color="#666">【**作用**】：数组前添加一项或多项</font>
+<font size="2" face="arial">【**作用**】：数组前添加一项或多项</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：数组的长度，改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：数组的长度，改变原数组 </font>
 
 ##### `reduce()`
 
 ##### `reverse()`
 
-<font size="2" face="arial" color="#666">【**作用**】：翻转数组</font>
+<font size="2" face="arial">【**作用**】：翻转数组</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：翻转后的数组，改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：翻转后的数组，改变原数组 </font>
 
 ##### `slice()`
 
-<font size="2" face="arial" color="#666">【**作用**】：返回数组或字符串的一部分</font>
+<font size="2" face="arial">【**作用**】：返回数组或字符串的一部分</font>
 
 ```js
 let arr=[1,2,3,4]
@@ -302,17 +302,17 @@ arr.slice(-2) // [3,4] 如果该参数为负数，表示从原数组中的倒数
 arr.slice(2,3)//3 不包含end
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：新数组或新的字符串，不改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：新数组或新的字符串，不改变原数组 </font>
 
 ##### `some()`
 
-<font size="2" face="arial" color="#666">【**作用**】：数组中是否有元素满足传入的函数条件</font>
+<font size="2" face="arial">【**作用**】：数组中是否有元素满足传入的函数条件</font>
 
-<font size="2" face="arial" color="#666">【**返回值**】：布尔值 </font>
+<font size="2" face="arial">【**返回值**】：布尔值 </font>
 
 ##### `sort()`
 
-<font size="2" face="arial" color="#666">【**作用**】：数组排序</font>
+<font size="2" face="arial">【**作用**】：数组排序</font>
 
 > 如果指明了 fn，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：
 >
@@ -321,11 +321,11 @@ arr.slice(2,3)//3 不包含end
 > 如果 fn(a, b) 大于 0 ， b 会被排列到 a 之前。
 > fn(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
 
-<font size="2" face="arial" color="#666">【**返回值**】：新数组，不改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：新数组，不改变原数组 </font>
 
 ##### `splice()`
 
-<font size="2" face="arial" color="#666">【**作用**】：删除或替换现有元素或者原地添加新的元素来修改数组</font>
+<font size="2" face="arial">【**作用**】：删除或替换现有元素或者原地添加新的元素来修改数组</font>
 
 ```js
 let arr = [1,2,3,4];
@@ -336,15 +336,15 @@ arr.splice(2,0,2)//[] //arr:[1,2,2,3,4]
 arr.splice(2,1,2) // [] arr:[1,2,2,4]
 ```
 
-<font size="2" face="arial" color="#666">【**返回值**】：被删除元素组成新数组，改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：被删除元素组成新数组，改变原数组 </font>
 
 ##### `toString()`
 
-<font size="2" face="arial" color="#666">【**作用**】：将数组转换成字符串</font>
+<font size="2" face="arial">【**作用**】：将数组转换成字符串</font>
 
 `和join()的区别：join()可以指定连接符`
 
-<font size="2" face="arial" color="#666">【**返回值**】：字符串，不改变原数组</font>
+<font size="2" face="arial">【**返回值**】：字符串，不改变原数组</font>
 
 #### 对象的方法
 
@@ -639,6 +639,37 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
     //可以看出Promise.all接受一个由promise对象组成的数组，当所有状态都变为resolve时触发then(),参数为每个promise对象返回值组成的数组；有一个为reject的时候，都会触发catch回调
     ```
 
+  - `allSettled()`
+
+    ```js
+    let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('aaa')
+        }, 1000);
+    })
+    
+    let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('aaa')
+        }, 2000);
+    })
+    
+    Promise.all([p1, p2]).then(res => {
+        console.log(res , 'then all');
+    }).catch(res => {
+        console.log(res, 'error all');   // error all
+    })
+    Promise.allSettled([p1, p2]).then(res => {
+        console.log(res,'then allSettled');  // 数组
+    }).catch(res => {
+        console.log(res, 'error allSettled');
+    })
+    
+    // 由此看出 allSettled 和 all 的区别：
+    // allSettled : 无论每一个Promise状态如何，都会返回一个携带状态数组
+    // all 都成功返回成功，否则 catch
+    ```
+    
   - `race()`
 
     ```js

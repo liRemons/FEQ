@@ -15,15 +15,9 @@ const readFile = (path, name) => {
   let data = fs
     .readFileSync(path, "utf-8")
     // .replace(/<style.*?>([\s\S]*)<\/style>/, "")
-    // .replace("<meta charset='UTF-8'>", `<meta charset='UTF-8'><meta http-equiv="Expires" content="0">
-    // <meta http-equiv="Pragma" content="no-cache">
-    // <meta http-equiv="Cache-control" content="no-cache">
-    // <meta http-equiv="Cache" content="no-cache">`)
     .replace("<p><a href='http://remons.gitee.io/'><span>个人网站持续更新</span></a></p>", '');
-    let m = regExp.exec(data);
-    if(m){
-      writeFile(m[1], name);
-    }
+  let m = regExp.exec(data);
+  m && writeFile(m[1], name);
 };
 
 const writeFile = (data, name) => {
