@@ -67,6 +67,10 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
   <Link to ={{pathname: '/shopcar/001',search: '?a=1&b=2',}}></Link>
   ```
 
+- 路由组件守卫
+
+  使用高阶组件的形式，将路由组件放在高阶组件返回，通过判断逻辑返回相应的组件
+
 #### 生命周期
 
 ![image-20201121091647026](https://remons.gitee.io/feq/summarize/assets/img/image-20201121091647026.png)
