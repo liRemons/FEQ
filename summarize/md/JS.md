@@ -34,7 +34,7 @@
   3. constructor
 
      ```js
-   let num = 123;
+     let num = 123;
      console.log(num.constructor); //ƒ Number() { [native code] }
      console.log(''.constructor); //ƒ String() { [native code] }
      console.log(true.constructor); //ƒ Boolean() { [native code] }
