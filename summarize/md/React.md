@@ -46,6 +46,8 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 - 二级路由
 
+    在一级路由内嵌套
+
 - 路由匹配和重定向
 
   ```html
@@ -70,6 +72,43 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 - 路由组件守卫
 
   使用高阶组件的形式，将路由组件放在高阶组件返回，通过判断逻辑返回相应的组件
+  
+  每个路由都有`Enter`和`Leave`钩子，用户进入或离开该路由时触发。
+  
+- Route渲染方式   优先级： `children > component > render`
+
+    -   children 
+    
+        ```jsx
+        // 无论 location 是否匹配，都会渲染
+        <Route 
+            path='/a' 
+            children={({ match }) => (
+                <Link to='/a'> hello world </Link>
+            )}
+        />
+        ```
+    
+    -   render 
+    
+        ```jsx
+        // 避免重复的无必要的加载，匹配时渲染
+        <Route
+            path="/home"
+            render={() => {
+                return <div> home </div>
+            }}
+         />
+        ```
+    
+    -   component
+    
+        ```jsx
+        // 只有 path 匹配时，组件才呈现。
+        <Route path="/user" component={ component } />
+        ```
+    
+        
 
 #### 生命周期
 
@@ -174,6 +213,27 @@ Suspense 让组件“等待”某个异步操作，直到该异步操作结束�
 组件不可修改属性，但可以修改自己的状态
 
 更新 state 和 props 会触发哪些状态
+
+```jsx
+// 更改state : 
+// getDerviedStateFromProps
+// shouldComponentUpdate
+// render
+// getSnapshotBeforeUpdate
+// componentDidUpdate
+
+
+// 更改props
+// getDerviedStateFromProps
+// shouldComponentUpdate
+// render
+// getSnapshotBeforeUpdate
+// componentDidUpdate
+
+// 所触发的生命周期是相同的，但两者的区别是更改props时，生命周期的props和state都是有值的，更改state时，生命周期的第一个参数，也就是 props 值是空的
+```
+
+
 
 #### 受控组件和非受控组件
 
@@ -405,6 +465,8 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 - 与` shouldComponentUpdate() `返回值相反
 
 ##### `PureComponent`
+
+-   `React.PureComponent` 中以浅层对比 prop 和 state，和`React.component`类似，仅在类组件使用
 
 #### react-Hook
 
