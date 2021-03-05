@@ -108,7 +108,9 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
         <Route path="/user" component={ component } />
         ```
     
-        
+- `withRouter` 
+
+    将一个组件包裹进`Route`里面, 然后`react-router`的三个对象`history, location, match`就会被放进这个组件的`props`属性中
 
 #### 生命周期
 

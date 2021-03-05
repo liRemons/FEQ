@@ -1169,7 +1169,8 @@ blockquote {
   border-left: 5px solid #ddd;
   padding-left: 0.5em;
   /* font-family: Source Han Serif SC, serif; */
-  color: #555;
+  background: #eef0f4;
+  color: rgba(85, 85, 85, 0.5);
 }
 blockquote blockquote {
   padding-right: 0;
@@ -1180,8 +1181,8 @@ tt {
   margin: 0 0.2em;
   padding: 0 0.3em;
   background: #f9f2f4;
-  color: #c7254e;
-  border-radius: 2px;
+  color: #c7254df1;
+  border-radius: 4px;
 }
 .md-fences {
   border-radius: 5px;
