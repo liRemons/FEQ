@@ -321,7 +321,7 @@ arr.slice(2,3)//3 不包含end
 > 如果 fn(a, b) 大于 0 ， b 会被排列到 a 之前。
 > fn(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
 
-<font size="2" face="arial">【**返回值**】：新数组，不改变原数组 </font>
+<font size="2" face="arial">【**返回值**】：新数组，改变原数组 </font>
 
 ##### `splice()`
 
