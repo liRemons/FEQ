@@ -30,7 +30,7 @@
     console.log(c instaceof A) //true   Object.getProtypeOf(c) === A.prototype
     console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
     ```
-    
+  
   3. constructor
 
      ```js
@@ -77,7 +77,7 @@
 
 #### `object.is()`、"`==` " 、 " `===` "的区别
 
-- "`===`"先进行类型转换，再判断是否相等
+- "`==`"先进行类型转换，再判断是否相等
 - "`===`",类型相等才相等
 - `object.is()` 与"`===`"基本一致，不过有两点不同：(NAN和NAN相等)；+0和-0不相等
 
