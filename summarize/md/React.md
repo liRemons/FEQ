@@ -202,8 +202,6 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 // 使用 Hook 提供的 useState , useEffect 提供的代替方法，代替 class 组件中的 setState、生命周期 
 ```
 
-
-
 #### `suspense` 组件
 
 Suspense 让组件“等待”某个异步操作，直到该异步操作结束即可渲染
