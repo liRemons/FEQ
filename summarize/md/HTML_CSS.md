@@ -217,6 +217,6 @@ BFC的区域不会与float box重叠
 - sessionStorage：临时存储，只存在于当前窗口
 - cookie：一般用来存储用户信息，可以设置过期时间等，大小比较小，一般为几Kb或几十Kb
 
-
+`link`引入的样式权重大于`@import`引入的样式
 
 [个人网站持续更新](http://remons.gitee.io/)
