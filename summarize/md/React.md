@@ -168,6 +168,9 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
     >
     > 任何返回值将作为参数传递给 `componentDidUpdate()`
 
+  - ~~`componentWillUpdate( nextProps, nextState )`~~
+
+    > 会在渲染之前调用
   - `componentDidUpdate(prevProps, prevState, snapshot)`
 
     >  在更新后会被立即调用，首次渲染不会执行此方法。
@@ -192,9 +195,13 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 高阶组件是一个函数，接收一个组件作为参数，并返回一个组件，例如 `connect` 、 `withRouter`
 
-原理？
+返回一个组件，通常是第一个参数，携带着需要的数据返回
 
-如何在函数式组件中使用HOC
+如何在Hook中使用HOC ?
+
+```jsx
+// 使用 Hook 提供的 useState , useEffect 提供的代替方法，代替 class 组件中的 setState、生命周期 
+```
 
 #### `suspense` 组件
 
@@ -251,7 +258,7 @@ Suspense 让组件“等待”某个异步操作，直到该异步操作结束�
 
 大白话说就是需不需要干涉，不干涉的是非受控组件，干涉的是受控组件
 
-表单中既是受控组件，又是非受控组件，怎么做？
+对于表单组件的封装，无论class组件还是针对于类组件，都需要进行表单回显
 
 #### context
 
