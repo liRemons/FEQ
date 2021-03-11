@@ -474,9 +474,10 @@ add(1)(2)  // 3
 
 #### 原型和原型链
 
-每个对象都有一个`__proto__` ,指向它的 `prototype`原型对象，每个构造函数都有一个`prototype`原型对象，里面的`constructor` 指向这个构造函数本身
+- 每个对象都有一个`__proto__` ,指向它的 `prototype`原型对象，每个构造函数都有一个`prototype`原型对象，里面的`constructor` 指向这个构造函数本身，当寻找一个属性时，首先在对象上找，如果找不到，则顺着`__proto__`寻找它的 `prototype`对象，一层一层逐级寻找，直到找到并返回，原型链的终点为null
+- 原型属性和实例属性
 
-当寻找一个属性时，首先在对象上找，如果找不到，则顺着`__proto__`寻找它的 `prototype`对象，一层一层逐级寻找，直到找到并返回，原型链的终点为null
+
 
 <img src="https://remons.gitee.io/feq/summarize/assets/img/原型.png" alt="原型" style="zoom:75%;" />
 
@@ -488,6 +489,8 @@ https://segmentfault.com/a/1190000008739672
 
 类的数据类型就是函数，类本身就指向构造函数。
 
+class和构造函数使用的区别：
+
 必须使用`new`命令，才能使用类
 
 `static`关键字不会被实例继承
@@ -495,6 +498,8 @@ https://segmentfault.com/a/1190000008739672
 `constructor`方法是类的默认方法，默认返回实例对象（即`this`），通过`new`命令生成对象实例时，自动调用该方法。一个类必须有`constructor`方法，如果没有显式定义，一个空的`constructor`方法会被默认添加。
 
 类里面共有的属性和方法必须使用this访问
+
+`super` 关键字的理解
 
 #### 继承
 
@@ -637,6 +642,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
     promiseFn([p1, p2, p3]) //error
     promiseFn([p1, p2]) //3s后：['a','b']
     //可以看出Promise.all接受一个由promise对象组成的数组，当所有状态都变为resolve时触发then(),参数为每个promise对象返回值组成的数组；有一个为reject的时候，都会触发catch回调
+    // 问题：all 返回的顺序问题？
     ```
 
   - `allSettled()`
