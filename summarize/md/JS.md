@@ -49,6 +49,7 @@
   4. Object.prototype.toString.call().slice(8,-1)
   
      ```js
+     // 原理：
      const checkType = (val) => {
        let type = Object.prototype.toString.call(val).slice(8, -1);
        console.log(type)
@@ -65,11 +66,13 @@
      checkType(Symbol())//Symbol
      checkType(true)//Boolean
      ```
-  
+  ```
      
   
      
+     
   
+  ```
 
 #### 堆栈的理解
 
@@ -499,7 +502,9 @@ class和构造函数使用的区别：
 
 类里面共有的属性和方法必须使用this访问
 
-`super` 关键字的理解
+class 和 构造函数？
+
+super 关键字的理解
 
 #### 继承
 
@@ -752,6 +757,8 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 
   - JSONP
   - CORS
+  - 代理（原理）
+  - 后端配置
 
 #### fetch、axios、ajax
 
@@ -819,8 +826,6 @@ const deepCopy = (data) => {
   - `concat()`
   - `slice()`
   - `Object.assign()`
-
-#### 模块化
 
 #### 闭包
 

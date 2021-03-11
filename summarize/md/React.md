@@ -199,9 +199,12 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 如何在Hook中使用HOC ?
 
-```jsx
-// 使用 Hook 提供的 useState , useEffect 提供的代替方法，代替 class 组件中的 setState、生命周期 
-```
+`使用 Hook 提供的 useState , useEffect 提供的代替方法，代替 class 组件中的 setState、生命周期 `
+
+使用场景：
+
+- 人员权限访问页面
+- 不同类别的列表
 
 #### `suspense` 组件
 
