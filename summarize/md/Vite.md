@@ -1,11 +1,15 @@
 [官网](https://vitejs.dev/)
 
+#### 为什么 Vite 加载速度快，webpack 做不到吗
+
 #### 创建应用
 
 - `npm init @vitejs/app `   or   `yarn create @vitejs/app`
 - `npm init @vitejs/app my-vue-app --template vue`   `npm 6+`
 - `npm init @vitejs/app my-vue-app -- --template vue`  `npm 7+`
 - 根据提示进入文件夹，`npm i`
+
+
 
 #### vite配置
 

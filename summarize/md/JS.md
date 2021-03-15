@@ -66,13 +66,6 @@
      checkType(Symbol())//Symbol
      checkType(true)//Boolean
      ```
-  ```
-     
-  
-     
-     
-  
-  ```
 
 #### 堆栈的理解
 
