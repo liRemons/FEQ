@@ -1,8 +1,8 @@
 #### 数据的类型有哪些
 
 - 数据类型	
-  - 基本类型：undefined、NULL 、Number、Boolean、String
-  - 复杂类型：Object、Symbol（es6 新增）
+  - 基本类型：undefined、NULL 、Number、Boolean、String、Symbol（es6 新增）
+  - 复杂类型：Object
 
 - 检测数据类型的方法
 
