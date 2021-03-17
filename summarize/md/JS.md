@@ -23,13 +23,13 @@
 
   2. instanceof
 
-    ```js
-    function A(){}
-    function B(){}
-    var c = new A()
-    console.log(c instaceof A) //true   Object.getProtypeOf(c) === A.prototype
-    console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
-    ```
+     ```js
+       function A(){}
+       function B(){}
+       var c = new A()
+       console.log(c instaceof A) //true   Object.getProtypeOf(c) === A.prototype
+       console.log(c instaceof B) //false   B.prototype 不在c 的原型链上
+     ```
   
   3. constructor
 
@@ -45,7 +45,7 @@
      console.log(new RegExp().constructor); //ƒ RegExp() { [native code] }
      console.log(Symbol().constructor); //ƒ Symbol() { [native code] }
      ```
-     
+  
   4. Object.prototype.toString.call().slice(8,-1)
   
      ```js

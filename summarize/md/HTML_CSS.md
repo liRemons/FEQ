@@ -111,6 +111,8 @@ html,body{
 -   基于css3 计算属性
 -   flex
 
+#### 实现一个 div 等比例缩放
+
 #### display的属性
 
 flex,  table,   gird（网格布局）
@@ -216,6 +218,7 @@ BFC的区域不会与float box重叠
 - localStorage：持久化存储，大小一般为几M（问题：如何设置过期时间）
 - sessionStorage：临时存储，只存在于当前窗口
 - cookie：一般用来存储用户信息，可以设置过期时间等，大小比较小，一般为几Kb或几十Kb
+- 两个网站怎么公用本地存储
 
 `link`引入的样式权重大于`@import`引入的样式
 
