@@ -4,7 +4,7 @@
  * @Author: Remons
  * @Date: 2021-02-11 16:32:56
  * @LastEditors: Remons
- * @LastEditTime: 2021-03-28 18:46:33
+ * @LastEditTime: 2021-04-06 21:19:50
  */
 // 格式化html，去除style
 const fs = require("fs");
@@ -38,6 +38,5 @@ const readFile = (path, name) => {
 };
 
 const writeFile = ({ data, name, path }) => {
-  console.log(data, "data");
   fs.writeFile(path + name, data, "utf-8", (err) => {});
 };

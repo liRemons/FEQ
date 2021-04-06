@@ -464,6 +464,27 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
   
   // 参考链接 ： https://zhuanlan.zhihu.com/p/30671973
   ```
+  
+  ```js
+  // 举个例子
+  // UI 组件
+  import actionCreators from '@/store/Home/actionCreators';
+  import connect from '@/components/connect';
+  function Home(){};
+  const connectObj = { attr:'Home',actionCreators };
+  export default connect(connectObj)(Home)
+  
+  // @/components/connect/index.js
+  import { connect } from 'react-redux';
+  import { bindActionCreators } from 'redux';
+  export default ({ attr, actionCreators }) => components => {
+      const mapStateToProps = (state) => state[attr];
+      const mapDispatchToProps = (dispatch) => bindActionCreators(actionCreators, dispatch);
+      return connect(mapStateToProps, mapDispatchToProps)(components)
+  }
+  ```
+  
+  
 
 #### react-thunk 
 
