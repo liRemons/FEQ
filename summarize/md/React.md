@@ -232,7 +232,7 @@ Suspense 让组件“等待”某个异步操作，直到该异步操作结束�
 
 更新 state 和 props 会触发哪些状态
 
-```javascript
+```js
 // 更改state : 
 // getDerviedStateFromProps
 // shouldComponentUpdate
