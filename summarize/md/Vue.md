@@ -29,7 +29,7 @@ Vue2.0: 采用数据劫持结合发布者-订阅者模式的方式，通过`Obje
   <input type="text" :value="value" @input="handleInput" />
   ```
 
-  ```js
+  ```javascript
   //子组件
   export default {
     name: "kInput",
@@ -68,7 +68,7 @@ Vue2.0: 采用数据劫持结合发布者-订阅者模式的方式，通过`Obje
 
   - provide / inject
 
-    ```js
+    ```javascript
     //祖先组件
     provide:{
         provideData:"hello"
@@ -89,7 +89,7 @@ Vue2.0: 采用数据劫持结合发布者-订阅者模式的方式，通过`Obje
 
 #### 路由的配置
 
-```js
+```javascript
 import Vue from "vue";
 import vueRouter from "vue-router";
 Vue.use(vueRouter);
@@ -205,7 +205,7 @@ v-for 的优先级更高
 
 #### Vue中进行跨域请求
 
-```js
+```javascript
 proxyTable: { 
   '/api': {  //使用"/api"来代替"http://xxxx" 
     target: 'http://xxxx', //源地址 
@@ -233,7 +233,7 @@ proxyTable: {
 
   - store代码
 
-    ```js
+    ```javascript
     //  store/index.js
     import Vue from 'vue'
     import Vuex from 'vuex'
@@ -306,7 +306,7 @@ proxyTable: {
      </div>
     ```
 
-    ```js
+    ```javascript
     //没有开启命名空间时：
     // 为了方便书写，vuex提供了四个方法
     import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
@@ -325,7 +325,7 @@ proxyTable: {
     };
     ```
 
-    ```js
+    ```javascript
     // 如果开启了命名空间
     import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
     export default {
@@ -436,7 +436,7 @@ proxyTable: {
 
 用法：
 
-```js
+```javascript
 //1.  祖先组件
 
 // setup 中
@@ -489,14 +489,14 @@ const changeLocation = () => {
 
 - computed
 
-  ```js
+  ```javascript
   import { computed } from 'vue'
   const plusOne = computed(() => count.value + 1)
   ```
 
 - watch
 
-  ```js
+  ```javascript
   const state = reactive({ count: 0 })
   watch(
     () => state.count,
@@ -553,7 +553,7 @@ to:渲染的节点：有点类似于是个插槽
 
 ### Vue3.0 结合 Vuex 4.0
 
-```js
+```javascript
 // 使用方式没有太大差别 ,创建时，其他和vuex3.0一样
 import { createStore } from 'vuex';
 export default createStore({

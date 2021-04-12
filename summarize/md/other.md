@@ -142,7 +142,7 @@ https://juejin.cn/post/6844903593275817998
 
 #### 300ms延迟
 
-```js
+```javascript
 import Fastclick from "fastclick";
 FastClick.attach(document.body);
 ```
@@ -171,7 +171,7 @@ FastClick.attach(document.body);
 
 封装公共方法，使用 JS 设置高度，使元素滚动到相应位置
 
-```js
+```javascript
 window.addEventListener('resize', function () {
   if (
     document.activeElement.tagName === 'INPUT' ||

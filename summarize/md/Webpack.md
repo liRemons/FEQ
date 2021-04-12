@@ -26,7 +26,7 @@ webpack打包的过程中，生成的JS文件，每一个JS文件我们都把它
 
 ##### 打包优化
 
-```js
+```javascript
 // 首先，可以安装 webpack-bundle-analyzer 进行分析，找出比较大的模块
 // 去除 node_modules
 exclude: /node_modules/
@@ -38,7 +38,7 @@ exclude: /node_modules/
 
 ##### 分包
 
-```js
+```javascript
 // 主要是为了解决首屏加载速度过慢的问题
 // 对于比较大的依赖包通过 cacheGroups 实现拆分
 // 对于webpack v4 + ，使用 splitChunks 分离第三方包
@@ -47,7 +47,7 @@ exclude: /node_modules/
 
 #### 示例
 
-```js
+```javascript
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装
 const webpack = require('webpack'); // 访问内置的插件

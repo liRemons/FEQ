@@ -8,7 +8,7 @@
 
   1. typeof
 
-     ```js
+     ```javascript
      console.log(typeof 123); //number
      console.log(typeof 'abc'); //string
      console.log(typeof true); //boolean
@@ -23,7 +23,7 @@
 
   2. instanceof
 
-     ```js
+     ```javascript
        function A(){}
        function B(){}
        var c = new A()
@@ -33,7 +33,7 @@
   
   3. constructor
 
-     ```js
+     ```javascript
      let num = 123;
      console.log(num.constructor); //ƒ Number() { [native code] }
      console.log(''.constructor); //ƒ String() { [native code] }
@@ -48,7 +48,7 @@
   
   4. Object.prototype.toString.call().slice(8,-1)
   
-     ```js
+     ```javascript
      // 原理：
      const checkType = (val) => {
        let type = Object.prototype.toString.call(val).slice(8, -1);
@@ -81,7 +81,7 @@
 
 ##### `Array.from()`
 
-```js
+```javascript
 // 1.
 Array.from('abc')//['a','b','c']
 // 2.
@@ -95,7 +95,7 @@ Array.from(arr,(item)=>{console.log(item)})//1,2,3
 
 <font size="2" face="arial">【**作用**】：判断是否为数组.</font>
 
-```js
+```javascript
 Array.isArray([1]) //true
 ```
 
@@ -105,7 +105,7 @@ Array.isArray([1]) //true
 
 <font size="2" face="arial">【**作用**】：生成数组</font>
 
-```js
+```javascript
 Array.of(1)//[1]    创建新的数组，参数是任意类型
 ```
 
@@ -115,7 +115,7 @@ Array.of(1)//[1]    创建新的数组，参数是任意类型
 
 <font size="2" face="arial">【**作用**】：合并数组</font>
 
-```js
+```javascript
   let arr=[1,2],arr2=[3,4],arr3=[5,6];
   let newArr=arr.concat(arr2,arr3) //[1,2,3,4,5,6]
   console.log(arr) //[1,2]
@@ -127,7 +127,7 @@ Array.of(1)//[1]    创建新的数组，参数是任意类型
 
 <font size="2" face="arial">【**作用**】：数组中所有元素是否都满足条件</font>
 
-```js
+```javascript
 let arr=[1,2,3];
 arr.every(item => item > 1)//false
 arr.every(item => item > 0)//true
@@ -139,7 +139,7 @@ arr.every(item => item > 0)//true
 
 <font size="2" face="arial">【**作用**】：获取数组中满足条件的元素</font>
 
-```js
+```javascript
 let arr=[1,2,3];
 let newArr=arr.filter(item => item > 1) //[2,3]
 ```
@@ -150,7 +150,7 @@ let newArr=arr.filter(item => item > 1) //[2,3]
 
 <font size="2" face="arial">【**作用**】：查找数组中符合条件第一个元素的值</font>
 
-```js
+```javascript
 let arr=[1,2,3],arr2=[{val:1},{val:2},{val:3}];
 arr.find(item => item >= 1)//1
 arr2.find(item => item.val > 1) //{val:2}
@@ -163,7 +163,7 @@ arr2.find(item => item.val > 1) //{val:2}
 
 <font size="2" face="arial">【**作用**】：查找数组中满足条件的第一个元素的索引</font>
 
-```js
+```javascript
 let arr=[1,2,3];
 arr.findIndex(item => item > 1) // 1
 arr.findIdnex(item => item > 4) //-1
@@ -175,7 +175,7 @@ arr.findIdnex(item => item > 4) //-1
 
 <font size="2" face="arial">【**作用**】：数组扁平化</font>
 
-```js
+```javascript
 let arr = [1, 2, [3, 4]];
 arr.flat() //[1, 2, 3, 4]
 let arr1=[1,[2,[3]]]
@@ -196,7 +196,7 @@ arr1.flat(Infinity) //[1, 2, 3]
 
 <font size="2" face="arial">【**作用**】：查找数组中是否包含某一项</font>
 
-```js
+```javascript
 let arr=[1,2,3];
 arr.includes(2) //true
 let arr2=[1,2,1,3,4,5,6];
@@ -215,7 +215,7 @@ str.includes('a') //true
 
 <font size="2" face="arial">【**作用**】：数组中（字符串）包含指定元素的第一个索引</font>
 
-```js
+```javascript
 // 特别说明
 // indexOf的第二个参数,从第几个开始，为负数则从后向前
 let arr=[1,2,3,2];
@@ -237,7 +237,7 @@ arr.indexOf(2,-5) // 1 如果绝对值大于length，则从数组第一项开始
 
 <font size="2" face="arial">【**作用**】：数组（字符串）中最后一个指定元素的索引</font>
 
-```js
+```javascript
 //特别说明
 //lastIndexOf第二个参数
 let arr=[1,2,3,2];
@@ -289,7 +289,7 @@ arr.lastIndexOf(2,-3) //1 负数为从后向前，查找到第几个索引（绝
 
 <font size="2" face="arial">【**作用**】：返回数组或字符串的一部分</font>
 
-```js
+```javascript
 let arr=[1,2,3,4]
 arr.slice() // [1,2,3,4]
 arr.slice(2) //[3]
@@ -323,7 +323,7 @@ arr.slice(2,3)//3 不包含end
 
 <font size="2" face="arial">【**作用**】：删除或替换现有元素或者原地添加新的元素来修改数组</font>
 
-```js
+```javascript
 let arr = [1,2,3,4];
 arr.splice(2) // [3,4] //arr:[1,2]
 arr.splice(-2) // [3,4] //arr:[1,2]
@@ -356,7 +356,7 @@ es6之前没有块级作用域
 
 - 变量提升
 
-  ```js
+  ```javascript
   console.log(v1);       //undefined
   var v1 = 100;
   function foo() {
@@ -383,7 +383,7 @@ es6之前没有块级作用域
 
 - 函数提升
 
-  ```js
+  ```javascript
   //函数声明式
   function bar () {}    //  会提升到该作用域的最顶端，而且高于变量提升。
   //函数字面量式 
@@ -444,7 +444,7 @@ symbol（表示独一无二的值）
 
 #### 柯里化函数
 
-```js
+```javascript
 // 柯里化就是把一个需要传入多个参数的函数变成多个嵌套的只要传入一个参数的函数
 // 举个简单的例子
 function add(a) { 
@@ -501,7 +501,7 @@ super 关键字的理解
 
 #### 继承
 
-```js
+```javascript
 function Father(name) {
     //属性
     this.name = name || 'Annie'
@@ -518,7 +518,7 @@ Father.prototype.eat = function (food) {
 
 - 原型链继承
 
-  ```js
+  ```javascript
   let Son = function () {};
   Son.prototype = new Father() // 创建实例时父类构造函数中传参数无效
   Son.prototype.name = 'Remons'
@@ -528,7 +528,7 @@ Father.prototype.eat = function (food) {
 
 - 构造函数继承
 
-  ```js
+  ```javascript
   function Son(name) {
       Father.call(this);
       this.name = name
@@ -540,7 +540,7 @@ Father.prototype.eat = function (food) {
 
 - 原型继承
 
-  ```js
+  ```javascript
   function Son(name) {
       let this_ = new Father()
       this_.name = name;
@@ -552,7 +552,7 @@ Father.prototype.eat = function (food) {
 
 - Class继承
 
-  ```js
+  ```javascript
   class Father{
       constructor(x,y){
           this.x=x;
@@ -598,7 +598,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 
   - `then()`
 
-    ```js
+    ```javascript
     Promise.resolve().then(function success (res) {
       throw new Error('error')
     }, function fail1 (e) {
@@ -616,7 +616,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 
   - `all()`
 
-    ```js
+    ```javascript
     let p1 = new Promise(resolve => {
         resolve('a')
     })
@@ -645,7 +645,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 
   - `allSettled()`
 
-    ```js
+    ```javascript
     let p1 = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('aaa')
@@ -676,7 +676,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
     
   - `race()`
 
-    ```js
+    ```javascript
     let p1 = new Promise(resolve => {
         setTimeout(() => {
             resolve('a')
@@ -700,7 +700,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 
 - async await
 
-  ```js
+  ```javascript
   async function async1() {
        console.log('async1 start')
        await async2()
@@ -728,7 +728,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 
 - Generator/ yield
 
-    ```js
+    ```javascript
     function* gen(x){
       let y = yield x + 2;
       return y;
@@ -757,7 +757,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 
 - ajax(四部曲)
 
-  ```js
+  ```javascript
   //1）创建ajax对象
   xhr = new XMLHttpRequest
   //2）规定请求地址
@@ -789,7 +789,7 @@ Even-loop:![](https://remons.gitee.io/feq/summarize/assets/img/事件循环.png)
 - 常用的深拷贝：
   - `JSON.parse(JSON.stringify())`  缺点：属性值的类型为undifind，正则或者函数时，无法正确拷贝
 
-```js
+```javascript
 const deepCopy = (data) => {
     function checkType(val) {
         return Object.prototype.toString.call(val).slice(8, -1);
@@ -834,7 +834,7 @@ const deepCopy = (data) => {
 
 - 防抖（例：滚动条）
 
-  ```js
+  ```javascript
   const debonce = (fn, delay) => {
       let time = null
       return () => {
@@ -855,7 +855,7 @@ const deepCopy = (data) => {
 
 #### Object.defineProperty和Proxy的区别
 
-```js
+```javascript
 let obj = { name: [] };
 // proxy
 obj = new Proxy(obj, {
@@ -931,7 +931,7 @@ Object.defineProperty(obj, 'name', {
 
   * 获取节点
     
-  ```js
+  ```javascript
   getElementById('id') //：获取特定ID元素的节点
   getElementsByTagName('p') //：获取相同元素的节点列表，返回类数组，使用[0]来获取
   getElementsByClassName('class') //：获取相同类名的节点列表（IE8以下不支持），返回类数组
@@ -949,7 +949,7 @@ Object.defineProperty(obj, 'name', {
 
   * 节点操作
 
-    ```js
+    ```javascript
     // 创建节点
     createElement
     createAttribute
@@ -967,7 +967,7 @@ Object.defineProperty(obj, 'name', {
 
   * 属性操作
 
-    ```js
+    ```javascript
     //获取属性
     getAttribute
     //设置属性
@@ -978,7 +978,7 @@ Object.defineProperty(obj, 'name', {
 
   * 文本操作
     
-    ```js
+    ```javascript
     insertData(offset,String)
     appendData(string)
     deleteData(offset,count)
@@ -991,7 +991,7 @@ Object.defineProperty(obj, 'name', {
 
 - 浏览器对象模型：用于描述与浏览器进行交互的方法和接口
 
-  ```js
+  ```javascript
   document //对象
   location //对象
   href//属性：控制浏览器地址栏的内容

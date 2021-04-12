@@ -13,7 +13,7 @@
 
 #### vite配置
 
-```js
+```javascript
 // vite.config.js   2.0 beta （正式版本可能有变化）
 import vue from "@vitejs/plugin-vue";
 const { resolve } = require("path");

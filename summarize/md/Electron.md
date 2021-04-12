@@ -57,7 +57,7 @@ package.json `build:{ "extraResources": { "from": "要打包的路径", "to": "�
 
 也是采用发布订阅模式
 
-```js
+```javascript
 mainWindow.webContents.session.on(
     "will-download",
     (event, item, webContents) => {
