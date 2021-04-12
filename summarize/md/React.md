@@ -35,7 +35,7 @@ React 的合成事件利用事件冒泡的形式冒泡到document，将事件封
 
 Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例的句柄。例：
 
-```javascriptx
+```jsx
 <form onSubmit={this.handleSubmit}>
     <input type='text' ref={(input) => this.input = input} />
 </form>
@@ -62,7 +62,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
 - 路由传参和动态路由
 
-  ```javascriptx
+  ```jsx
   <!-- 传入一个动态路由/:id -->
    <Route path = "/shopcar/:id" component ={ Shopcar } />   
   <!-- to属性增加pathname和search -->
@@ -79,7 +79,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
 
     -   children 
     
-        ```javascriptx
+        ```jsx
         // 无论 location 是否匹配，都会渲染
         <Route 
             path='/a' 
@@ -91,7 +91,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
     
     -   render 
     
-        ```javascriptx
+        ```jsx
         // 避免重复的无必要的加载，匹配时渲染
         <Route
             path="/home"
@@ -103,7 +103,7 @@ Refs 是 React 提供给我们的安全访问 DOM 元素或者某个组件实例
     
     -   component
     
-        ```javascriptx
+        ```jsx
         // 只有 path 匹配时，组件才呈现。
         <Route path="/user" component={ component } />
         ```
@@ -232,7 +232,7 @@ Suspense 让组件“等待”某个异步操作，直到该异步操作结束�
 
 更新 state 和 props 会触发哪些状态
 
-```javascriptx
+```javascript
 // 更改state : 
 // getDerviedStateFromProps
 // shouldComponentUpdate
@@ -267,7 +267,7 @@ Suspense 让组件“等待”某个异步操作，直到该异步操作结束�
 
 - 第一种写法 (低版本)
 
-  ```javascriptx
+  ```jsx
   //App.js
   import React from 'react';
   import Son from './son';//引入子组件
@@ -322,7 +322,7 @@ Suspense 让组件“等待”某个异步操作，直到该异步操作结束�
 
 - 第二种写法
 
-  ```javascriptx
+  ```jsx
   // 新建global.js
   import React from 'react'
   export const ThemeContext = React.createContext('light');
@@ -373,7 +373,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `action`
 
-  ```javascriptx
+  ```jsx
   // 用户通过导出的 ActiconCreators 触发action的方法，dispatch 将接收的数据给 reducer
   // 如果需要异步，引入中间件 redux-thunk 或 redux-saga
   changeLoading(data) {
@@ -389,7 +389,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `reducer`
 
-  ```javascriptx
+  ```jsx
   // 接收 action 传递的值，并返回一个新的 state ，直接改变state并不会更新，一般会这么写
   const reducer = (previousState = state, action) => {
     let newState = {
@@ -410,7 +410,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `applyMiddleware`
 
-  ```javascriptx
+  ```javascript
   // 顾名思义，middleware是中间件的意思，那么 applyMiddleware 就是redux 的方法，用来将所有中间件组成一个数组，依次执行
   import { createStore, applyMiddleware } from 'redux'
   import thunk from 'redux-thunk'
@@ -421,7 +421,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `combineReducers`
 
-  ```javascriptx
+  ```javascript
   // 模块化，将多个 reducer 合成一个
   import { combineReducers } from 'redux'
   import Layout from './layout/reducer'
@@ -433,7 +433,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 - `connect`  从 UI 组件生成容器组件
 
-  ```javascriptx
+  ```javascript
   // 应用 API
   import { connect } from 'react-redux'
   const VisibleTodoList = connect(
@@ -513,7 +513,7 @@ store是整个数据中心，用户通过界面触发`ActionCreator` ,携带着�
 
 ##### `useState()` 
 
-```javascriptx
+```jsx
 // useState()这个函数接受状态的初始值作为参数，该函数返回一个数组，数组的第一个成员是一个变量，指向状态的当前值。第二个成员是一个函数，用来更新状态，约定是set前缀加上状态的变量名。例如下面：
 import React, { useState } from 'react';
 function Example() {
@@ -533,7 +533,7 @@ function Example() {
 
 ##### `useContext()`
 
-```javascriptx
+```jsx
 // 组件之间共享状态 ，类似于context
 import React, { useState, useContext } from "react";
 const MyContext = React.createContext("");
@@ -559,7 +559,7 @@ export default function LayOut() {
 
 ##### `useReducer()`
 
-```javascriptx
+```jsx
 import React, { useReducer } from "react";
 const initialState = { count: 0 };
 function reducer(state, action) {
@@ -599,7 +599,7 @@ export default function LayOut() {
 
 ##### `useReducer`  和 `useContext` 结合使用
 
-```javascriptx
+```jsx
 // Count.js
 import React, { useReducer } from "react";
 export const MyContext = React.createContext("");
@@ -663,7 +663,7 @@ export default Buttons;
 
 ##### `useEffect()`
 
-```javascriptx
+```jsx
 // 接受两个参数，第一个参数是一个执行函数，第二个参数是依赖项，其变化时会执行函数
 // 如果不传入第二个参数，则会每次重新渲染都会执行
 useEffect(()  =>  {}) 
@@ -674,7 +674,7 @@ useEffect(()  =>  {}, [依赖项])
 
 ##### `useCallback`  和  `useMemo`
 
-```javascriptx
+```jsx
 import { useState, useMemo, useCallback } from "react";
 const set = new Set();
 export default function LayOut() {
@@ -716,7 +716,7 @@ export default function LayOut() {
 
 ##### `useRef`
 
-```javascriptx
+```jsx
 import React, { useRef, useState } from "react";
 export default function LayOut(params) {
   const [count, setCount] = useState(0);
@@ -745,7 +745,7 @@ export default function LayOut(params) {
 
 1. `webpack.config.js`
 
-   ```javascriptx
+   ```jsx
    // 1 . 
    const lessRegex = /\.less$/;
    const lessModuleRegex = /\.module\.less$/;
@@ -790,7 +790,7 @@ export default function LayOut(params) {
 
 #### 路径别名
 
-```javascriptx
+```jsx
 // webpack.config.js
 // 1 .
 const pathResolve = (url) => {
@@ -803,7 +803,7 @@ const pathResolve = (url) => {
 
 #### 解决兼容性
 
-```javascriptx
+```javascript
 // 兼容IE浏览器
 // npm i react-app-polyfill --save
 // 入口文件中顶部
